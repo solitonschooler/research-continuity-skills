@@ -1,0 +1,389 @@
+Table of Contents
+
+>>PFBT.txt＝治理與數據層的「長說明書」（band/rails、SQL/Schema、窗口與匯總
+
+>>PBHL-Lite v0.7（一頁版）＝操作面、控制律、最小 I/O 合約
+
+============================
+
+>>PFBT.txt＝治理與數據層的「長說明書」（band/rails、SQL/Schema、窗口與匯總
+
+好，我先交「工程計算稿（calc-pad）」；跟住係**PBHL-Lite v0.7（math-backed）草案**，一次過整合量測對應（Thm. B）、α 校準（Thm. C）同控制律。最後你可以連同《ObserverOps Technical Blueprint》放入我的文件庫用同一語言運行。
+
+---
+
+# 工程計算稿（calc-pad）
+
+**目標**：把「**PBHL**：Gap ≈ Flux + α·Twist」做成最小可運行規格，同時有**數學理據**（兩邊界帶 worldsheet 的必然性、變分＝幾何力、裝框/自鏈相位）作背書。
+
+## A) 變量與離散近似
+
+* **兩邊界（Plan vs Do）**：Γ₊（Plan/Reference edge），Γ₋（Do/Realized edge）；**帶面** 𝔅。
+
+* **PBHL（目的帶恆等式）**：
+
+  $$
+  \underbrace{\oint_{\Gamma_+}\!\!A_\Pi-\oint_{\Gamma_-}\!\!A_\Pi}_{\text{Gap}}
+  \;=\;
+  \underbrace{\iint_{\mathcal B}\!F_\Pi}_{\text{Flux}}
+  \;+\;\alpha\cdot\underbrace{\mathrm{Tw}}_{\text{Twist}}
+  $$
+
+  （非阿貝爾表述見原文 Part I；此處用可計算的阿貝爾層離散化。）
+
+* **離散估計**（最小可行）：
+
+  ```
+  Mesh ← StructuredQuads(B, Nx, Ny)
+  I_plus  ← Σ_e∈Γ+  Quad1D(e, GL2, Aπ·dl)
+  I_minus ← Σ_e∈Γ−  Quad1D(e, GL2, Aπ·dl)
+  Flux    ← Σ_K     Quad2D(K, GL3x3, Fπ)
+  Tw      ← Σ_e∈Γ+ Δθ(e)  −  Σ_e∈Γ− Δθ(e)
+  Gap     ← I_plus − I_minus
+  Residual r ← | Gap − (Flux + α·Tw) |
+  ```
+
+  **KPI 五線**：Gap / Flux / Twist / Coherence / Residual。
+
+* **存在性與必要性（理據）**：在標準 SK 幾何下，**兩邊界帶 + 裝框是最小且不可避免**（Theorem A）；單一未裝框曲線會丟失保留下來的有限相位資料。
+
+* **幾何力＝變分（理據）**：沿迴路的幾何（Uhlmann/Berry 類）響應＝帶面 holonomy 相位的一次變分（Theorem B）→ 指導**Flux 量測映射**。
+
+## B) 接受測試（每次計算都跑）
+
+* **雙邊界 Stokes 檢核**：$\oint_{\Gamma_+}-\oint_{\Gamma_-}\approx \iint_{\mathcal B} dA_\Pi$。
+* **Gluing**：內邊 glue 誤差 ≤ τ\_glue。
+* **4π 週期**：類同 Chern–Simons/任何子；0 與 4π 同值，2π 出現 framing phase。
+* **單位閉合**：邊（LHS）與面＋Twist（RHS）經單位映射一致。
+
+## C) 監控與閾值（帶治理）
+
+* **Residual 帶（預設）**：Green \[0,0.08]、Amber (0.08,0.15]、Red >0.15；**Policy Gate** 以此作 allow/throttle/block。
+* ObserverOps Macro（BeltOps）即以 **PBHL 殘差**＋CWA/PRI 做決策與導出 KPIs（/belt API）。
+
+---
+
+# PBHL-Lite v0.7（math-backed）草案
+
+> **定位**：最小、可審核、可部署的「**帶閉環**」規格。可獨立運行，亦可無縫插入 **ObserverOps BeltOps**（面板/閘門/匯出同規）。
+
+## 0) 範圍與輸入契約（Inputs）
+
+* **必需資料**
+
+  * `plan_edge`: 時序化 Plan 記錄（路徑 Γ₊）
+  * `do_edge`: 時序化 Do 記錄（路徑 Γ₋）
+  * `face_events`: 能映射為目的曲率密度的事件/面網格 𝔅
+  * `twist_records`: 治理/政策/版本變更的最小轉角增量 Δθ（含方向）
+  * `alpha`（若未校準可留空→走 v0.7 校準流程）
+
+* **可選**：`coherence_source`（例如 agreement.rate 或 ρ，同 ObserverOps），`units_map`（把宏工作帳映射到域內單位）。
+
+### 0.1 結構化輸入（示例 JSON）
+
+```json
+{
+  "belt_id": "support-v2025Q3",
+  "window": {"start":"2025-09-22T11:00:00Z","end":"2025-09-22T12:00:00Z"},
+  "plan_edge": [...],
+  "do_edge":   [...],
+  "face_events": [...],
+  "twist_records": [{"when":"...","dtheta":0.06,"class":"policy"}],
+  "alpha": null,
+  "coherence_source": "agreement.rate",
+  "units_map": {"W_macro":"pairs_of_shoes"}
+}
+```
+
+（與 ObserverOps `/belt` 介面一致可直接上報。）
+
+---
+
+## 1) 量測對應（Thm. B → 工程估計）
+
+**目的**：把**Flux**映射為可積分的曲率密度，**Twist**由邊界裝框變更累積，**Gap**由兩邊界線積分差得到。
+
+* **Gap**：
+  $I_+=\sum_{e\in\Gamma_+}\int_e A_\Pi\cdot \mathrm dl$，
+  $I_-=\sum_{e\in\Gamma_-}\int_e A_\Pi\cdot \mathrm dl$，
+  $\text{Gap}=I_+-I_-$。
+
+* **Flux（帶面）**：
+  以網格積分 $ \text{Flux}=\sum_{K\in \mathcal B}\int\!\!\int_K F_\Pi$；對粗糙場用 GL 3×3；面來源可由 face\_events 的密度近似。
+
+* **Twist（邊）**：
+  $\mathrm{Tw}=\sum_{\Gamma_+}\Delta\theta - \sum_{\Gamma_-}\Delta\theta$；類型分解（policy/scope/org）。
+
+* **殘差**：$r=\lvert \text{Gap}-(\text{Flux}+\alpha\cdot \mathrm{Tw}) \rvert$。
+
+* **數學理據**：幾何響應＝帶 holonomy 相位一階變分（Theorem B），確保 Flux 之定義與可觀測性。
+
+---
+
+## 2) α 校準流程（Thm. C → framing/自鏈基準）
+
+**目標**：在受控 **Twist-step** 實驗下擬合 α，使 PBHL 殘差最小，同時通過 4π/裝框檢查。
+
+**步驟 v0.7：**
+
+1. **設計兩個窗格（至少）**：保持流程不變（Flux 近似常量），只做小幅 **Twist-step**（±Δθ）。
+2. **擬合問題**：
+
+   $$
+   \hat\alpha=\arg\min_\alpha \sum_t w_t\,[\text{Gap}_t-(\text{Flux}_t+\alpha\,\mathrm{Tw}_t)]^2
+   $$
+
+   取 $w_t$ 與 coherence 或資料信噪成正比。
+3. **4π 檢核**：連續步進至淨 Δθ=4π，確認 PBHL-KPI 與 class-function 不變（2π 允許 framing 相位）。
+4. **產出**：α 值、CI、理由（Twist 類別貢獻）＋**更改最小化**原則（若 α 漂移>0.05 需理由）。
+
+---
+
+## 3) 控制律（Flux-gate 快／Twist-step 慢）
+
+* **Flux-gate（快）**：當 `r↑` 且 `Twist` 稳定 → 對帶面曲率熱點重劃路/節流（降低 r 不增加 Σ\_macro）。
+* **Twist-step（慢）**：當 `r` 長期偏移或 flux 已極限 → 施加**最小 Δθ**以閉合 Gap（遵守 4π 週期、Twist 預算）。
+* **Gate 策略（預設）**：
+
+  * Residual band：Green \[0,0.08] → allow；Amber → throttle（cadence\_factor≈1.1–1.15）；Red → block／只允許通勤安全通道。
+
+---
+
+## 4) KPI 面板與匯出
+
+* **五線 KPI**：Gap、Flux、Twist、Coherence、Residual（同 ObserverOps UI）。
+* **匯出**：`/belt/:id/kpi?from&to&format=parquet|jsonl`，含 lineage 與 α 歷史。
+* **建議 SLO/監控**（可選）：
+
+  * 週維度 ≥80% 點位在綠帶；連續兩個紅帶觸發頁警。
+  * EEI/SI 監看與 α 漂移守則（±0.05/次）。
+
+---
+
+## 5) Output Contract（最小 JSON）
+
+```json
+{
+  "pbhl": {"gap": 0.62, "flux": 0.48, "twist": 0.12, "alpha": 1.10,
+           "residual": 0.06, "status": "green"},
+  "kpi": {"coherence": 0.91},
+  "controls": {"flux_gate": "idle", "twist_step": "none"},
+  "tests": {"stokes": "pass", "glue_err": 0.01, "period_4pi": "pass"},
+  "alpha_calib": {"ci": [1.05,1.15], "method": "WLS", "notes": "Δθ policy step"},
+  "lineage": {"pool_ids": ["..."], "agree_ids": ["..."], "twist_refs": ["..."]},
+  "export_window": {"start": "...", "end": "..."}
+}
+```
+
+（與《ObserverOps》決策/匯出契約對齊，可直接落入 BeltOps 儀表板與 webhook。）
+
+---
+
+## 6) 驗證與審計（必選）
+
+* **帶存在性與最小性**：Theorem A（兩邊界＋裝框必須）。
+* **幾何力對應**：Theorem B（變分＝幾何響應）。
+* **裝框/自鏈相位**：Theorem C（以裝框鏈結數作 α 校準基準）。
+* **治理準則**：Two-boundary Stokes、Gluing、4π、單位閉合、可重現（種子/網格/四則）。
+
+---
+
+## 附錄 A（1-頁）— 數學對應表
+
+| 工程量   | 幾何/拓撲對應                               | 來源／定理                                  |
+| ----- | ------------------------------------- | -------------------------------------- |
+| Gap   | 邊界 Wilson 線積分差                        | PFBT Part I（PBHL）                      |
+| Flux  | 帶面 Uhlmann 曲率之 surface-ordered 指數相位變化 | Thm. B（變分＝幾何力）                         |
+| Twist | 裝框/自鏈貢獻（兩邊界 framing 差）                | Thm. A/C（薄帶裝框、交換相位）                    |
+| α 校準  | 受控 twist-step 擬合 + 4π 測試              | PFBT 控制章節、ObsOps α 守則                  |
+| 殘差帶   | 綠≤0.08／琥≤0.15／紅>0.15                  | ObserverOps YAML（pbhl.residual\_bands） |
+
+---
+
+### 用法小結
+
+* **單獨部署**：此 v0.7 既可獨立運行（本地 KPI 面板/CSV 匯出），亦可直連 **ObserverOps** 的 `/belt` 與 KPI 匯出 API。
+* **與你文庫銜接**：理念、控制、面板語言與你既有 **PFBT** 及 **ObserverOps** 完全對齊；兩者合起來形成「Macro 帶閉環」。
+
+---
+
+要唔要我再幫你把上面草案整理成 **Markdown 1-pager + YAML 樣板**（直接可以丟入 repo / SOP）？準備好就把呢份 **PBHL-Lite v0.7** 同《ObserverOps Technical Blueprint》一齊加到我文件庫，我即時用呢套語言回應同出圖表。
+
+
+============================
+
+>>PBHL-Lite v0.7（一頁版）＝操作面、控制律、最小 I/O 合約
+
+好嘅——先給一個超簡短 **calc-pad（delta）**，之後係你要嘅 **Markdown 1-pager** 同 **YAML 樣板**。
+
+## Calc-pad（delta）
+
+* 將 v0.7 內容壓到一頁：保留 PBHL 式（Gap≈Flux+α·Twist）、量測映射、α 校準、控制律（Flux-gate／Twist-step）、KPI 五線、四個驗證測試（Stokes / Gluing / 4π / 單位閉合）。
+* 預設殘差帶：Green ≤0.08，Amber ≤0.15，Red ＞0.15。
+* 輸入／輸出契約對齊 ObserverOps（可直接上 BeltOps）。
+
+---
+
+# PBHL-Lite v0.7（math-backed）— 1-pager
+
+## 1) 定位（Purpose）
+
+最小、可審核、可部署嘅「**帶閉環**」治理規格。可獨立運行；或插入 **ObserverOps BeltOps** 儀表板。
+
+## 2) 核心式（PBHL）
+
+$$
+\textbf{Gap} \;=\; \textbf{Flux} \;+\; \alpha \cdot \textbf{Twist}
+$$
+
+* **Gap**：Plan 與 Do 兩邊界線積分差。
+* **Flux**：帶面（worldsheet）曲率密度嘅面積分（工程近似用事件密度／單位面網格）。
+* **Twist**：兩邊界裝框（framing）角度變化差。
+* **Residual**：$r = \big| \text{Gap} - (\text{Flux} + \alpha\cdot\text{Twist}) \big|$。
+
+## 3) 量測映射（Measurement Mapping）
+
+* **Gap**：
+  $I_+ = \sum_{e\in\Gamma_+}\int_e A_\Pi \!\cdot\! dl,\quad I_- = \sum_{e\in\Gamma_-}\int_e A_\Pi \!\cdot\! dl,\quad \text{Gap}=I_+ - I_-$
+  （工程上以離散段落累加 `a_pi_dl` 值）
+* **Flux**：
+  $\text{Flux}=\sum_{K\in\mathcal B}\iint_K F_\Pi$
+  （工程上以面格 cell 密度 `f_pi_density×area` 或事件加權）
+* **Twist**：
+  $\mathrm{Tw} = \sum_{\Gamma_+}\Delta\theta - \sum_{\Gamma_-}\Delta\theta$
+  （以 `dtheta` 記錄，並按類別 policy/scope/org 列示）
+
+## 4) α 校準（Calibration, v0.7）
+
+**目標**：在受控 **Twist-step** 實驗底下，擬合 α 令殘差最小，並通過 4π 週期檢核。
+**步驟**：
+
+1. 固定流程（令 Flux 幾近常量），做兩個或以上小幅 ±Δθ 視窗。
+2. 以加權最少平方法擬合 $\hat\alpha=\arg\min_\alpha \sum_t w_t\,[\text{Gap}_t-(\text{Flux}_t+\alpha\,\mathrm{Tw}_t)]^2$，權重 $w_t$ 隨 coherence/信噪。
+3. **4π 檢核**：連續步進至淨 Δθ=4π，KPI 不變（2π 可見 framing phase）。
+4. 產出 α、信賴區間、分類貢獻、變更理由（α 漂移＞0.05 必須解釋）。
+
+## 5) 控制律（Controls）
+
+* **Flux-gate（快）**：`r` 上升而 `Twist` 穩定 → 對帶面熱點重劃路／節流。
+* **Twist-step（慢）**：`r` 長期偏移或 Flux 已到邊界 → 施加最小 Δθ 修正（遵守 4π／Twist 預算）。
+* **殘差帶（預設）**：Green ≤0.08；Amber (0.08,0.15] → throttle；Red >0.15 → block/只允許安全通道。
+
+## 6) KPI 面板（Five-Line）
+
+`Gap, Flux, Twist, Coherence, Residual`（對齊 BeltOps UI）。建議 SLO：週內 ≥80% 點位在綠帶；連續兩個紅帶觸發頁警。
+
+## 7) 測試（每次計算必跑）
+
+* **Stokes**：$\oint_{\Gamma_+}-\oint_{\Gamma_-}\approx \iint_{\mathcal B} dA_\Pi$。
+* **Gluing**：內邊 glue 誤差 ≤ τ\_glue。
+* **4π 週期**：0 與 4π 等價；2π 允許 framing 相位。
+* **單位閉合**：左右單位映射一致（邊 vs 面＋Twist）。
+
+## 8) I/O 契約（Contract）
+
+* **輸入**：`plan_edge[]`，`do_edge[]`，`face_events[]`，`twist_records[]`，`alpha?`，`coherence_source?`。
+* **輸出**：`pbhl{gap,flux,twist,alpha,residual,status}`、`kpi{coherence}`、`tests{...}`、`controls{...}`、`alpha_calib{...}`、`lineage{...}`。
+
+---
+
+## YAML 樣板（template）
+
+```yaml
+pbhl_job:
+  belt_id: "support-v2025Q3"
+  window:
+    start: "2025-09-22T11:00:00Z"
+    end:   "2025-09-22T12:00:00Z"
+
+  inputs:
+    plan_edge:                # Γ+：邊界線積分的離散段
+      - { id: "p1", when: "2025-09-22T11:05:00Z", a_pi_dl: 0.042, meta: {phase: "plan"} }
+      - { id: "p2", when: "2025-09-22T11:25:00Z", a_pi_dl: 0.058 }
+    do_edge:                  # Γ−
+      - { id: "d1", when: "2025-09-22T11:10:00Z", a_pi_dl: 0.031, meta: {phase: "exec"} }
+      - { id: "d2", when: "2025-09-22T11:40:00Z", a_pi_dl: 0.051 }
+
+    face_events:              # 𝔅：面格/事件 → 曲率密度 × 面積（或權重）
+      - { id: "f1", cell: "B-12", when: "2025-09-22T11:20:00Z", f_pi_density: 0.35, area: 0.6 }
+      - { id: "f2", cell: "B-13", when: "2025-09-22T11:35:00Z", f_pi_density: 0.22, area: 0.4 }
+
+    twist_records:            # 邊界裝框角（Δθ），正負代表方向；類別可用做分解統計
+      - { when: "2025-09-22T11:15:00Z", dtheta: 0.06, class: "policy" }
+      - { when: "2025-09-22T11:45:00Z", dtheta: -0.02, class: "scope" }
+
+    alpha: null               # 未知則走 α 校準流程
+    coherence_source: "agreement.rate"
+    units_map: { W_macro: "pairs_of_shoes" }
+
+  compute:
+    quad:
+      edge_order: 2           # Gauss–Legendre 1D 次序（離散就直接累加）
+      face_order: 3           # Gauss–Legendre 2D 次序
+    tolerances:
+      glue_tol: 0.02
+      stokes_tol: 0.03
+    tests:
+      run_stokes: true
+      run_gluing: true
+      run_period_4pi: true
+      run_unit_closure: true
+
+  calibration:                # α 校準（v0.7）
+    enabled: true
+    method: "WLS"
+    min_windows: 2
+    step_design:              # 建議的 Twist-step 視窗設計
+      - { target_net_dtheta:  0.10, horizon_min: 10 }
+      - { target_net_dtheta: -0.10, horizon_min: 10 }
+    weighting:
+      coherence_key: "agreement.rate"
+      min_weight: 0.5
+      max_weight: 2.0
+    acceptance:
+      alpha_max_drift: 0.05   # 變更>0.05 需記錄理由
+      require_4pi_check: true
+
+  controls:                   # 控制律
+    residual_bands:
+      green: 0.08
+      amber: 0.15
+    gating_policy:
+      amber:
+        action: "throttle"
+        cadence_factor: 1.12
+      red:
+        action: "block"
+        allowlist_channels: ["safety", "commute"]
+    flux_gate:
+      enabled: true
+      hotspot_strategy: "reroute"   # or "rate-limit"
+    twist_step:
+      enabled: true
+      min_step: 0.02
+      budget_per_week: 0.50
+
+  export:
+    kpi_sink:
+      type: "parquet"         # or "jsonl"
+      path: "s3://bucket/belts/support-v2025Q3/2025-09-22/"
+    webhook:
+      enabled: false
+      url: ""
+      fields: ["pbhl", "kpi", "status", "alpha_calib", "tests"]
+
+  output_contract:            # 生成時填充以下欄位
+    pbhl:        {}           # {gap, flux, twist, alpha, residual, status}
+    kpi:         {}           # {coherence}
+    controls:    {}           # {flux_gate, twist_step}
+    tests:       {}           # {stokes, glue_err, period_4pi, unit_closure}
+    alpha_calib: {}           # {value, ci, method, notes}
+    lineage:     {}           # {pool_ids, agree_ids, twist_refs}
+```
+
+---
+
+如要，我可以再幫你把呢份 1-pager 轉做 **/docs/pbhl-lite-v0.7.md**＋**/configs/pbhl-job.template.yaml** 嘅檔名結構；你再連同《ObserverOps Technical Blueprint》一齊加到我嘅文件庫就即刻可用。
+
+
+============================

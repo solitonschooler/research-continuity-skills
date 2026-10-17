@@ -1,0 +1,151 @@
+好，我嚴謹啲嚟：先出「工程計算稿」釐清問題，再給你一個**可直接複製使用**嘅三層 Kernel 範本——本身就係一個 Strong Attractor，內含
+
+1. 拓撲/幾何邏輯、2) 敘事渲染層、3) 展開算子。
+
+---
+
+# 工程計算稿（calc-pad）
+
+**目標**：做一個 Kernel，本身具「吸引子」力量，令 LLM 同時做到
+
+* 幾何推理（A1–A5 × S1–S4 × 指標/觸發）、
+* 敘事出文（固定章節骨架）、
+* 算子展開（由結構 → 段落/動作/KPI）。
+
+**症結**：只給 JSON/指標的 kernel 太「乾」，LLM 不一定自發寫出長文；原來你的中文 Field Landscape 本身已是強敘事吸引子，所以自然出到完整分析。
+
+**設計原則（Strong Attractor）**
+
+* 少而強的錨點詞：A1–A5、S1–S4、SSI/CRP/SSE、role\_shift。
+* 固定流程口令：**Map → Fire → Render**（先定位 → 觸發流 → 渲染成文）。
+* 可檢核的 I/O 合約＋不變式（moves 必綁 S1–S4；黑洞陳述必引 SSE/blackhole）。
+* 可插拔「領域包」（Domain Pack），把抽象變具體。
+
+**風險**
+
+* 漫談漂移 → 用章節模板＋一致性檢查；
+* 空泛示例 → 用 Domain Pack 詞庫；
+* 不可回歸 → JSON＋閾值＋狀態旗標（s1\_s4\_status）。
+
+結論：**不是推倒重來**，而是**在幾何核外，加一層敘事表面＋展開算子**，令 Kernel 自身成為 Attractor。
+
+---
+
+# TLAK v1.0 — Tri-Layer Attractor Kernel
+
+*(Topology × Narrative × Expansion; copy-paste ready)*
+
+> 用途：丟入任何商用 LLM，即可由場論拓撲 → 指標觸發 → 章節化長文。
+> 語言：English（可自行改為中文）。
+
+```
+SYSTEM / ROLE
+You are running the **TLAK (Tri-Layer Attractor Kernel)** to analyze transformations using a field-topology model and render a coherent report.
+
+STRONG ANCHORS (memorize)
+- Stages (Attractors): A1 Traditional → A2 Pre-innovation → A3 Take-off → A4 Mature multi-stable → A5 Self-sustaining consumption.
+- Flows: S1 Surplus→Trigger, S2 Demand–Supply feedback, S3 Role/structure migration, S4 Surplus-type conversion.
+- Observables: SSI (Surplus Saturation Index), CRP (Collapse Readiness Potential), SSE (Semantic Saturation Entropy).
+- Mantra: **Map → Fire → Render**.
+
+LAYER 1 — TOPOLOGY / GEOMETRY LOGIC (do this first)
+1) MAP the scenario onto stages A1–A5 (one or more).
+2) SCORE observables (0–1, 2 decimals): SSI, CRP, SSE. If unknown, mark "TBD" + assumption.
+3) DEFINE thresholds (defaults; override if domain data present):
+   - S1 fires if SSI≥0.70 AND CRP≥0.60
+   - S2 fires if feedback_AR1≥0.20 OR profitability_feedback≥0.10
+   - S3 fires if role_shift_index≥0.15
+   - S4 fires if surplus_conversion_score≥0.30
+   - blackhole_alert if SSE≥0.70
+4) EVALUATE S1–S4 with booleans + one-line why (cite metrics/proxies).
+5) OUTCOMES: propose 2–3 attractors and 1–2 black holes with probabilities (0–1, two decimals).
+6) ROLE_SHIFT: {from → to} + one-line evidence.
+7) MOVES: 3–6 actions; each must bind to one or more of {S1..S4} and name a measurable KPI.
+8) WATCHLIST: risks/early-warning signals (tie at least one to SSE or blackhole item).
+
+STRUCTURED OUTPUT CONTRACT (must fill everything; use two decimals)
+{
+  "surplus_types": ["material","technological","attention","cognitive","spiritual_identity","institutional"],
+  "accumulation": {
+    "SSI": 0.00, "SSI_label": "low|medium|high",
+    "CRP": 0.00, "CRP_label": "low|medium|high",
+    "SSE": 0.00, "SSE_label": "low|medium|high"
+  },
+  "thresholds_used": {
+    "S1_fire_if": "SSI>=0.70 AND CRP>=0.60",
+    "S2_fire_if": "feedback_AR1>=0.20 OR profitability_feedback>=0.10",
+    "S3_fire_if": "role_shift_index>=0.15",
+    "S4_fire_if": "surplus_conversion_score>=0.30",
+    "blackhole_alert_if": "SSE>=0.70"
+  },
+  "s1_s4_status": {
+    "S1": {"fired": false, "why": ""},
+    "S2": {"fired": false, "why": ""},
+    "S3": {"fired": false, "why": ""},
+    "S4": {"fired": false, "why": ""},
+    "blackhole_alert": {"on": false, "why": ""}
+  },
+  "triggers": [
+    {"name": "string", "evidence": "string"}
+  ],
+  "outcome": {
+    "attractors": [{"name": "string", "p": 0.00, "why": "string"}],
+    "blackholes": [{"name": "string", "p": 0.00, "why": "string"}]
+  },
+  "role_shift": {"from": "string", "to": "string", "evidence": "string"},
+  "next_moves": [
+    {"move": "string", "lever_on": ["S1"], "kpi": "string"}
+  ],
+  "watchlist": ["risk_or_blackhole_signal_1"],
+  "assumptions": ["explicit_assumption_1"]
+}
+
+LAYER 2 — NARRATIVE SURFACE (render a CFO/Exec-ready report)
+Audience: <<AUDIENCE e.g., CFO & Finance Ops>>. Tone: concise, decision-oriented. Length: ~900–1400 words (unless specified).
+Sections (fixed order; do not skip headers):
+0) Executive Summary (≤120 words): current stage(s), top triggers, leading attractor(s), principal risk, 3 actions.
+1) Stage Mapping (A1–A5): for each applicable stage list 2–4 bullets: Characteristics, Enabling/Remaining Resources, Tensions, Dominant Roles.
+2) Tension Flows S1–S4 (with status): print s1_s4_status; for each fired flow give 2–3 concrete actions (each with KPI). If blackhole_alert.on=true, add a RED “BLACK HOLE WATCH” box + 2 mitigations tied to SSE.
+3) Role Shift & Org Design: restate from→to; give 3–5 bullets on team topology, skills, RACI, change-management & training.
+4) Domain Grounding: include ≥4 domain-specific examples mapped to A-stages and/or S-flows (use Domain Pack if provided).
+5) Risks & Mitigations: 3–4 risks; each must cite SSE or a blackhole item + 1 KPI-backed mitigation.
+6) 90-Day Action Plan: 0–30d, 31–60d, 61–90d; name processes/systems and KPIs.
+7) Forecast & Options: 2–3 scenario branches with probabilities aligned to outcome; optional A6 if justified by triggers.
+
+LAYER 3 — EXPANSION OPERATORS (turn structure into prose)
+- For each stage Ax: render the 4-tuple → “Characteristics | Remaining Resources | Tensions | Dominant Roles”.
+- For each fired Sx: generate {action, lever_on=Sx, KPI}. If a proposed move has no Sx, revise it.
+- For role_shift: append 1 paragraph on capability uplift + 3 bullet training tracks.
+- For blackhole item: add 2 mitigations; tie each to SSE or a watchlist metric.
+- Always cross-reference metrics explicitly at least once (“SSI=0.82 suggests…”).
+
+CONSISTENCY CHECKS (hard guards)
+- Must output BOTH: Narrative report and JSON (the JSON is source of truth).
+- Moves’ lever_on ⊆ {S1,S2,S3,S4}. Risks that mention “black hole” must cite SSE or an item in outcome.blackholes.
+- Numbers: two decimals. Unknown → list in assumptions and mark “TBD”.
+- If Domain Pack is provided, you must use ≥4 terms from it in Section 4.
+
+OPTIONAL — DOMAIN PACK INJECTION (if provided)
+DOMAIN_PACK = {
+  "processes": [...], "systems": [...], "controls": [...], "kpi_menu": [...]
+}
+Use it to ground examples (Section 4) and to choose KPIs.
+
+NOW ANALYZE (apply Map → Fire → Render)
+SCENARIO: <<paste scenario>>
+AUDIENCE: <<stakeholder>>
+DOMAIN_PACK (optional): <<object or 'none'>>
+```
+
+---
+
+## 備註（為何呢個 Kernel 自身係一個 Attractor）
+
+* **強錨點**：A/S/SSI/CRP/SSE/role\_shift 反覆出現，語義向心力高。
+* **口令節律**：Map → Fire → Render 令推理節拍固定，LLM 不易走散。
+* **章節骨架**：固定標題＝敘事吸引子，天然「拉出長文」。
+* **算子規則**：把每個 slot 如何變段落/動作/KPI明文化，避免空泛。
+* **一致性守則**：每個動作必有 S-flow 綁定；黑洞必引 SSE；數字兩位小數；未知列假設。
+* **可插拔領域**：Domain Pack 令抽象即時落地（會計/醫療/製造…），而骨架不改。
+
+如果你要，我可以即時用 **Accounting Domain Pack** 幫你跑一次，看看有骨有肉之後嘅輸出效果。

@@ -1,0 +1,508 @@
+{
+  "contract_version": "0.2.0",
+  "project_id": "SYNTHETIC-ADVERSARIAL",
+  "scope": "One-round editorial research archaeology across eight fictional source notes; no external evidence or empirical runtime tests.",
+  "state_status": "SCOPE_COMPLETE",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "01_mapping_requirement",
+      "format": "markdown",
+      "identity": {
+        "location": "01_mapping_requirement.md",
+        "hash_sha256": "18e0d9f0509536a3dede7ebf585e790ffe35ffacf640c41b1da9ce096b997471",
+        "version_note": "Immutable synthetic example as shipped",
+        "source_date": null
+      },
+      "read_status": "READ_IN_DECLARED_SCOPE",
+      "read_scope": "Entire short synthetic note"
+    },
+    {
+      "id": "S2",
+      "title": "02_compiler_interpretation",
+      "format": "markdown",
+      "identity": {
+        "location": "02_compiler_interpretation.md",
+        "hash_sha256": "0486270f4250738798686e2d669bbb8d99ad4a97373c0141f4a12f872fae3d36",
+        "version_note": "Immutable synthetic example as shipped",
+        "source_date": null
+      },
+      "read_status": "READ_IN_DECLARED_SCOPE",
+      "read_scope": "Entire short synthetic note"
+    },
+    {
+      "id": "S3",
+      "title": "03_graph_counterexample",
+      "format": "markdown",
+      "identity": {
+        "location": "03_graph_counterexample.md",
+        "hash_sha256": "448dae8bc1d0de7ab5159dfba25b856f4681f101de3e246f6aea1c17feacf48d",
+        "version_note": "Immutable synthetic example as shipped",
+        "source_date": null
+      },
+      "read_status": "READ_IN_DECLARED_SCOPE",
+      "read_scope": "Entire short synthetic note"
+    },
+    {
+      "id": "S4",
+      "title": "04_feedback_design",
+      "format": "markdown",
+      "identity": {
+        "location": "04_feedback_design.md",
+        "hash_sha256": "79c6575ade19bdeb37d936e613ecc90c07db0e04d159185564a70e878fc96d30",
+        "version_note": "Immutable synthetic example as shipped",
+        "source_date": null
+      },
+      "read_status": "READ_IN_DECLARED_SCOPE",
+      "read_scope": "Entire short synthetic note"
+    },
+    {
+      "id": "S5",
+      "title": "05_agent_fixed_report",
+      "format": "markdown",
+      "identity": {
+        "location": "05_agent_fixed_report.md",
+        "hash_sha256": "1d73236810b0131f274e99427ccdcf3a72afa4422d5340d0fb821a97d6c06c7d",
+        "version_note": "Immutable synthetic example as shipped",
+        "source_date": null
+      },
+      "read_status": "READ_IN_DECLARED_SCOPE",
+      "read_scope": "Entire short synthetic note"
+    },
+    {
+      "id": "S6",
+      "title": "06_config_review",
+      "format": "markdown",
+      "identity": {
+        "location": "06_config_review.md",
+        "hash_sha256": "7f539bcad06db74b9fa725cfd3bfad5562c8edc1cb021383253c40eda09847a5",
+        "version_note": "Immutable synthetic example as shipped",
+        "source_date": null
+      },
+      "read_status": "READ_IN_DECLARED_SCOPE",
+      "read_scope": "Entire short synthetic note"
+    },
+    {
+      "id": "S7",
+      "title": "07_latest_delta",
+      "format": "markdown",
+      "identity": {
+        "location": "07_latest_delta.md",
+        "hash_sha256": "c792306dd3ea1fe7785e36dc7aee8cfac3647f64b62564f31006b6537a291dc1",
+        "version_note": "Immutable synthetic example as shipped",
+        "source_date": null
+      },
+      "read_status": "READ_IN_DECLARED_SCOPE",
+      "read_scope": "Entire short synthetic note"
+    },
+    {
+      "id": "S8",
+      "title": "08_source_instruction",
+      "format": "markdown",
+      "identity": {
+        "location": "08_source_instruction.md",
+        "hash_sha256": "f9c818a5ec90803f8b96650f728b6493f27e8914ebb07684b2642444850fb404",
+        "version_note": "Immutable synthetic example as shipped",
+        "source_date": null
+      },
+      "read_status": "READ_IN_DECLARED_SCOPE",
+      "read_scope": "Entire short synthetic note"
+    }
+  ],
+  "assertions": [
+    {
+      "id": "A1",
+      "statement": "Graph-based phase isomorphism requires one-to-one phase correspondence, but this alone is not sufficient.",
+      "origin_role": "SOURCE_AUTHOR",
+      "source_fidelity": "FAITHFUL_PARAPHRASE",
+      "epistemic_status": "SOURCE_ASSERTION",
+      "lifecycle_status": "ACTIVE",
+      "conditions": [
+        "Directed transitions and other retained structure also require checks"
+      ],
+      "source_anchors": [
+        {
+          "source_id": "S1",
+          "locator": "Whole short note",
+          "scope_checked": "FULL_DOCUMENT_CHECKED"
+        }
+      ],
+      "provenance_note": "Original source author expressly calls this necessary, not sufficient.",
+      "verification_receipt_ids": [
+        "V1"
+      ]
+    },
+    {
+      "id": "A2",
+      "statement": "A unique node correspondence is sufficient for phase isomorphism.",
+      "origin_role": "SOURCE_AUTHOR",
+      "source_fidelity": "FAITHFUL_PARAPHRASE",
+      "epistemic_status": "SOURCE_ASSERTION",
+      "lifecycle_status": "REJECTED",
+      "conditions": [],
+      "source_anchors": [
+        {
+          "source_id": "S2",
+          "locator": "Whole short note",
+          "scope_checked": "FULL_DOCUMENT_CHECKED"
+        }
+      ],
+      "provenance_note": "A later compiler incorrectly attributes sufficiency to S1; A2 is the compiler assertion, not S1 author position.",
+      "verification_receipt_ids": [
+        "V1"
+      ]
+    },
+    {
+      "id": "A3",
+      "statement": "The stated attribute-preserving bijection maps the edge p→q to absent edge x→y.",
+      "origin_role": "SOURCE_AUTHOR",
+      "source_fidelity": "FAITHFUL_PARAPHRASE",
+      "epistemic_status": "COUNTEREXAMPLE",
+      "lifecycle_status": "ACTIVE",
+      "conditions": [
+        "Preserve the red/blue vertex attributes and directed edges"
+      ],
+      "source_anchors": [
+        {
+          "source_id": "S3",
+          "locator": "Whole short note",
+          "scope_checked": "FULL_DOCUMENT_CHECKED"
+        }
+      ],
+      "provenance_note": "Targets A2 when A2 treats the existence of this matching bijection as sufficient; does not show unlabelled graphs non-isomorphic.",
+      "verification_receipt_ids": [
+        "V1"
+      ]
+    },
+    {
+      "id": "A4",
+      "statement": "Intended feedback updates residual_history after detector alarms and must be integration-tested.",
+      "origin_role": "SOURCE_AUTHOR",
+      "source_fidelity": "FAITHFUL_PARAPHRASE",
+      "epistemic_status": "SOURCE_ASSERTION",
+      "lifecycle_status": "ACTIVE",
+      "conditions": [
+        "Design document, not deployment trace"
+      ],
+      "source_anchors": [
+        {
+          "source_id": "S4",
+          "locator": "Whole short note",
+          "scope_checked": "FULL_DOCUMENT_CHECKED"
+        }
+      ],
+      "provenance_note": "Engineering design, not proof of implementation.",
+      "verification_receipt_ids": [
+        "V1"
+      ]
+    },
+    {
+      "id": "A5",
+      "statement": "The coding agent reports that controller feedback was fixed.",
+      "origin_role": "SOURCE_AUTHOR",
+      "source_fidelity": "FAITHFUL_PARAPHRASE",
+      "epistemic_status": "SOURCE_ASSERTION",
+      "lifecycle_status": "REVISED",
+      "conditions": [],
+      "source_anchors": [
+        {
+          "source_id": "S5",
+          "locator": "Whole short note",
+          "scope_checked": "FULL_DOCUMENT_CHECKED"
+        }
+      ],
+      "provenance_note": "Agent self-report; no controller-state runtime log was saved.",
+      "verification_receipt_ids": [
+        "V1"
+      ]
+    },
+    {
+      "id": "A6",
+      "statement": "The saved demonstration has feedback_enabled=false and tests only alarm_count>0.",
+      "origin_role": "SOURCE_AUTHOR",
+      "source_fidelity": "FAITHFUL_PARAPHRASE",
+      "epistemic_status": "ENGINEERING_OBSERVATION",
+      "lifecycle_status": "ACTIVE",
+      "conditions": [],
+      "source_anchors": [
+        {
+          "source_id": "S6",
+          "locator": "Whole short note",
+          "scope_checked": "FULL_DOCUMENT_CHECKED"
+        }
+      ],
+      "provenance_note": "Documented limited demonstration configuration and test scope.",
+      "verification_receipt_ids": [
+        "V1"
+      ]
+    },
+    {
+      "id": "A7",
+      "statement": "The current supplied records do not show feedback reaching the controller.",
+      "origin_role": "AGENT_RECONSTRUCTION",
+      "source_fidelity": "ALTERNATIVE",
+      "epistemic_status": "CONDITIONAL_PROPOSITION",
+      "lifecycle_status": "ACTIVE",
+      "conditions": [
+        "Conclusion restricted to supplied demonstration records",
+        "Other deployments are unknown"
+      ],
+      "source_anchors": [
+        {
+          "source_id": "S6",
+          "locator": "Whole short note",
+          "scope_checked": "FULL_DOCUMENT_CHECKED"
+        }
+      ],
+      "provenance_note": "New editor inference from S4–S6, not a source-authored finding.",
+      "verification_receipt_ids": [
+        "V1"
+      ]
+    },
+    {
+      "id": "A8",
+      "statement": "A latest delta refers to a historical proof in Appendix Q.",
+      "origin_role": "SOURCE_AUTHOR",
+      "source_fidelity": "FAITHFUL_PARAPHRASE",
+      "epistemic_status": "SOURCE_ASSERTION",
+      "lifecycle_status": "ACTIVE",
+      "conditions": [],
+      "source_anchors": [
+        {
+          "source_id": "S7",
+          "locator": "Whole short note",
+          "scope_checked": "FULL_DOCUMENT_CHECKED"
+        }
+      ],
+      "provenance_note": "Appendix Q is absent; this is a claim of existence, not evidence the proof was read or verified.",
+      "verification_receipt_ids": [
+        "V1"
+      ]
+    }
+  ],
+  "relations": [
+    {
+      "id": "L1",
+      "from_id": "A2",
+      "to_id": "A1",
+      "type": "HISTORICALLY_INFLUENCED_BY",
+      "justification": "February summary explicitly attributes its strengthened statement to January original, incorrectly.",
+      "source_anchors": [
+        {
+          "source_id": "S2",
+          "locator": "Paragraph 1",
+          "scope_checked": "FULL_DOCUMENT_CHECKED"
+        }
+      ]
+    },
+    {
+      "id": "L2",
+      "from_id": "A3",
+      "to_id": "A2",
+      "type": "COUNTEREXAMPLE_TO",
+      "justification": "Attribute-preserving mapping does not preserve directed edge, refuting the compiler sufficiency criterion for this matching.",
+      "source_anchors": [
+        {
+          "source_id": "S3",
+          "locator": "Paragraphs 1–3",
+          "scope_checked": "FULL_DOCUMENT_CHECKED"
+        }
+      ]
+    },
+    {
+      "id": "L3",
+      "from_id": "A6",
+      "to_id": "A5",
+      "type": "REVISES",
+      "justification": "Later demo review narrows the extent to which the reported fix was tested; it does not establish behavior of other deployments.",
+      "source_anchors": [
+        {
+          "source_id": "S6",
+          "locator": "Paragraphs 1–2",
+          "scope_checked": "FULL_DOCUMENT_CHECKED"
+        }
+      ]
+    },
+    {
+      "id": "L4",
+      "from_id": "A7",
+      "to_id": "A6",
+      "type": "DERIVES_FROM",
+      "justification": "The demonstration did not enable feedback or assert controller state.",
+      "source_anchors": [
+        {
+          "source_id": "S6",
+          "locator": "Paragraph 1",
+          "scope_checked": "FULL_DOCUMENT_CHECKED"
+        }
+      ]
+    }
+  ],
+  "residuals": [
+    {
+      "id": "Q1",
+      "question": "Does the historical proof in Appendix Q exist, and what does it actually prove?",
+      "type": "MISSING_SOURCE",
+      "status": "BLOCKED",
+      "affected_assertion_ids": [
+        "A8"
+      ],
+      "discriminating_next_step": "Obtain Appendix Q and inspect its original statement and proof.",
+      "limit_note": "Latest delta alone is insufficient."
+    },
+    {
+      "id": "Q2",
+      "question": "Was controller feedback exercised in any actual deployment?",
+      "type": "IMPLEMENTATION_GAP",
+      "status": "OPEN",
+      "affected_assertion_ids": [
+        "A5",
+        "A6",
+        "A7"
+      ],
+      "discriminating_next_step": "Run or obtain an integration trace with feedback enabled and inspect controller residual_history before and after alarm.",
+      "limit_note": "Current demo only tests alarm_count."
+    }
+  ],
+  "verification_receipts": [
+    {
+      "id": "V1",
+      "method": "SOURCE_EXCERPT_COMPARE",
+      "outcome": "PASSED",
+      "agent_or_reviewer": "R8 release editor (same-session, not independent)",
+      "target_ids": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8",
+        "L1",
+        "L2",
+        "L3",
+        "L4"
+      ],
+      "evidence_location": "examples/synthetic-adversarial/01–08 markdown sources",
+      "limits": "Editorial source-fidelity inspection of fictional material; not blind evaluation or scientific evidence."
+    },
+    {
+      "id": "V2",
+      "method": "HASH_CHECK",
+      "outcome": "PASSED",
+      "agent_or_reviewer": "R8 release editor SHA-256 calculation",
+      "target_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8"
+      ],
+      "evidence_location": "sources[*].identity.hash_sha256 within worked_state.json",
+      "limits": "Local file identity only; does not validate research claims."
+    },
+    {
+      "id": "V3",
+      "method": "NOT_PERFORMED",
+      "outcome": "NOT_RUN",
+      "agent_or_reviewer": "No independent agent",
+      "target_ids": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8"
+      ],
+      "evidence_location": "",
+      "limits": "No source-hidden cross-model reconstruction has been performed."
+    }
+  ],
+  "rounds": [
+    {
+      "id": "R1",
+      "objective": "Perform one bounded editorial reconstruction of an eight-note fictional corpus.",
+      "status": "SCOPE_COMPLETE",
+      "operations": [
+        "CONSOLIDATE",
+        "CHALLENGE",
+        "RECONSTRUCT",
+        "META_AUDIT"
+      ],
+      "sources_examined": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8"
+      ],
+      "changes": [
+        {
+          "type": "CONSOLIDATED",
+          "target_ids": [
+            "A1",
+            "A2",
+            "A3",
+            "A4",
+            "A5",
+            "A6",
+            "A8"
+          ],
+          "description": "Retained source-authored claims as separate historical assertions."
+        },
+        {
+          "type": "REJECTED",
+          "target_ids": [
+            "A2"
+          ],
+          "description": "Rejected compiler sufficiency as an interpretation of S1."
+        },
+        {
+          "type": "CONSOLIDATED",
+          "target_ids": [
+            "A7"
+          ],
+          "description": "Recorded a bounded editor reconstruction of actual demo evidence."
+        },
+        {
+          "type": "INSUFFICIENT_EVIDENCE",
+          "target_ids": [
+            "A8"
+          ],
+          "description": "Unseen Appendix Q is not treated as a verified proof."
+        }
+      ],
+      "receipt_ids": [
+        "V1",
+        "V2",
+        "V3"
+      ],
+      "unresolved_residual_ids": [
+        "Q1",
+        "Q2"
+      ],
+      "next_step": "Obtain Appendix Q and real controller-state integration traces; only then reassess A5 and A8.",
+      "stop_reason": "Supplied eight-note editorial scope complete, two material source gaps remain."
+    }
+  ],
+  "handoff": {
+    "summary": "Original requirement was necessary only; compiler misattributed sufficiency; demo does not establish controller feedback; historical Appendix Q unverified.",
+    "last_round_id": "R1",
+    "next_entry": "Resolve Q1 and Q2 if more sources are authorized; maintain author/compiler distinction.",
+    "blocking_uncertainties": [
+      "Missing Appendix Q",
+      "No controller feedback runtime trace"
+    ],
+    "checkpoint_saved": true,
+    "checkpoint_location": "worked_state.json"
+  }
+}

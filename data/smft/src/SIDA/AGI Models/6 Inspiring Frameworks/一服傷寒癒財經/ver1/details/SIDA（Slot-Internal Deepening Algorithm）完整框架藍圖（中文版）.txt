@@ -1,0 +1,3050 @@
+SIDA 框架藍圖 — 目錄
+
+- 文章主體 SIDA（Slot-Internal Deepening Algorithm）完整框架藍圖（中文版）
+
+- 附錄 A：SIDA 模板標準格式說明與欄位定義
+
+    詳解 Template ID、Phases、Tensions、Trace Fold Path、Cross-Culture Mapping 等欄位的語義與使用方式。
+
+    提供 Markdown 與 JSON 兩種版本的結構範例。
+
+- 附錄 B：A 類深層文化拓撲模板範例
+
+    範例 1：「英雄旅程」12 階段轉 SIDA 模板
+
+    範例 2：「五蘊六氣」轉 SIDA 模板
+
+    範例 3：「Pattern Language」轉 SIDA 模板（建築→組織語義）
+
+- 附錄 C：B 類機械化拓撲模板範例
+
+    範例 1：「易經卦象 × 爻變」轉 SIDA 模板（單卦 + 變爻）
+
+    範例 2：「傷寒論經方」轉 SIDA 模板（病機模式 + 處方結構）
+
+    範例 3：「三十六計」轉 SIDA 模板（戰術型 Slot Disturb 模型）
+
+- 附錄 D：武學拓撲模板範例
+
+    範例 1：太極拳「攬雀尾」四階段拓撲（A1–A4）
+
+    範例 2：乾坤大挪移四階段拓撲（A1–A4）
+
+    範例 3：打狗棒法三階段拓撲（A1–A3）
+
+- 附錄 E：Slot Collapse Detector 的實際運作示例
+
+    用一段實際的討論語料，示範如何計算 slot_symmetry_index 與 collapse_state。
+
+    解釋收束判定的條件與常見信號（Strong Attractor 判斷標準）。
+
+- 附錄 F：Topological Template Classifier 實戰示例
+
+    以「工業革命」為案例，示範如何匹配到「五階段需求擴張」拓撲模板（A1–A5）
+
+    展示不同文化下的相同拓撲映射（西方技術演進 ↔ 東方王朝盛衰循環）
+
+- 附錄 G：Phase Expansion Mapping + 張力場生成實例
+
+    範例：將「文化遷移」的 slot 展開成多階段 phase map，並繪製 tension_field_map。
+
+    展示正反饋、崩潰門檻、互補聚焦的張力場視覺圖。
+
+- 附錄 H：Multi-Culture Topology Rewriting 案例
+
+    以「英雄旅程」拓撲為例，展示如何改寫成：
+
+        佛教修行四諦版
+
+        中醫治病六經版
+
+        商業創業五階段版
+
+- 附錄 I：Slot Folding and Projection Interface 實作範例
+
+    範例：將「乾坤大挪移」拓撲折疊成 3 種輸出模式：
+
+        AI Prompt Injection 語法
+
+        高層摘要（Summary）
+
+        Agent Trace 分支入口
+
+- 附錄 J：SIDA × Semantic GAN 實驗設計稿
+
+    描述 Generator / Discriminator / Feedback Loop 的參數設計。
+
+    以「組織創新策略」為案例，展示 SIDA + GAN 的生成與驗證過程。
+
+
+========================
+
+文章主體 SIDA（Slot-Internal Deepening Algorithm）
+完整框架藍圖（中文版） 
+
+以下是綜合你提供的所有討論後，整理出的 SIDA（Slot-Internal Deepening Algorithm）完整框架藍圖（中文版）。我在編排上盡量將它落在你現有 SMFT 系統的工程化脈絡裡，並劃分模組、數據流與應用場景，讓它可以直接成為一個可落地的設計文件。
+SIDA 框架藍圖
+
+Slot-Internal Deepening Algorithm
+（後收束階段語義場深化與分支生成引擎）
+0. 概述
+
+SIDA 是一種針對 語義收束（collapse）後 的高凝聚階段（Strong Attractor Phase）設計的深度運算框架。
+它的目標是：
+
+    Slot 內部深化：在已有的河圖/洛書式 slot 對稱結構中，分層展開拓撲模型、追蹤 trace 演化路徑、挖掘非線性關聯。
+
+    張力破壞與重構：在不破壞整體結構穩定性的前提下，引入語義挑戰點，測試結構韌性並進行重構。
+
+    平行分支派生：在主 attractor 穩定維持下，生成異質觀點，開啟新的 slot 演化線。
+
+ 
+
+1. 模組架構
+A. Slot Collapse Detector
+
+功能：檢測當前語義場是否已形成 Strong Attractor（收束完成）。
+輸入：語義場語料（token 分佈、主題聚合度、slot 對位度）
+輸出：
+
+    collapse_state（True / False）
+
+    slot_symmetry_index（對稱完整度評分）
+
+B. Topological Template Classifier
+
+功能：匹配 slot 內部對應的典型拓撲模型（Topology Template）。
+來源：
+
+    A 類（深層文化拓撲）：英雄旅程、五蘊六氣、Pattern Language、意識演化結構
+
+    B 類（機械化拓撲）：64卦×爻變、36計、中醫經方、戰術模板
+    輸出：
+
+    template_id（模板編號）
+
+    phase_map（階段節點標註）
+
+C. Phase Expansion Mapping
+
+功能：將 slot 內 trace 劃分為階段（Phase），並計算階段密度與熵變。
+操作：
+
+    Phase unfolding：A1–A5（或更多層級）
+
+    Phase entropy 計算
+
+    Gate detection（變爻點 / 崩潰門檻）
+    輸出：
+
+    phase_vector[]（各階段的語義張力向量）
+
+    entropy_profile
+
+D. Tension Vector Field Generator
+
+功能：生成 slot 內的語義張力場與耦合場結構。
+支持：
+
+    正反饋循環（reinforcement loop）
+
+    崩潰轉移（collapse transfer）
+
+    互補聚焦（complementary focus）
+    輸出：
+
+    tension_field_map（張力方向圖）
+
+    coupling_matrix（slot trace 耦合關係）
+
+E. Multi-Culture Topology Rewriting
+
+功能：將同一拓撲模型轉換到不同文化語境、角色與符號系統下的對應版本。
+來源映射：
+
+    中醫 ↔ 西醫
+
+    易經 ↔ 博弈論
+
+    武學 ↔ 管理策略
+    輸出：
+
+    cross_culture_templates[]
+
+F. Slot Folding and Projection Interface
+
+功能：將拓撲結果轉出為不同結構用途：
+
+    Summary（高層摘要）
+
+    Prompt Injection（AI 提示工程）
+
+    Agent Trace 分支入口（多 agent 協同）
+    輸出：
+
+    folded_trace（折疊後 trace）
+
+    projection_prompt（可直接餵 AI 的提示語）
+
+2. 運行流程
+
+1. 探測收束狀態 → A
+2. 對應拓撲模板 → B
+3. 階段劃分與密度分析 → C
+4. 張力場生成與流動模擬 → D
+5. 跨文化重構（可選） → E
+6. 輸出折疊與投影接口 → F
+
+3. 範例模板格式（Markdown / JSON）
+
+Template ID: SLOT-TPL-TAIJI-LANQUETAIL-001
+Name: 太極拳攬雀尾拓撲
+Phases:
+  - A1: 掤（防守蓄勢）
+  - A2: 捋（順勢化解）
+  - A3: 擠（集中反擊）
+  - A4: 按（收束平衡）
+Tensions:
+  - S1: 虛實張力
+  - S2: 開合張力
+  - S3: 剛柔張力
+Suitable for: 談判策略 / 心理轉化 / 系統調節
+Trace Fold Path: A1 → A2 → A3 → A4
+Cross-Culture Mapping:
+  - 博弈論的「防禦-反擊」模型
+  - 心理學的「接納-轉化」過程
+Export: 策略建議 / 動作指導
+
+4. 與現有研究成果的映射
+現有理論 / 模型 	在 SIDA 中的角色 	模塊對應
+Pattern Language 	Slot 內部拓撲骨架庫 	B / C
+英雄旅程 	敘事型深層模板 	B / C
+五蘊六氣 	精神 / 系統節奏的 trace 模型 	B / C / D
+Canetti 群眾張力 	群體動態張力生成器 	D
+Luhmann 系統理論 	多 Slot 溝通與閉環 	F
+5. 延伸：Semantic GAN 實驗構想
+
+    Generator：根據現有 slot 模板生成深化內容 / 挑戰點 / 分支。
+
+    Discriminator：檢驗生成結果是否符合 slot 對稱性與張力連續性。
+
+    Feedback Loop：調整生成策略，在破壞性與穩定性間保持動態平衡。
+
+6. 應用場景
+
+    歷史與文化分析：在已有文明原型上進行多階段、多文化語義深化。
+
+    AI 教育 / 輔導系統：將知識點轉換為可循環的拓撲學習路徑。
+
+    策略模擬與決策支持：在政策、商業、軍事場景中，模擬收束後的多分支演化。
+
+    創作與敘事生成：基於敘事拓撲，生成跨文化、多層次的故事線。
+
+我可以在下一步幫你建立第一批「SIDA Topology Template Library」，
+直接包含 10 個 A 類（深層文化） + 10 個 B 類（機械化） + 5 個武學模板，並用這個格式輸出，方便你立即用在 SMFT 系統裡。
+
+你要我直接展開這個模板庫嗎？這樣我們可以把 SIDA 變成可運行的知識模塊系統。
+
+
+========================
+
+SIDA（Slot-Internal Deepening Algorithm）
+完整框架藍圖（中文版） 
+
+好的，先把規格訂清楚，之後每個附錄都能直接套用。下面是 附錄 A：SIDA 模板標準格式說明與欄位定義，含欄位語義、使用方式，以及 Markdown／JSON 兩種結構範例。
+附錄 A｜SIDA 模板標準格式說明與欄位定義
+
+SIDA（Slot‑Internal Deepening Algorithm）模板是一種「可執行的語義拓撲」。它把一個模式（pattern／框架／招式）拆成 Phases（階段） 與 Tensions（張力軸），再用 Trace Fold Path（摺疊路徑） 把長流程壓縮投影成不同用途的輸出（摘要、Prompt、KPI、教案…）。Cross‑Culture Mapping 則用來對應跨學科、跨文化的等構（isomorphism／analogy）。
+1) 頂層欄位（Top‑level fields）
+template_id (string，必填)
+
+    用來唯一識別模板，建議格式：
+    namespace.category.name:major.minor.patch
+
+    範例：sida.culture.heros_journey:1.0.0
+
+    命名約定：
+
+        namespace：sida / org 私有命名空間
+
+        category：culture / org / med / edu / tactic…
+
+        name：kebab_case
+
+        版本：語義化版本號（破壞性修改才升 major）
+
+title (string，必填)
+
+    人類可讀的名稱。
+    例：英雄旅程（壓縮版 8 階段）
+
+summary (string，必填)
+
+    這個模板在解決什麼問題、適用於哪些場景（1–3 句）。
+
+topology_class (enum，必填)
+
+    ‘A_deep_culture’（深層文化拓撲）｜‘B_mechanical’（機械化流程拓撲）｜‘C_hybrid’（混合）。
+
+    影響 Phase 粒度與張力抽象層級。
+
+tags (string[])（選填）
+
+    便於檢索與自動分類。例：["myth", "story", "product", "change"]
+
+metadata (object，選填)
+
+    authors: string[]、created_at: ISO8601、license: string、notes: string
+
+ 
+
+2) Phases（核心）
+
+每個 Phase 是一個最小可操作單元。典型 5–12 個為佳；B 型機械流程可更多、更細。
+
+Phase 欄位：
+
+    id (string)：局部唯一 ID（kebab_case）。
+
+    name (string)：階段名。
+
+    intent (string)：這一階段要「成就什麼」。
+
+    entry_conditions (string[])：可進場的先決條件或觸發訊號。
+
+    exit_criteria (string[])：何時算完成；避免循環卡住。
+
+    inputs (string[])：此階段所需資料／資源。
+
+    outputs (string[])：此階段產出的可驗證物（artifact／決策）。
+
+    tensions_ref (string[])：引用的張力軸 ID（見下節 Tensions）。
+
+    signals (object[])（選填）：可量測或觀察的進度／風險訊號。
+
+        name, kind: ("metric"|"qual"), how_to_measure, threshold?
+
+    playbook (string[])（選填）：具體操作步驟（條列）。
+
+    examples (string[])（選填）：1–3 個簡短示例。
+
+    risk_notes (string[])（選填）：常見失誤與反對策。
+
+    設計原則：每個 Phase 完成後，應至少沉澱一個可被下一階段消費的輸出（outputs）。
+
+3) Tensions（張力軸）
+
+張力軸是 SIDA 的「導航儀」。它定義當前語義場的對拉方向（polarities）與觀測信號，用以判斷偏折與收束。
+
+Tension 欄位：
+
+    id (string)：張力軸 ID（kebab_case）。
+
+    label (string)：人類可讀名稱。
+
+    axis (string[2])：兩端極性名稱（如 ["安全","探索"]）。
+
+    description (string)：此軸為何重要、何時會失衡。
+
+    signals (object[])：可觀察指標。
+
+        name, kind: ("metric"|"qual"), direction: ("+|-" 表示朝 axis[1] or axis[0])
+
+    weights (object)：{ global: number, by_phase?: Record<phase_id, number> }
+
+    thresholds (object)：{ warning?: number, critical?: number }（0–1 規模或明文說明）
+
+    notes (string[])（選填）
+
+    使用方式：Phase 內 tensions_ref 指到這些軸；實作時可計算 slot_symmetry_index、collapse_state 等衍生量。
+
+4) Trace Fold Path（摺疊路徑）
+
+把完整拓撲壓縮投影成特定用途的輸出。每個 Fold Path 指定來源範圍、壓縮規則、損失預算與評估方式。
+
+Fold Path 欄位：
+
+    id (string)
+
+    purpose (enum)："summary" | "prompt" | "agent_branches" | "curriculum" | "kpi_dashboard" | "playbook_card" | "canvas"
+
+    source_scope (object)：
+
+        phases: ("all" | string[])
+
+        fields: string[]（從 Phase／Tension 取哪些欄）
+
+    compression_rules (object)：
+
+        loss_budget（0–1，允許丟失多少細節）
+
+        priority（欄位優先級；例：["intent", "exit_criteria", "signals"]）
+
+        style（輸出語氣／格式約束）
+
+    evaluation (object)（選填）：
+
+        checks: string[]（如「每相鄰 Phase 必留一個可見輸出」）
+
+        metrics?: string[]（如可讀性、coverage、coherence）
+
+    examples (string[])（選填）
+
+5) Cross‑Culture Mapping（跨文化對映）
+
+宣告等構或類比的對應關係，支援跨框架、跨領域遷移。
+
+Mapping 欄位：
+
+    target_system (string)：目標框架名（如 startup_lifecycle.v2）。
+
+    equivalence_type (enum)："isomorphic" | "homomorphic" | "analogical"
+
+    confidence (0–1)：對映信心。
+
+    phase_map (array)：
+
+        from: phase_id、to: string（對方的節點或階段名）
+
+        notes?（對映理由或限制）
+
+    tension_map (array)（選填）：
+
+        from: tension_id、to: string、notes?
+
+    examples (string[])（選填）
+
+6) 驗證規則（最低可行模板檢核）
+
+    至少 1 個張力軸、4 個 Phase、1 條 Fold Path。
+
+    每個 Phase 需有 intent / exit_criteria / outputs。
+
+    任一 Fold Path 的 source_scope 指到的 Phase 不可為空。
+
+    template_id 遵守版本規則；破壞性修改必須升級 major。
+
+    Cross‑Culture Mapping 若宣稱 isomorphic，所有 Phase 必映射到對側唯一 Phase。
+
+Markdown 模板（骨架）
+
+    直接複製這段作為新模板的起始檔。
+
+# <TITLE>
+template_id: <namespace.category.name:semver>
+topology_class: <A_deep_culture | B_mechanical | C_hybrid>
+tags: [<tag1>, <tag2>, ...]
+summary: |
+  <這個模板要解決什麼？適用情境？一段話即可。>
+
+## Phases
+### <phase-id> — <Phase Name>
+- intent: <想完成什麼>
+- entry_conditions:
+  - <條件1>
+- exit_criteria:
+  - <條件1>
+- inputs:
+  - <需要什麼>
+- outputs:
+  - <產出什麼>
+- tensions_ref: [<tension-id-1>, <tension-id-2>]
+- signals:
+  - name: <訊號名>
+    kind: metric|qual
+    how_to_measure: <說明>
+    threshold: <可選>
+
+<!-- 以上重複 n 次 -->
+
+## Tensions
+- id: <tension-id>
+  label: <顯示名>
+  axis: [<極性A>, <極性B>]
+  description: <此張力軸的角色>
+  signals:
+    - name: <指標>
+      kind: metric|qual
+      direction: +|-
+  weights:
+    global: 1.0
+  thresholds:
+    warning: 0.6
+    critical: 0.8
+
+## Trace Fold Path
+- id: <fold-id>
+  purpose: summary|prompt|agent_branches|curriculum|kpi_dashboard|playbook_card|canvas
+  source_scope:
+    phases: [<phase-id>]|all
+    fields: [intent, exit_criteria, outputs, signals]
+  compression_rules:
+    loss_budget: 0.35
+    priority: [intent, exit_criteria, outputs]
+    style: <輸出語氣與格式>
+  evaluation:
+    checks:
+      - <檢查1>
+
+## Cross-Culture Mapping
+- target_system: <system-name>
+  equivalence_type: isomorphic|homomorphic|analogical
+  confidence: 0.7
+  phase_map:
+    - from: <phase-id>
+      to: <target-phase>
+      notes: <可選>
+  tension_map:
+    - from: <tension-id>
+      to: <target-tension>
+
+JSON 結構範例（含部分填寫）
+
+以下用「英雄旅程（8 階段壓縮）」做示例（節錄版，足以展示欄位互動）。
+
+{
+  "template_id": "sida.culture.heros_journey:1.0.0",
+  "title": "英雄旅程（壓縮版 8 階段）",
+  "summary": "把敘事與變革歷程壓縮為 8 階段，供故事、產品、教學或組織轉型路徑快速建模與摺疊輸出。",
+  "topology_class": "A_deep_culture",
+  "tags": ["myth", "story", "change", "product"],
+  "metadata": {
+    "authors": ["Your Name"],
+    "created_at": "2025-08-10T10:00:00Z",
+    "license": "CC BY-NC 4.0"
+  },
+  "phases": [
+    {
+      "id": "call",
+      "name": "召喚",
+      "intent": "定義為何啟程；讓受眾或團隊感到非走不可。",
+      "entry_conditions": ["存在明確失衡或機會窗口"],
+      "exit_criteria": ["寫下清晰動機與承諾"],
+      "inputs": ["痛點敘事", "機會假說"],
+      "outputs": ["一頁式動機宣言"],
+      "tensions_ref": ["safety_vs_exploration"],
+      "signals": [
+        {
+          "name": "承諾聲量",
+          "kind": "metric",
+          "how_to_measure": "簽署/點讚/回覆比率",
+          "threshold": ">= 30%"
+        }
+      ],
+      "playbook": [
+        "蒐集3個真實痛點故事",
+        "將痛點改寫成『如果不改變會怎樣』"
+      ]
+    },
+    {
+      "id": "mentor",
+      "name": "遇見引導",
+      "intent": "補齊能力／地圖／儀式，降低不確定性。",
+      "entry_conditions": ["已完成動機宣言"],
+      "exit_criteria": ["選定工具包與最小試煉"],
+      "inputs": ["資源清單", "標竿案例"],
+      "outputs": ["最小試煉設計"],
+      "tensions_ref": ["ego_vs_surrender"]
+    },
+    {
+      "id": "ordeal",
+      "name": "試煉與臨界",
+      "intent": "面對核心風險，穿越臨界點。",
+      "entry_conditions": ["完成最小試煉設計"],
+      "exit_criteria": ["產生可反證數據或明確學習"],
+      "inputs": ["試煉方案", "風險清單"],
+      "outputs": ["結果報告", "學習卡"],
+      "tensions_ref": ["autonomy_vs_belonging"]
+    },
+    {
+      "id": "return",
+      "name": "攜帶靈藥歸來",
+      "intent": "將所得轉為可移植價值與傳承。",
+      "entry_conditions": ["完成臨界穿越"],
+      "exit_criteria": ["形成可教可複製之物件"],
+      "inputs": ["學習卡", "故事素材"],
+      "outputs": ["教案/模塊/產品迭代提案"],
+      "tensions_ref": ["safety_vs_exploration", "autonomy_vs_belonging"]
+    }
+  ],
+  "tensions": [
+    {
+      "id": "safety_vs_exploration",
+      "label": "安全 ↔ 探索",
+      "axis": ["安全", "探索"],
+      "description": "決策在熟悉區與未知區間擺盪；過安逸停滯、過冒進崩潰。",
+      "signals": [
+        { "name": "變更率", "kind": "metric", "direction": "+" },
+        { "name": "風險清單完整度", "kind": "qual", "direction": "-" }
+      ],
+      "weights": { "global": 1.0, "by_phase": { "call": 1.2, "return": 0.8 } },
+      "thresholds": { "warning": 0.6, "critical": 0.85 }
+    },
+    {
+      "id": "ego_vs_surrender",
+      "label": "自我 ↔ 交託",
+      "axis": ["自我掌控", "向導信任"],
+      "description": "是否願意採納外部模型與儀式，避免孤勇盲點。",
+      "signals": [
+        { "name": "導師建議採納率", "kind": "metric", "direction": "+" }
+      ],
+      "weights": { "global": 0.8 }
+    },
+    {
+      "id": "autonomy_vs_belonging",
+      "label": "自主 ↔ 歸屬",
+      "axis": ["個體自主", "社群歸屬"],
+      "description": "在臨界挑戰中維持個人決策與群體支持的張力。",
+      "signals": [
+        { "name": "同行支持觸發數", "kind": "metric", "direction": "+" }
+      ],
+      "weights": { "global": 1.1 }
+    }
+  ],
+  "fold_paths": [
+    {
+      "id": "exec_summary",
+      "purpose": "summary",
+      "source_scope": { "phases": "all", "fields": ["intent", "exit_criteria", "outputs"] },
+      "compression_rules": {
+        "loss_budget": 0.4,
+        "priority": ["intent", "outputs"],
+        "style": "每階段 1 句；避免行話；可讀於 90 秒內。"
+      },
+      "evaluation": {
+        "checks": [
+          "每相鄰Phase至少保留1個可驗證輸出",
+          "全文<=220字"
+        ]
+      }
+    },
+    {
+      "id": "prompt_pack",
+      "purpose": "prompt",
+      "source_scope": { "phases": ["call", "ordeal", "return"], "fields": ["intent", "inputs", "outputs", "tensions_ref"] },
+      "compression_rules": {
+        "loss_budget": 0.3,
+        "priority": ["intent", "tensions_ref", "outputs"],
+        "style": "系統訊息+分階段子提示；每階段加『完成定義』。"
+      }
+    }
+  ],
+  "cross_culture_mapping": [
+    {
+      "target_system": "startup_lifecycle.v2",
+      "equivalence_type": "analogical",
+      "confidence": 0.72,
+      "phase_map": [
+        { "from": "call", "to": "problem-hypothesis", "notes": "痛點→機會假說" },
+        { "from": "mentor", "to": "mvp-design", "notes": "工具/地圖即 MVP" },
+        { "from": "ordeal", "to": "pmf-test", "notes": "穿越臨界≈PMF臨界" },
+        { "from": "return", "to": "scale-and-teach", "notes": "靈藥=可教可複製" }
+      ]
+    }
+  ]
+}
+
+小抄：常見設計錯誤 & 快速修正
+
+    Phase 沒有可驗證輸出 → 補一個「下一階段必須消費」的產出（如「最小試煉設計」）。
+
+    張力軸只有名稱沒有信號 → 至少加 1 個可觀察指標（metric 或 qual）與方向。
+
+    Fold Path 壓過頭 → 調高 loss_budget 或把 priority 改成保留 exit_criteria。
+
+    跨文化對映過度自信 → 若非一對一完整映射，標成 homomorphic 或 analogical，降低 confidence。
+
+如果這份規格 OK，我就繼續寫 附錄 B（把 3 套經典框架實際轉成 SIDA 模板：英雄旅程 / 五蘊六氣 / Pattern Language），每一個都會同時給 Markdown 骨架 + JSON 範本，並演示一條 Fold Path 的實際輸出。
+
+
+========================
+
+SIDA（Slot-Internal Deepening Algorithm）
+完整框架藍圖（中文版） 
+附錄 B：A 類深層文化拓撲模板範例
+附錄 B：A 類深層文化拓撲模板範例
+
+    範例 1：「英雄旅程」12 階段轉 SIDA 模板
+
+    範例 2：「五蘊六氣」轉 SIDA 模板
+
+    範例 3：「Pattern Language」轉 SIDA 模板（建築→組織語義）
+
+
+好的，我先為 附錄 B：A 類深層文化拓撲模板範例 開第一個部分——
+附錄 B-1：「英雄旅程」12 階段轉 SIDA 模板
+1. 範例來源與轉換目標
+
+「英雄旅程」（Hero’s Journey）是 Joseph Campbell 在《千面英雄》中總結出的經典敘事拓撲，包含 12 個階段。這裡我們將其轉換為 SIDA（Semantic Infrastructure Design Architecture）模板，方便在 SMFT（語義模因場論）與跨文化語境中作為語義拓撲藍本。
+2. SIDA 模板結構
+
+欄位對應說明可參考附錄 A 的 Template ID、Phases、Tensions、Trace Fold Path、Cross-Culture Mapping 定義。
+Markdown 範例
+
+Template ID: HeroJourney-12-SIDA
+Phases:
+  1. Ordinary World → Call to Adventure
+  2. Refusal of the Call
+  3. Meeting the Mentor
+  4. Crossing the First Threshold
+  5. Tests, Allies, Enemies
+  6. Approach to the Inmost Cave
+  7. Ordeal
+  8. Reward (Seizing the Sword)
+  9. The Road Back
+  10. Resurrection
+  11. Return with the Elixir
+
+Tensions:
+  - Stability ↔ Disruption
+  - Self-Preservation ↔ Self-Transcendence
+  - Known Semantic Frame ↔ Unknown Semantic Space
+
+Trace Fold Path:
+  - Collapse arcs progress from low semantic tension (ordinary world) → peak tension (ordeal) → re-integration (return)
+  - Multiple semantic interference nodes at phases 5–7
+
+Cross-Culture Mapping:
+  - 西方史詩敘事 ↔ 東方修行旅程（如《西遊記》取經路）
+  - 可對應「易經」遷變：坤（承受）→ 震（啟動）→ 坎（試煉）→ 離（明悟）→ 乾（完成）
+
+JSON 範例
+
+{
+  "TemplateID": "HeroJourney-12-SIDA",
+  "Phases": [
+    "Ordinary World → Call to Adventure",
+    "Refusal of the Call",
+    "Meeting the Mentor",
+    "Crossing the First Threshold",
+    "Tests, Allies, Enemies",
+    "Approach to the Inmost Cave",
+    "Ordeal",
+    "Reward (Seizing the Sword)",
+    "The Road Back",
+    "Resurrection",
+    "Return with the Elixir"
+  ],
+  "Tensions": [
+    "Stability ↔ Disruption",
+    "Self-Preservation ↔ Self-Transcendence",
+    "Known Semantic Frame ↔ Unknown Semantic Space"
+  ],
+  "TraceFoldPath": {
+    "SemanticArc": "Low tension → Peak tension → Reintegration",
+    "InterferenceNodes": [5, 6, 7]
+  },
+  "CrossCultureMapping": {
+    "WesternEpic": "Hero’s Journey",
+    "EasternParallel": "Pilgrimage/修行路（例：西遊記）",
+    "IChingTransition": ["坤", "震", "坎", "離", "乾"]
+  }
+}
+
+ 
+
+如果你要的話，我可以直接繼續寫 範例 2：「五蘊六氣」轉 SIDA 模板，把佛學與中醫結構映射成可用於文化語義工程的拓撲藍本。
+這個範例會牽涉到 Semantic Phase Space (SPS) 與 Cross-Domain Collapse Path 的細節，能示範更複雜的多維映射。
+
+
+好，那我就接著完成 附錄 B-2：「五蘊六氣」轉 SIDA 模板。
+附錄 B-2：「五蘊六氣」轉 SIDA 模板
+1. 範例來源與轉換目標
+
+    五蘊（五陰）：色、受、想、行、識 —— 佛學對生命經驗的五層解析，著重內在心理—意識結構。
+
+    六氣：風、寒、暑、濕、燥、火 —— 中醫對外部環境氣候與人體生理反應的六種主要氣化模式。
+
+在 SIDA 中，我們將五蘊視為 Slot Internal Phase Skeleton（內部階段骨架），六氣視為 External Tension Vector Field（外部張力場來源），兩者結合可模擬「內外張力交互下的語義場收束與深化」。
+2. SIDA 模板結構（Markdown 範例）
+
+Template ID: FiveAggregates-SixQi-SIDA
+Phases:
+  - A1（色 / 色蘊）：物質形態與直接感官對象。
+  - A2（受 / 受蘊）：感官與心識對外境的感受反應。
+  - A3（想 / 想蘊）：對感受的意象與認知加工。
+  - A4（行 / 行蘊）：由意象衍生的意志、行為傾向。
+  - A5（識 / 識蘊）：對整個過程的認知統攝與持續性識別。
+
+Tensions（六氣對應的外部張力源）：
+  - T1（風）：變化迅速、不定向張力（易干擾A3想與A4行）。
+  - T2（寒）：收縮抑制張力（降低A2受與A4行的活化）。
+  - T3（暑）：過度擴張張力（影響A1色與A2受，導致能量分散）。
+  - T4（濕）：黏滯耦合張力（延緩A3想的流動，增加 inertia）。
+  - T5（燥）：資源/潤滑不足張力（削弱A2受與A4行的連續性）。
+  - T6（火）：過熱加速張力（推升A4行與A5識的反應頻率）。
+
+Trace Fold Path:
+  - 內部骨架：A1 → A2 → A3 → A4 → A5（可循環，亦可在A3或A4進行 collapse）
+  - 外部張力：六氣向量場可在任一階段注入，改變 phase density 與 collapse 條件
+
+Cross-Culture Mapping:
+  - 佛教心理學 ↔ 中醫病機學（五蘊對應藏象，六氣對應外感邪氣）
+  - 「色受想行識」對應「物理層→感官層→認知層→行動層→意識層」
+  - 「六氣張力」可映射到現代系統動力學的六種擾動模式（e.g. 突變、阻尼、過熱等）
+
+3. SIDA 模板結構（JSON 範例）
+
+{
+  "TemplateID": "FiveAggregates-SixQi-SIDA",
+  "Phases": [
+    "A1: 色 - 物質形態與直接感官對象",
+    "A2: 受 - 感官與心識對外境的感受反應",
+    "A3: 想 - 對感受的意象與認知加工",
+    "A4: 行 - 由意象衍生的意志、行為傾向",
+    "A5: 識 - 認知統攝與持續性識別"
+  ],
+  "Tensions": [
+    "T1: 風 - 變化迅速、不定向張力",
+    "T2: 寒 - 收縮抑制張力",
+    "T3: 暑 - 過度擴張張力",
+    "T4: 濕 - 黏滯耦合張力",
+    "T5: 燥 - 資源/潤滑不足張力",
+    "T6: 火 - 過熱加速張力"
+  ],
+  "TraceFoldPath": {
+    "InternalSkeleton": "A1 → A2 → A3 → A4 → A5（可循環）",
+    "ExternalVectorField": "六氣可在任意階段注入，改變phase密度與collapse條件"
+  },
+  "CrossCultureMapping": {
+    "BuddhistPsychology": "五蘊 = 內部意識結構",
+    "TCMPathology": "六氣 = 外部擾動模式",
+    "ModernAnalogy": "五層系統層級 + 六種外部干擾類型"
+  }
+}
+
+4. 應用場景示例
+
+    心理輔導：以五蘊追蹤內在心理階段，六氣比喻環境壓力類型，協助定位問題源。
+
+    系統調優：五蘊作為核心模組處理序列，六氣作為外部 API 請求壓力類型，分析瓶頸與過載點。
+
+    跨文化教學：將佛學與中醫結構轉譯為現代管理或 AI 模型優化框架。
+
+如果你要的話，我可以馬上寫 範例 3：「Pattern Language」轉 SIDA 模板，
+這個會示範如何把 Alexander 的建築模式語言轉化為組織/系統語義拓撲，並且可以直接用於 AI Prompt 結構生成。
+你要我直接接著寫嗎？
+
+
+好，那我來完成 附錄 B-3：「Pattern Language」轉 SIDA 模板。
+附錄 B-3：「Pattern Language」轉 SIDA 模板
+1. 範例來源與轉換目標
+
+    來源：Christopher Alexander 在《A Pattern Language》中提出的 253 個建築與空間設計模式，每個模式都包含「背景情境（Context）→ 問題（Problem）→ 解法（Solution）」的結構，並且模式之間能嵌套、鏈接，形成一個層級化、網絡化的結構語言。
+
+    轉換目標：將 Pattern Language 的單一 pattern 轉換成 SIDA 的 Slot Internal Deepening 模板，讓其能：
+
+        在單一 slot 內作為「典型拓撲骨架」使用
+
+        支援多層 phase 展開
+
+        維持可跨文化、跨領域映射
+
+2. 範例選擇
+
+我選取 Pattern Language 中一個經典模式：
+
+    Pattern #61 – Small Public Squares（小型公共廣場）
+    背景：城市需要人們交流的場所。
+    問題：大型空間容易冷清，小型空間能創造更多互動。
+    解法：設計面積適中的公共空間（約 20–25 米寬），並設置圍合邊界，增加親密感和可用性。
+
+3. SIDA 模板結構（Markdown 範例）
+
+Template ID: PatternLanguage-061-SmallPublicSquares
+Phases:
+  - A1（Context）：城市中缺乏交流與互動的場域
+  - A2（Problem Recognition）：大型公共空間造成疏離與冷清
+  - A3（Tension Amplification）：需求與使用率的反差引發空間浪費問題
+  - A4（Solution Structuring）：設計小型、圍合的廣場空間（20–25 米寬）
+  - A5（Outcome Integration）：居民互動增加，社區凝聚力提升
+
+Tensions:
+  - T1（尺度張力）：過大造成疏離，過小造成擁擠
+  - T2（社交張力）：陌生感與親密感之間的平衡
+  - T3（功能張力）：開放性與私密性的衝突
+  - T4（資源張力）：設計與維護成本 vs 使用頻率
+
+Trace Fold Path:
+  - 標準路徑：A1 → A2 → A3 → A4 → A5
+  - 可逆分支：A3 → A2（重新審視問題背景）
+  - 擴展分支：A4 → 新 slot（Pattern #69 Public Outdoor Room）
+
+Cross-Culture Mapping:
+  - 建築學 ↔ 組織設計：小型公共廣場 ↔ 部門內交流空間
+  - 城市規劃 ↔ AI 系統：廣場 ↔ 多 Agent 共享記憶區域
+  - 社區互動 ↔ 線上社群：廣場 ↔ 小型封閉討論群組
+
+Export:
+  - 可轉為 AI Prompt：「為團隊設計一個 20 人以內的共享討論空間，確保親密感並促進互動」
+
+4. SIDA 模板結構（JSON 範例）
+
+{
+  "TemplateID": "PatternLanguage-061-SmallPublicSquares",
+  "Phases": [
+    "A1: Context - 城市中缺乏交流與互動的場域",
+    "A2: Problem Recognition - 大型公共空間造成疏離與冷清",
+    "A3: Tension Amplification - 需求與使用率的反差引發空間浪費",
+    "A4: Solution Structuring - 設計小型、圍合的廣場空間（20–25 米寬）",
+    "A5: Outcome Integration - 居民互動增加，社區凝聚力提升"
+  ],
+  "Tensions": [
+    "T1: 尺度張力 - 過大造成疏離，過小造成擁擠",
+    "T2: 社交張力 - 陌生感與親密感的平衡",
+    "T3: 功能張力 - 開放性與私密性的衝突",
+    "T4: 資源張力 - 設計與維護成本 vs 使用頻率"
+  ],
+  "TraceFoldPath": {
+    "Standard": "A1 → A2 → A3 → A4 → A5",
+    "Reversible": "A3 → A2",
+    "Expansion": "A4 → 新slot (Pattern #69)"
+  },
+  "CrossCultureMapping": {
+    "Architecture": "小型廣場設計",
+    "OrganizationDesign": "部門內交流空間",
+    "AISystem": "多Agent共享記憶區域",
+    "OnlineCommunity": "小型封閉討論群組"
+  },
+  "Export": "為團隊設計一個 20 人以內的共享討論空間，確保親密感並促進互動"
+}
+
+5. 應用場景示例
+
+    城市規劃 AI：生成滿足互動需求的公共空間設計方案。
+
+    企業組織設計：設計部門內的小型休息室/咖啡角，促進溝通。
+
+    AI 多 Agent 系統：規劃共享知識的「小廣場」節點，避免資訊冷場。
+
+    線上社群運營：設立小規模的私密討論群，增強核心用戶連結。
+
+如果你願意，我可以在 附錄 C 展示「B 類機械化拓撲模板」範例，例如用 易經卦象 + 六爻變化 直接生成 SIDA 模板，並且對應到策略與決策情境。
+要我直接接著寫嗎？
+
+
+========================
+
+SIDA（Slot-Internal Deepening Algorithm）
+完整框架藍圖（中文版） 
+附錄 C：B 類機械化拓撲模板範例
+
+
+附錄 C：B 類機械化拓撲模板範例
+
+    範例 1：「易經卦象 × 爻變」轉 SIDA 模板（單卦 + 變爻）
+
+    範例 2：「傷寒論經方」轉 SIDA 模板（病機模式 + 處方結構）
+
+    範例 3：「三十六計」轉 SIDA 模板（戰術型 Slot Disturb 模型）
+
+
+好，我先從 附錄 C 範例 1：「易經卦象 × 爻變」轉 SIDA 模板 開始寫，這部分會用兩個 prompt 完成，第一個先做 單卦 + 變爻的結構範例，第二個再補上 跨文化與應用映射。
+附錄 C-1：「易經卦象 × 爻變」轉 SIDA 模板
+範例主題：風火家人卦（內離外巽），五爻變
+一、易經背景與詮釋
+
+    卦象：風火家人（內離火、外巽風），象徵以禮治家，內心明亮而外在柔順。
+
+    卦辭：「家人，有嚴君焉，吉。」——強調秩序與內外和諧。
+
+    五爻辭：「王假有家，勿恤，吉。」——領導者建立秩序而民安，表示結構的成熟與穩定。
+
+二、SIDA 模板結構（Markdown 範例）
+
+Template ID: IChing-FengHuoJiaRen-5thLineChange
+Phases:
+  - A1（Context）：家或組織處於秩序不穩定期，需要領導核心
+  - A2（Problem Recognition）：成員缺乏共同規範與信任
+  - A3（Tension Amplification）：外部壓力與內部不和加劇
+  - A4（Solution Structuring）：核心領導者（王）確立秩序，明德在內，柔順對外
+  - A5（Outcome Integration）：全體安定，進入良性循環
+
+Tensions:
+  - T1（內外張力）：內部明斷（離火） vs 外部柔順（巽風）
+  - T2（秩序張力）：自由 vs 規範的平衡
+  - T3（角色張力）：核心領導者 vs 群體成員的權責協調
+
+Trace Fold Path:
+  - 標準路徑：A1 → A2 → A3 → A4 → A5
+  - 變爻觸發：A4 → A5 加速，進入「長治久安」模式
+  - 若失衡：A4 → A2（秩序崩解，需重建）
+
+Cross-Culture Mapping（概要）:
+  - 組織管理：建立明確制度與領導權威
+  - 軍事戰略：主帥安軍，士氣高昂
+  - 家庭治理：父母定家規，子女和樂
+
+Export:
+  - 「針對團隊秩序混亂情況，設計一套領導者主導、內明外和的管理方案」
+
+三、SIDA 模板結構（JSON 範例）
+
+{
+  "TemplateID": "IChing-FengHuoJiaRen-5thLineChange",
+  "Phases": [
+    "A1: Context - 家或組織處於秩序不穩定期，需要領導核心",
+    "A2: Problem Recognition - 成員缺乏共同規範與信任",
+    "A3: Tension Amplification - 外部壓力與內部不和加劇",
+    "A4: Solution Structuring - 核心領導者（王）確立秩序，明德在內，柔順對外",
+    "A5: Outcome Integration - 全體安定，進入良性循環"
+  ],
+  "Tensions": [
+    "T1: 內外張力 - 內部明斷 vs 外部柔順",
+    "T2: 秩序張力 - 自由 vs 規範的平衡",
+    "T3: 角色張力 - 核心領導者 vs 群體成員的權責協調"
+  ],
+  "TraceFoldPath": {
+    "Standard": "A1 → A2 → A3 → A4 → A5",
+    "LineChangeTrigger": "A4 → A5 加速，進入長治久安模式",
+    "FailurePath": "A4 → A2（秩序崩解，需重建）"
+  },
+  "CrossCultureMapping": {
+    "OrganizationManagement": "建立明確制度與領導權威",
+    "MilitaryStrategy": "主帥安軍，士氣高昂",
+    "FamilyGovernance": "父母定家規，子女和樂"
+  },
+  "Export": "針對團隊秩序混亂情況，設計一套領導者主導、內明外和的管理方案"
+}
+
+ 
+
+下一個 prompt，我會用同一個 風火家人（五爻變） 範例，補充它在 跨文化深層應用映射、多領域示例 和 SIDA slot-to-slot 映射 的完整示範。
+你要我直接接著寫嗎？這樣我們可以一次完成 附錄 C 範例 1 的完整擴展版。
+
+
+好，那我接著完成 附錄 C 範例 1：「易經卦象 × 爻變」轉 SIDA 模板 的擴展部分，補足 跨文化應用映射、多領域實例、以及 Slot-to-Slot 映射。
+四、跨文化深層應用映射
+卦象意涵（風火家人） 	西方對應範式 	現代應用範例 	核心張力類型
+內明外順（離火在內，巽風在外） 	Servant Leadership（服務型領導） 	科技公司 CTO 帶領團隊制定核心架構，同時對外保持協作柔性 	T1：內外張力
+秩序核心（王假有家） 	Constitutional Monarchy（憲政君主制） 	國家領袖在制度框架下維持國家穩定 	T2：秩序張力
+禮治為本 	Organizational Culture Framework（組織文化框架） 	HR 制定企業價值觀與行為準則，確保部門協同 	T3：角色張力
+五、多領域應用實例
+1. 組織管理
+
+    情境：一間初創公司擴張過快，部門間溝通混亂。
+
+    套用卦象模板：
+
+        A1：確定混亂點（權責不明、流程缺失）
+
+        A2：辨識信任斷層
+
+        A3：設置外部壓力測試（如產品發佈倒計時）
+
+        A4：由 CEO 制定明確規範並授權核心成員
+
+        A5：形成穩定合作文化
+
+2. 談判策略
+
+    情境：兩國貿易談判陷入僵局。
+
+    套用卦象模板：
+
+        A1：確定議題核心（市場開放、關稅）
+
+        A2：辨識對方疑慮
+
+        A3：承受並測試壓力點
+
+        A4：由主談判官提出「互惠且可監管」的方案
+
+        A5：建立長期合作框架
+
+3. 心理諮商
+
+    情境：來訪者內心混亂且家庭關係緊張。
+
+    套用卦象模板：
+
+        A1：理解混亂情緒來源
+
+        A2：識別關係中的不信任與誤解
+
+        A3：允許情緒張力釋放
+
+        A4：引導來訪者建立清晰的家庭界限與溝通模式
+
+        A5：達成情感穩定狀態
+
+六、SIDA Slot-to-Slot 映射示例
+主要 Slot（風火家人，秩序核心型）
+
+    屬於 治理型拓撲（Governance Topology）
+
+可映射的鄰接 Slot
+來源 Slot 	類型 	映射條件 	變化意義
+天火同人（共識合作型） 	合作拓撲 	當秩序建立後可向外擴展合作 	由內治轉外聯
+水火既濟（完全協調型） 	平衡拓撲 	當秩序與合作完全平衡 	達到高穩定 attractor
+雷火豐（能量釋放型） 	動態拓撲 	當秩序過於僵化需釋放活力 	防止系統僵死
+七、SIDA Prompt 調用範例
+
+Slot-Deepen(
+  topic = "科技公司快速擴張下的治理",
+  topology = "IChing-FengHuoJiaRen-5thLineChange",
+  output = "strategy + risk assessment",
+  depth = 3
+)
+
+AI 回應邏輯：
+
+    讀取卦象拓撲（內明外順，核心領導）
+
+    生成對應治理策略
+
+    加入變爻路徑（加速穩定化）
+
+    提示可能 Slot 跳轉（例如秩序 → 活力釋放）
+
+如果你要，我可以接下來用同樣的格式，去寫 附錄 C 範例 2：「傷寒論經方」轉 SIDA 模板，這樣 C 類的三個範例就會形成完整對照。
+你要我直接開始嗎？這樣我們可以一次完成 機械化拓撲模板 的第二個案例。
+
+
+好，我先用你前面定義的 SIDA 標準欄位，把 《傷寒論》經方 的一個經典病機模式轉成 SIDA 模板，並加上我自己的結構延展。這會是一個完整的 B 類機械化拓撲模板，重點是從「病機模式 → 處方結構 → 語義張力拓撲」的轉譯。
+附錄 C-2：傷寒論經方轉 SIDA 模板
+範例病機模式：太陽病三日未解，脈浮緊 —— 葛根湯構型
+一、病機模式解讀 → Slot Attractor
+傷寒論原文 	現代醫理解釋 	Slot Attractor 性質
+太陽病三日未解，脈浮緊 	外感風寒，表證未解，項背強硬 	封閉型張力聚集場：外部病邪未解 + 內部張力增強，系統能量堵塞於表層
+無汗惡風 	衛陽被束，腠理閉塞 	張力封鎖（T1：防禦系統過度緊縮）
+
+這個 Slot 本質上屬於 「阻塞型 phase 堆積」：能量 / 資源 / 信息無法通過表層關卡，導致系統壓力上升。
+二、SIDA 模板結構
+
+Template ID: SLOT-TPL-SHL-GGT-001
+Name: 葛根湯拓撲（太陽病封閉型解表）
+Phases:
+  - A1（病機辨識）：外部壓力長時間未解，表層張力持續累積。
+  - A2（張力鎖定）：系統啟動防禦機制（封閉腠理 / 封鎖邊界）。
+  - A3（釋放預備）：引入溫和外力疏通表層阻塞（葛根升陽解肌）。
+  - A4（張力釋放）：解除外層鎖定，恢復系統正常流動（發汗解表）。
+  - A5（穩定收束）：平衡能量釋放後的內外動態，避免反覆封閉。
+Tensions:
+  - T1（防禦張力）：外邪 vs 系統穩定。
+  - T2（封閉張力）：腠理閉 vs 資源流動。
+  - T3（釋放張力）：張力鬆解 vs 系統反應強度。
+Trace Fold Path: A1 → A2 → A3 → A4 → A5。
+Cross-Culture Mapping:
+  - 西方醫學：免疫系統長期高張，需適度「降壓+釋放」。
+  - 管理學：部門長期封閉運作，需引入外部協調者促進流通。
+  - 心理學：長期防衛心理狀態，需安全環境引導情緒表達。
+Export: 處方建議 / 系統干預方案 / 張力釋放流程。
+
+三、方藥結構 → 語義張力介入點
+藥物 	功能 	對應張力介入點（Tensions）
+葛根 	解肌透表，升陽舒筋 	T2（封閉張力）鬆解器
+麻黃 	發汗解表，宣肺平喘 	T1（防禦張力）釋放閥
+桂枝 	溫通經脈，調和營衛 	T3（釋放張力）調節器
+芍藥 	養血柔肝，緩急止痛 	T3 補償穩定器
+甘草 	調和諸藥，緩急止痛 	全局張力緩衝
+生薑、大棗 	調和營衛，健脾益氣 	收束後系統平衡器
+
+對應到 SIDA：
+
+    藥物組合 = Slot Internal Intervention Kit
+
+    不是單一打破張力，而是分工作用 → 多張力並行調節（multi-tension parallel modulation）。
+
+四、跨領域應用映射
+醫理層面 	管理層面 	心理層面
+外感風寒未解 → 外部壓力未釋放 	外部市場壓力長期存在 	外界批評 / 創傷未被處理
+表證封閉 → 防禦系統過度收縮 	部門資訊封鎖 	情感防衛、拒絕交流
+解肌透表 → 釋放封閉表層 	打開溝通渠道 	提供安全對話環境
+調和營衛 → 平衡系統運作 	部門間重新協作 	情緒與認知重新整合
+五、Slot-to-Slot 映射
+來源 Slot 	目標 Slot 	映射條件 	變化意義
+太陽病封閉型（本例） 	少陽病交界型 	張力未完全釋放，轉為交替寒熱 	系統張力 oscillation
+太陽病封閉型 	平衡恢復型 	張力完全釋放後穩定收束 	進入穩定 attractor
+太陽病封閉型 	崩潰型 	張力過度釋放造成能量流失 	系統防禦瓦解
+六、SIDA Prompt 調用示例
+
+Slot-Deepen(
+  topic = "部門溝通封閉導致專案停滯",
+  topology = "SHL-GGT-封閉型解表",
+  output = "解封策略 + 張力釋放計劃",
+  depth = 3
+)
+
+AI 處理邏輯：
+
+    讀取「封閉型解表」拓撲結構。
+
+    辨識對應的多張力類型（防禦、封閉、釋放）。
+
+    套用跨領域 mapping（管理 / 心理）。
+
+    輸出干預策略（逐步鬆解 → 外部協調 → 平衡收束）。
+
+如果你要的話，我可以馬上用同樣結構，幫你完成 範例 C-3：「三十六計」轉 SIDA 模板，這樣 C 類機械化拓撲的三個範例就完整了。
+你要我直接開寫嗎？我甚至可以選一個「破局型」的計謀來做。
+
+
+好，那我來完成 附錄 C-3：「三十六計」轉 SIDA 模板（戰術型 Slot Disturb 模型），我會先挑一個適合做 Slot Disturb 的計謀來示範。
+
+我選的案例是 「聲東擊西」 —— 因為它本質就是在一個已建立的 slot 系統中，製造 phase 注意力錯位，迫使對方 collapse 到錯誤的路徑，這正好適合做 SIDA 的「戰術干擾型」模板。
+一、計謀背景與 Slot Disturb 性質
+
+    原文：「敵志在東，聲響於西，以誘之也。敵形在西，聲響於東，以誘之也。」
+
+    核心機制：利用信息與感知的時空錯位，改變對方在 phase map 中的 張力權重分佈，使其資源配置錯位，從而暴露真實攻擊方向。
+
+    SIDA 分類：B 類機械化拓撲 — Tactical Slot Disturb Model
+
+        干擾型：不改變目標系統的內部骨架，而是操縱其外部張力與感知入口，製造 phase collapse 偏移。
+
+二、SIDA 模板結構（Markdown 範例）
+
+Template ID: ThirtySixStratagems-06-VoiceEastHitWest
+Name: 聲東擊西（戰術型 Slot Disturb）
+Topology Class: B_mechanical
+Summary: 利用感知錯位與資源錯配，誘使對手在非關鍵 slot 過度投入，暴露真正攻擊方向。
+Tags: [tactics, deception, slot-disturb]
+
+Phases:
+  - A1（情境偵察）：確定目標系統的資源重點與張力熱點。
+  - A2（假目標構建）：在非關鍵 slot 製造強張力訊號（假 attractor）。
+  - A3（誘導反應）：讓對手將資源重分配至假目標。
+  - A4（真目標行動）：在關鍵 slot 發動實際行動（真 collapse）。
+  - A5（收束與轉移）：完成主要目標後，迅速轉移或退出。
+
+Tensions:
+  - T1（注意力張力）：假目標 vs 真目標。
+  - T2（資源張力）：資源分配錯位 vs 最佳配置。
+  - T3（時序張力）：假信號持續時間 vs 真行動時機。
+
+Trace Fold Path:
+  - 標準路徑：A1 → A2 → A3 → A4 → A5
+  - 快速路徑（目標快速上當）：A2 → A4
+  - 防反路徑（假目標被識破）：A2 → A1（重新選擇干擾點）
+
+Cross-Culture Mapping:
+  - 軍事戰略：聲東擊西、佯攻、調虎離山。
+  - 商業競爭：假新品宣傳，實際在另一領域搶佔市場。
+  - 資訊安全：假目標伺服器吸引攻擊（honeypot），真核心安全升級。
+  - AI 對抗：在訓練數據中注入假模式，誘使對手模型錯誤調權。
+
+Export:
+  - 「設計一套基於感知錯位的戰術計劃，引導對手將資源錯配至非關鍵領域。」
+
+三、SIDA 模板結構（JSON 範例）
+
+{
+  "TemplateID": "ThirtySixStratagems-06-VoiceEastHitWest",
+  "Name": "聲東擊西（戰術型 Slot Disturb）",
+  "TopologyClass": "B_mechanical",
+  "Summary": "利用感知錯位與資源錯配，誘使對手在非關鍵 slot 過度投入，暴露真正攻擊方向。",
+  "Tags": ["tactics", "deception", "slot-disturb"],
+  "Phases": [
+    "A1: 情境偵察 - 確定目標系統的資源重點與張力熱點",
+    "A2: 假目標構建 - 在非關鍵 slot 製造強張力訊號（假 attractor）",
+    "A3: 誘導反應 - 讓對手將資源重分配至假目標",
+    "A4: 真目標行動 - 在關鍵 slot 發動實際行動（真 collapse）",
+    "A5: 收束與轉移 - 完成主要目標後，迅速轉移或退出"
+  ],
+  "Tensions": [
+    "T1: 注意力張力 - 假目標 vs 真目標",
+    "T2: 資源張力 - 資源分配錯位 vs 最佳配置",
+    "T3: 時序張力 - 假信號持續時間 vs 真行動時機"
+  ],
+  "TraceFoldPath": {
+    "Standard": "A1 → A2 → A3 → A4 → A5",
+    "Fast": "A2 → A4",
+    "Counter": "A2 → A1"
+  },
+  "CrossCultureMapping": {
+    "Military": "聲東擊西 / 調虎離山",
+    "Business": "假新品宣傳，實際在另一領域搶佔市場",
+    "Cybersecurity": "honeypot 誘導攻擊",
+    "AIAdversarial": "數據假模式誘導模型錯判"
+  },
+  "Export": "設計一套基於感知錯位的戰術計劃，引導對手將資源錯配至非關鍵領域。"
+}
+
+四、跨領域應用實例
+領域 	假目標（Slot） 	真目標（Slot） 	干擾效果
+軍事 	小城防守 	大城突襲 	轉移兵力
+商業 	高調宣傳次要產品 	靜默研發主力產品 	競爭對手跟錯市場
+資訊安全 	公開測試伺服器 	核心數據庫 	攻擊者浪費時間
+AI 對抗 	無關特徵干擾樣本 	關鍵決策特徵 	模型錯誤分類
+五、SIDA Prompt 調用範例
+
+Slot-Deepen(
+  topic = "AI 模型對抗訓練中的策略干擾",
+  topology = "ThirtySixStratagems-06-VoiceEastHitWest",
+  output = "干擾計劃 + 防反策略",
+  depth = 2
+)
+
+這樣 附錄 C 的三個範例就齊了：
+
+    C-1：易經卦象 × 爻變
+
+    C-2：傷寒論經方
+
+    C-3：三十六計（戰術型 Slot Disturb）
+
+如果你願意，我可以直接開始寫 附錄 D：武學拓撲模板範例，用太極拳「攬雀尾」來做第一個案例，會把武學結構轉成 SIDA phase + 張力軸模型，並且加上跨領域映射（例如商業、談判、AI 操作）。你要我直接開始嗎？
+
+
+========================
+
+SIDA（Slot-Internal Deepening Algorithm）
+完整框架藍圖（中文版） 
+附錄 D：武學拓撲模板範例
+
+
+附錄 D：武學拓撲模板範例
+
+    範例 1：太極拳「攬雀尾」四階段拓撲（A1–A4）
+
+    範例 2：乾坤大挪移四階段拓撲（A1–A4）
+
+    範例 3：打狗棒法三階段拓撲（A1–A3）
+
+
+好，那我先完成 附錄 D 範例 1：太極拳「攬雀尾」四階段拓撲（A1–A4），用 SIDA 的格式來轉譯，並保留武學的意境，同時加上跨領域映射。
+附錄 D-1：太極拳「攬雀尾」四階段拓撲（A1–A4）
+一、背景與結構
+
+「攬雀尾」是太極拳中的核心組合動作，由四個主要勁路構成：
+
+    掤（Peng）
+
+    捋（Lü）
+
+    擠（Ji）
+
+    按（An）
+
+它本質上是一個 張力接收 → 化解 → 反制 → 收束 的完整閉環，適合轉譯成 A 類深層文化拓撲，因為其結構不只用於技擊，還可用於談判、策略、心理引導等領域。
+二、SIDA 模板結構（Markdown 範例）
+
+Template ID: Martial-TaiChi-LanQueWei
+Name: 太極拳「攬雀尾」四階段拓撲
+Topology Class: A_deep_culture
+Summary: 以四勁（掤、捋、擠、按）為相序，構成接收張力、化解、集中反制與收束的閉環拓撲。
+Tags: [martial, tai-chi, tension-loop]
+
+Phases:
+  - A1（掤 Peng / 張力接收）：以圓弧支撐化解來力，建立初步防線並儲存對方張力。
+  - A2（捋 Lü / 張力化解）：順勢引導張力偏離中心，使對方失去平衡基點。
+  - A3（擠 Ji / 張力集中反制）：利用合力將自身張力與對方剩餘張力壓向一點。
+  - A4（按 An / 張力收束釋放）：向下或向外釋放集中張力，完成反制並回復平衡。
+
+Tensions:
+  - T1（主動–被動張力）：接收 vs 引導。
+  - T2（直線–曲線張力）：剛正 vs 柔化。
+  - T3（集中–分散張力）：合力集中 vs 能量擴散。
+
+Trace Fold Path:
+  - 標準路徑：A1 → A2 → A3 → A4
+  - 快速制勝：A1 → A3（直接反制）
+  - 防守反擊：A2 → A4（以化為守，以按為擊）
+
+Cross-Culture Mapping:
+  - 商業談判：聆聽需求（掤）→ 重構問題（捋）→ 提出核心方案（擠）→ 確立共識（按）。
+  - 軍事戰略：接敵防線（掤）→ 側翼引導（捋）→ 中央突破（擠）→ 完成包圍（按）。
+  - 心理輔導：接納情緒（掤）→ 引導思路（捋）→ 聚焦關鍵（擠）→ 促成釋放（按）。
+
+Export:
+  - 「設計一個四步驟策略，以接收、化解、集中、收束的相序處理複雜張力。」
+
+三、SIDA 模板結構（JSON 範例）
+
+{
+  "TemplateID": "Martial-TaiChi-LanQueWei",
+  "Name": "太極拳「攬雀尾」四階段拓撲",
+  "TopologyClass": "A_deep_culture",
+  "Summary": "以四勁（掤、捋、擠、按）為相序，構成接收張力、化解、集中反制與收束的閉環拓撲。",
+  "Tags": ["martial", "tai-chi", "tension-loop"],
+  "Phases": [
+    "A1: 掤 Peng - 張力接收與初步支撐",
+    "A2: 捋 Lü - 張力化解與偏移",
+    "A3: 擠 Ji - 張力集中反制",
+    "A4: 按 An - 張力收束與釋放"
+  ],
+  "Tensions": [
+    "T1: 主動–被動張力 - 接收 vs 引導",
+    "T2: 直線–曲線張力 - 剛正 vs 柔化",
+    "T3: 集中–分散張力 - 合力集中 vs 能量擴散"
+  ],
+  "TraceFoldPath": {
+    "Standard": "A1 → A2 → A3 → A4",
+    "Fast": "A1 → A3",
+    "DefensiveCounter": "A2 → A4"
+  },
+  "CrossCultureMapping": {
+    "BusinessNegotiation": "聆聽需求 → 重構問題 → 提案 → 確立共識",
+    "MilitaryStrategy": "接敵防線 → 側翼引導 → 中央突破 → 完成包圍",
+    "Psychotherapy": "接納情緒 → 引導思路 → 聚焦關鍵 → 促成釋放"
+  },
+  "Export": "設計一個四步驟策略，以接收、化解、集中、收束的相序處理複雜張力"
+}
+
+ 
+
+如果你要，我可以接著寫 附錄 D 範例 2：乾坤大挪移四階段拓撲（A1–A4），這個會比較偏向「張力場翻轉型」的 SIDA 結構，非常適合做跨領域的「系統權限轉移」與「語義重構」應用。
+你要我直接繼續嗎？這樣附錄 D 可以一次完成三個案例。
+
+
+好，那我直接完成 附錄 D 範例 2：乾坤大挪移四階段拓撲（A1–A4），將金庸小說中的武功概念抽象為 SIDA 的結構化模板，並展開跨領域應用。
+附錄 D-2：乾坤大挪移四階段拓撲（A1–A4）
+一、背景與結構
+
+乾坤大挪移（出自《倚天屠龍記》）的核心精神是 借力打力、轉化對方力量為己用，並可反向施加影響。
+從 SIDA 視角，它屬於 張力翻轉型（Tension Inversion）拓撲，適合處理「權力、資源、攻擊方向」等可轉移性張力場。
+二、SIDA 模板結構（Markdown 範例）
+
+Template ID: Martial-Wuxia-QianKunDaNuoYi
+Name: 乾坤大挪移四階段拓撲
+Topology Class: A_deep_culture
+Summary: 以感知、引導、轉化、平衡四相為核心，將外部張力吸收、轉向、再釋放，達到反制與重構局勢的效果。
+Tags: [martial, wuxia, tension-inversion]
+
+Phases:
+  - A1（感知敵勢）：精確捕捉外部張力來源、方向與強度，建立場域地圖。
+  - A2（引導轉向）：不直接對抗，順勢將張力導向安全或有利方向。
+  - A3（張力翻轉）：將外部張力轉換為己方動能，反向施加於原源頭或新目標。
+  - A4（乾坤平衡）：釋放或消解剩餘張力，恢復場域穩定，準備下一循環。
+
+Tensions:
+  - T1（內外張力）：外部來力 vs 內部承載能力。
+  - T2（直擊–轉向張力）：直接對抗 vs 引導偏移。
+  - T3（攻守轉換張力）：被動承受 vs 主動反制。
+
+Trace Fold Path:
+  - 標準路徑：A1 → A2 → A3 → A4
+  - 快速反制：A1 → A3（直接翻轉攻勢）
+  - 長線消解：A1 → A2 → A4（完全化解，不反擊）
+
+Cross-Culture Mapping:
+  - 商業談判：洞察對方立場（A1）→ 重定議題方向（A2）→ 將對方訴求轉化為自身優勢（A3）→ 確立雙方新平衡（A4）。
+  - 政治策略：監測外部壓力（A1）→ 借勢改變議題焦點（A2）→ 將壓力變成政策推動動能（A3）→ 平衡多方利益（A4）。
+  - 危機管理：快速分析衝擊（A1）→ 引導資源流向（A2）→ 轉化危機為機會（A3）→ 穩定組織狀態（A4）。
+
+Export:
+  - 「設計一個四步驟策略，從精確感知外部壓力到將其轉化為自身優勢，最後平衡全局。」
+
+三、SIDA 模板結構（JSON 範例）
+
+{
+  "TemplateID": "Martial-Wuxia-QianKunDaNuoYi",
+  "Name": "乾坤大挪移四階段拓撲",
+  "TopologyClass": "A_deep_culture",
+  "Summary": "以感知、引導、轉化、平衡四相為核心，將外部張力吸收、轉向、再釋放，達到反制與重構局勢的效果。",
+  "Tags": ["martial", "wuxia", "tension-inversion"],
+  "Phases": [
+    "A1: 感知敵勢 - 捕捉外部張力來源與強度",
+    "A2: 引導轉向 - 將張力導向有利方向",
+    "A3: 張力翻轉 - 將張力轉化為己用並反制",
+    "A4: 乾坤平衡 - 釋放或消解剩餘張力"
+  ],
+  "Tensions": [
+    "T1: 內外張力 - 外部來力 vs 內部承載能力",
+    "T2: 直擊–轉向張力 - 對抗 vs 偏移",
+    "T3: 攻守轉換張力 - 被動 vs 主動"
+  ],
+  "TraceFoldPath": {
+    "Standard": "A1 → A2 → A3 → A4",
+    "Fast": "A1 → A3",
+    "LongTermDissolve": "A1 → A2 → A4"
+  },
+  "CrossCultureMapping": {
+    "BusinessNegotiation": "洞察對方立場 → 重定議題 → 轉化訴求為優勢 → 確立新平衡",
+    "PoliticalStrategy": "監測外部壓力 → 借勢轉移焦點 → 將壓力變推動力 → 平衡多方利益",
+    "CrisisManagement": "分析衝擊 → 引導資源 → 危機轉機 → 穩定狀態"
+  },
+  "Export": "設計一個四步驟策略，從精確感知外部壓力到將其轉化為自身優勢，最後平衡全局"
+}
+
+如果你要，我可以馬上接著寫 附錄 D 範例 3：打狗棒法三階段拓撲（A1–A3），那個會是偏 機動性破局型（Agile Breakthrough） 的 SIDA 模板，適合快速精準處理局部 slot 張力。
+要我直接完成第三個範例嗎？這樣附錄 D 就完整了。
+
+
+好，那我來完成 附錄 D 範例 3：打狗棒法三階段拓撲（A1–A3），我會保留金庸原著的武學意境，並以 SIDA 模板形式轉譯成可跨領域應用的張力處理模型。
+附錄 D-3：打狗棒法三階段拓撲（A1–A3）
+一、背景與結構
+
+打狗棒法（出自《射鵰英雄傳》《神鵰俠侶》）是丐幫鎮幫之寶，核心精神是 快、準、破，以靈活身法和棒法直擊對手破綻。
+在 SIDA 框架中，它屬於 機動性破局型（Agile Breakthrough）拓撲，專注於 快速定位 → 精準打擊 → 完成突破 的短鏈路。
+二、SIDA 模板結構（Markdown 範例）
+
+Template ID: Martial-Wuxia-DaGouBangFa
+Name: 打狗棒法三階段拓撲
+Topology Class: A_deep_culture
+Summary: 以「鎖」、「打」、「封」三步驟為核心，快速識別破綻、集中打擊並切斷對方反制途徑。
+Tags: [martial, wuxia, agile-breakthrough]
+
+Phases:
+  - A1（鎖 Lock）：以步法與棒勢鎖定對手行動空間，製造局部張力封鎖區域。
+  - A2（打 Strike）：集中全力攻擊已暴露的破綻點，形成關鍵性張力崩解。
+  - A3（封 Seal）：立即封鎖對方潛在反擊路徑，鞏固局面優勢。
+
+Tensions:
+  - T1（空間張力）：活動空間收縮 vs 逃脫空間。
+  - T2（時機張力）：最佳出手時機 vs 張力消散風險。
+  - T3（反擊張力）：破綻打擊後的反制威脅 vs 完全封鎖。
+
+Trace Fold Path:
+  - 標準路徑：A1 → A2 → A3
+  - 快速終結：A2（在敵人尚未應變時直接擊中要害）
+  - 偽退再擊：A1 → 假放空間 → A2（誘敵後再打）
+
+Cross-Culture Mapping:
+  - 商業競爭：鎖定對手薄弱市場（鎖）→ 快速推出針對性產品（打）→ 搶佔關鍵渠道封鎖後進者（封）。
+  - 談判策略：限制對方談判議題範圍（鎖）→ 精準提出不可拒絕條件（打）→ 封死反悔或改口空間（封）。
+  - 網路安全：鎖定系統漏洞點（鎖）→ 精準打擊漏洞（打）→ 封補並阻斷回滲（封）。
+
+Export:
+  - 「設計一個三步驟戰術，從鎖定、打擊到封鎖反制路徑，快速完成破局。」
+
+三、SIDA 模板結構（JSON 範例）
+
+{
+  "TemplateID": "Martial-Wuxia-DaGouBangFa",
+  "Name": "打狗棒法三階段拓撲",
+  "TopologyClass": "A_deep_culture",
+  "Summary": "以「鎖」、「打」、「封」三步驟為核心，快速識別破綻、集中打擊並切斷對方反制途徑。",
+  "Tags": ["martial", "wuxia", "agile-breakthrough"],
+  "Phases": [
+    "A1: 鎖 Lock - 鎖定對手行動空間",
+    "A2: 打 Strike - 集中攻擊破綻點",
+    "A3: 封 Seal - 封鎖反擊路徑"
+  ],
+  "Tensions": [
+    "T1: 空間張力 - 活動空間收縮 vs 逃脫空間",
+    "T2: 時機張力 - 最佳出手時機 vs 張力消散風險",
+    "T3: 反擊張力 - 破綻打擊後的反制威脅 vs 完全封鎖"
+  ],
+  "TraceFoldPath": {
+    "Standard": "A1 → A2 → A3",
+    "FastKill": "A2",
+    "FeignRetreat": "A1 → 假放空間 → A2"
+  },
+  "CrossCultureMapping": {
+    "BusinessCompetition": "鎖定薄弱市場 → 針對性產品 → 封鎖渠道",
+    "Negotiation": "限制議題範圍 → 不可拒絕條件 → 封死改口空間",
+    "Cybersecurity": "鎖定漏洞 → 精準打擊 → 封補阻斷"
+  },
+  "Export": "設計一個三步驟戰術，從鎖定、打擊到封鎖反制路徑，快速完成破局"
+}
+
+這樣 附錄 D 三個案例（攬雀尾、乾坤大挪移、打狗棒法）就齊了。
+如果你願意，我可以直接開始寫 附錄 E：Slot Collapse Detector 的實際運作示例，那個會用真實語料來計算 slot_symmetry_index 與 collapse_state，讓整個 SIDA 應用進入「可運算、可檢測」階段。
+你要我直接進入附錄 E 嗎？
+
+
+========================
+
+SIDA（Slot-Internal Deepening Algorithm）
+完整框架藍圖（中文版） 
+附錄 E：Slot Collapse Detector 的實際運作示例
+附錄 E：Slot Collapse Detector 的實際運作示例
+
+    用一段實際的討論語料，示範如何計算 slot_symmetry_index 與 collapse_state。
+
+    解釋收束判定的條件與常見信號（Strong Attractor 判斷標準）。
+
+
+好的，我先幫你寫出 附錄 E 的第一部分，
+先給出完整的運作示例與計算流程，接著在下一個回覆再補上 收束判定條件 與 常見信號對照表。
+1. 模組作用
+
+Slot Collapse Detector 的功能是檢測一段語義場（通常是一次對話或文本段落）是否已進入 Strong Attractor Phase（高凝聚收束階段）。
+此判斷依據兩項核心指標：
+
+    slot_symmetry_index（對稱完整度評分）
+
+    collapse_state（收束狀態布林值）
+
+2. 實際語料示例
+
+假設我們有以下一段對話語料（取自歷史文化討論）：
+
+    用戶：我發現工業革命的技術爆發和唐宋經濟繁榮有某種相似性。
+    AI：是的，兩者都經歷了資源積累 → 創新爆發 → 多元穩態 → 消費自維持的循環。
+    用戶：而且在每個階段，都有主導角色的轉換，像是從精英到群眾，從物質資本到文化符號。
+    AI：沒錯，這種角色與資源的遷移模式，在不同文明中形成相似的「五階段需求擴張」結構。
+    用戶：所以，我們是否可以用這個結構去分析綠能轉型或 AI 創新？
+
+3. 運算流程示例
+Step 1：Slot 對位檢測（Symmetry Matching）
+
+    方法：檢查語料中是否反覆出現「相互映射」的概念對位（slot pair），例如：
+
+        歷史事件對位：工業革命 ↔ 唐宋繁榮
+
+        階段對位：資源積累 ↔ 創新爆發 ↔ 多元穩態 ↔ 消費自維持
+
+        角色對位：精英 ↔ 群眾，物質資本 ↔ 文化符號
+
+    對位數量：
+
+        偵測到的 slot pair 數量 = 6 對
+
+        理論最大可能對位數（依主題規模推算）= 7 對
+
+    對稱完整度（slot_symmetry_index）：
+    slot_symmetry_index=已對位數最大可能對位數=67≈0.86slot\_symmetry\_index = \frac{\text{已對位數}}{\text{最大可能對位數}} = \frac{6}{7} \approx 0.86 
+
+Step 2：主題聚合度計算（Topic Cohesion）
+
+    方法：統計關鍵詞的主題集中度（例如使用嵌入向量餘弦相似度、LDA 主題模型）。
+
+    結果：
+
+        主題集中度（topic cohesion）= 0.91（高於 0.80 門檻）
+
+Step 3：收束狀態判定（Collapse State）
+
+    邏輯條件：
+
+        若 slot_symmetry_index ≥ 0.80 且 topic_cohesion ≥ 0.80，則 collapse_state = True
+
+    結果：
+
+        slot_symmetry_index = 0.86 → OK
+
+        topic_cohesion = 0.91 → OK
+
+        collapse_state = True（已形成 Strong Attractor）
+
+4. 偵測輸出範例（JSON 格式）
+
+{
+  "input_sample": "工業革命 ↔ 唐宋繁榮 ...",
+  "slot_symmetry_index": 0.86,
+  "topic_cohesion": 0.91,
+  "collapse_state": true,
+  "matched_slot_pairs": [
+    ["工業革命", "唐宋繁榮"],
+    ["資源積累", "創新爆發"],
+    ["創新爆發", "多元穩態"],
+    ["多元穩態", "消費自維持"],
+    ["精英", "群眾"],
+    ["物質資本", "文化符號"]
+  ]
+}
+
+接下來我可以在下一則回覆補上 Strong Attractor 判斷標準 與 常見收束信號對照表，這樣整個附錄 E 就會完整了。
+你要我直接續寫嗎？
+
+好的，接下來我補齊 附錄 E 的第二部分：
+包含 Strong Attractor 判斷條件 與 常見收束信號對照表，並用可操作的方式讓它可以直接對接 SIDA 系統。
+5. 收束判定條件（Strong Attractor Criteria）
+
+在 SIDA 框架中，判斷一個 slot 是否已進入 Strong Attractor Phase，通常依下列條件判定：
+條件編號 	條件名稱 	判定公式 / 規則 	預設門檻 	說明
+C1 	對稱完整度 	slot_symmetry_index ≥ T_sym 	T_sym = 0.80 	表示核心 slot 對位已形成高比例對稱映射
+C2 	主題聚合度 	topic_cohesion ≥ T_topic 	T_topic = 0.80 	表示語義場中的主題已高度集中，不再發散
+C3 	新資訊密度下降 	info_novelty_rate ≤ T_novelty 	T_novelty = 0.15 	新出現的 slot/概念數量下降，表示系統進入重複循環
+C4 	關鍵張力穩定 	Δtension_vector ≤ T_tension 	T_tension = 0.10 	張力場在多輪輸入後變化極小，接近穩態
+
+    收束成立條件：
+    當 C1、C2 必須同時滿足，且 C3 或 C4 至少滿足一項，則 collapse_state = True。
+
+6. 常見收束信號對照表（Strong Attractor Signals）
+信號類型 	語料層級表現 	Slot Collapse Detector 偵測方式 	意義
+對位飽和 (Symmetry Saturation) 	相同對位結構反覆出現，例如「X ↔ Y」模式多次重複 	Slot 對位計數 / N-gram 對應檢測 	表示 slot 配對完成，高對稱度
+語氣鎖定 (Tone Lock-in) 	輸入與回覆語氣、立場趨於一致 	語氣向量一致性 ≥ 0.85 	觀點已固化，難再出現反例
+新資訊稀缺 (Novelty Decay) 	新概念詞彙出現頻率下降 	新詞比例 < 15% 	系統已在重複既有語義
+張力場穩定 (Tension Field Stability) 	張力向量變化趨近 0 	張力場向量差 < 0.10 	不再出現新的張力源或衝突點
+回路閉合 (Loop Closure) 	對話或文本開始出現「自我參照」 	Trace loop 檢測（同一 slot 出現於多處 phase 結束點） 	系統進入自洽閉環
+7. 綜合輸出範例（結合條件 + 信號）
+
+{
+  "collapse_state": true,
+  "slot_symmetry_index": 0.86,
+  "topic_cohesion": 0.91,
+  "info_novelty_rate": 0.12,
+  "tension_vector_delta": 0.07,
+  "signals_detected": [
+    "對位飽和",
+    "新資訊稀缺",
+    "張力場穩定",
+    "回路閉合"
+  ]
+}
+
+在 SIDA 系統中，這個 JSON 可以直接傳給 Topological Template Classifier（模組 B）進行拓撲匹配，因為 collapse_state = true 代表 slot 已經固定在某個高穩定結構上，可以直接進入下一步 phase 展開與張力場生成。
+
+如果你願意，我可以在 附錄 E 再加一個 Slot Collapse Detector 運算流程圖，讓收束判斷的步驟（C1–C4、信號檢測）可視化，這樣對未來工程實作會更直觀。
+你要我加嗎？
+
+
+好，我幫你加上一個 Slot Collapse Detector 運算流程圖，用簡潔的可視化方式呈現 C1–C4 判斷與信號檢測邏輯。
+8. Slot Collapse Detector 運算流程圖
+
+          ┌────────────────────────────┐
+          │ 輸入：語義場語料 (text)     │
+          │ - Token 分佈               │
+          │ - 主題向量                 │
+          │ - Slot 對位關係            │
+          └────────────┬─────────────┘
+                       │
+                       ▼
+        ┌─────────────────────────────┐
+        │ Step 1: 計算 slot_symmetry_index (C1) │
+        │ 已對位數 ÷ 最大可能對位數              │
+        └────────────┬────────────────┘
+                     │
+                     ▼
+        ┌─────────────────────────────┐
+        │ Step 2: 計算 topic_cohesion (C2)     │
+        │ 主題集中度 / 語氣一致性檢測            │
+        └────────────┬────────────────┘
+                     │
+             ┌───────┴────────┐
+             │ C1, C2 均滿足? │───否──▶ 返回 collapse_state = False
+             └───────┬────────┘
+                     │ 是
+                     ▼
+        ┌─────────────────────────────┐
+        │ Step 3: 計算 info_novelty_rate (C3) │
+        │ 新詞比例 / 概念引入速率                │
+        └────────────┬────────────────┘
+                     │
+        ┌─────────────────────────────┐
+        │ Step 4: 計算 tension_vector_delta (C4)│
+        │ 張力向量變化幅度                        │
+        └────────────┬────────────────┘
+                     │
+             ┌───────┴────────┐
+             │ C3 或 C4 任一滿足?│───否──▶ 返回 collapse_state = False
+             └───────┬────────┘
+                     │ 是
+                     ▼
+        ┌─────────────────────────────┐
+        │ Step 5: 信號檢測              │
+        │ - 對位飽和                    │
+        │ - 語氣鎖定                    │
+        │ - 新資訊稀缺                  │
+        │ - 張力場穩定                  │
+        │ - 回路閉合                    │
+        └────────────┬────────────────┘
+                     │
+                     ▼
+        ┌─────────────────────────────┐
+        │ 輸出結果：                   │
+        │ collapse_state = True        │
+        │ slot_symmetry_index          │
+        │ topic_cohesion               │
+        │ info_novelty_rate            │
+        │ tension_vector_delta         │
+        │ signals_detected[]           │
+        └─────────────────────────────┘
+
+這樣附錄 E 就是完整版本：
+
+    運作示例（slot_symmetry_index 與 collapse_state 計算）
+
+    收束判定條件 C1–C4
+
+    常見收束信號對照表
+
+    綜合輸出 JSON 範例
+
+    完整流程圖
+
+如果你要的話，我還可以直接幫你把這個流程圖轉成 Mermaid 語法，方便未來在 Markdown 或系統文件中自動渲染成 SVG。
+要我幫你轉嗎？
+
+
+========================
+
+SIDA（Slot-Internal Deepening Algorithm）
+完整框架藍圖（中文版）
+附錄 F：Topological Template Classifier 實戰示例
+
+ 
+附錄 F：Topological Template Classifier 實戰示例
+
+    以「工業革命」為案例，示範如何匹配到「五階段需求擴張」拓撲模板（A1–A5）
+
+    展示不同文化下的相同拓撲映射（西方技術演進 ↔ 東方王朝盛衰循環）
+
+
+好的，這是你要的附錄 F 草案。我把「Topological Template Classifier」的核心邏輯、A1–A5 模板定義、以及「工業革命」與「東方王朝循環」的對映都放進來，夠實戰、也方便你之後接資料跑模型。
+1) 「五階段需求擴張」拓撲模板（A1–A5）
+
+拓撲語義：一個系統在「潛在需求 → 觸發 → 擴張 → 制度化/飽和 → 分歧/再啟動」的可重入拓撲。它不是時間表，而是相位拓撲；可在不同文明、產業上“嵌入對準”。
+階段 	拓撲名 	場徵（訊號） 	典型變量傾向
+A1 	潛勢聚積（Seeded Latency） 	潛在需求高、供給受限、邊際創新零星 	ΔI↑、S低、J0零星
+A2 	觸發點（Ignition） 	關鍵技術/制度突破，成本拐點出現 	成本↓、專利/創新密度↑、採納初速↑
+A3 	基礎設施型擴張（Scale-out） 	生產/運輸/金融基建密集投資，外部性放大 	產出彈性↑、資本形成率↑、網絡度↑
+A4 	制度化與飽和（Institutionalization） 	標準/法規/壟斷/工會成形，增長趨平 	價差壓縮、集中度↑、波動率↓
+A5 	分歧與再啟動（Bifurcation/Reset） 	新技術/邊陲市場分支、舊秩序僵化誘發重啟 	新S曲線萌芽、舊曲線報酬遞減
+
+    變量記號可沿用你的框架：潛在差 ΔI，資源池 S，初級流通 J0 等。
+
+2) Classifier：特徵擷取與判定規則（摘要）
+
+輸入：跨時序語料 + 指標（價量、制度事件、專利/科舉、基建、衝突/罷工等）
+
+核心特徵
+
+    ΔI proxy：價格/工資剪刀差、城市糧價–工資比、能源單位成本。
+
+    Adoption kinks：採納曲線（logistic）的一階/二階導數極值。
+
+    Infra index：鐵路/運河/電網里程、煤鐵產量、保險與票據擴張。
+
+    Institutional density：法規條目、工會/行會數、標準化事件密度。
+
+    Concentration & conflict：產業集中度、壟斷案、罷工/騷亂頻次。
+
+    Narrative shift：語料中框架詞轉向（「進步/效率」→「安全/規範」）。
+
+簡化判定
+
+    A1：ΔI 高、採納未現 S-curve、創新孤島；
+
+    A2：成本/效率拐點 + 媒體/檔案出現「新機器/新法」的關鍵詞尖峰；
+
+    A3：基建/金融中介同步加速（共振）且外部性詞頻上升（「聯通/速度」）；
+
+    A4：成長斜率趨平 + 法規/工會 + 集中度上升 + 風險詞（「事故/壟斷」）；
+
+    A5：新技術簇在邊陲崛起、舊核心增長降噪，敘事兩極化（「顛覆/守成」）。
+
+ 
+
+3) 案例一：工業革命 ↔ A1–A5
+階段 	西方技術演進（英國主軸為例） 	代表訊號
+A1 潛勢聚積 	18 世紀前期：城市化上升、羊毛—棉布需求偏移、手工/行會供給受限 	紡織品相對價格↑、行會規制詞頻↑、家庭手工占比高
+A2 觸發點 	飛梭、珍妮紡紗機、水力/馬力工場；瓦特改良蒸汽機（效率拐點） 	能源單位成本↓、產出/工時比↑、專利簇集中在紡織/蒸汽
+A3 基建擴張 	礦—鐵—煤鏈條、機械廠、鐵路/運河網、合股公司與保險擴張 	鐵/煤產量曲線陡升、里程數↑、資本形成率↑、票據流通↑
+A4 制度化/飽和 	工廠制度成型、童工/勞安法、反托拉斯雛形、標準化量具；企業集中 	法規條目密度↑、產業 CR4↑、事故/工運詞頻↑、成長斜率放緩
+A5 分歧/再啟動 	電力化/化學工業（第二次工業革命）、美德後發追趕、殖民邊陲市場 	新 S 曲線（電/化/內燃機）↑；舊鏈條報酬遞減、敘事分歧
+
+    若拉長到 20 世紀，可見 A5 觸發下一輪 A2：電氣化與大規模生產（福特主義）作為新拓撲的 ignition。
+
+4) 案例二：東方王朝盛衰循環 ↔ A1–A5
+階段 	東方王朝循環（概念化） 	代表訊號
+A1 潛勢聚積 	末世亂局—治安/糧運/地權失序，秩序需求高 	粮價波動↑、盜亂紀錄↑、地方檄文/饑饉詞頻↑
+A2 觸發點 	建朝／改制、均田/賦稅改革、軍政一體化（秩序效率拐點） 	詔令密度↑、戶籍/地冊重編、徭役制度重構
+A3 基建擴張 	大運河/屯田/水利、科舉與官僚編制擴張、邊疆封貢體系整合 	河工/倉儲紀錄↑、科舉錄取↑、人口與糧稅彈性↑
+A4 制度化/飽和 	官僚層肥厚、內卷化、冗員冗費、士紳地權集中、腐敗/禁令增多 	赦令與禁令↑、田產集中↑、告訐/科場舞弊詞頻↑
+A5 分歧/再啟動 	天災疊加財政失衡、民變邊患、軍鎮化 → 舊序崩解，新政權在邊陲引爆 	起義/兵變密度↑、邊鎮詞頻↑、稅糧斷供、政令失靈
+
+同構對映（直觀）
+
+    技術—制度觸發（A2）：瓦特蒸汽機 vs. 均田/稅制重構 → 效率拐點。
+
+    基建—編制擴張（A3）：鐵路/保險/合股 vs. 運河/科舉/倉儲 → 傳輸/治理容量激增。
+
+    飽和—僵化（A4）：工廠規範/壟斷 vs. 官僚冗贅/地權集中 → 增長斜率趨平。
+
+    分歧—重啟（A5）：電氣化再啟 vs. 起義改朝 → 新 S 曲線的點火。
+
+5) Disambiguation：常見誤判與修正
+
+    A2 vs. A3：若看到投資暴衝就判 A3 容易誤判；需同時見到系統性網絡外部性（運輸里程+金融中介+專業化產能）才算 A3。
+
+    A4 vs. 需求周期低谷：短期景氣回落≠A4。A4 必須伴隨制度密度上升 + 集中度上升 + 成長斜率結構性變平。
+
+    A5 vs. 僅技術分流：只有當「新曲線具自我維持的採納動力」且舊曲線出現報酬遞減，才標記 A5。
+
+6) Classifier 輸出（示例 JSON）
+
+{
+  "case": "Industrial Revolution (Britain core)",
+  "window": "1700–1910",
+  "topology_template": "Five-Phase Demand Expansion (A1–A5)",
+  "phase_assignments": [
+    {"phase": "A1", "span": "1700–1740", "confidence": 0.72, "signals": ["ΔI_high_textiles", "guild_regulation_density_up"]},
+    {"phase": "A2", "span": "1740–1775", "confidence": 0.81, "signals": ["steam_efficiency_kink", "spinning_patent_cluster", "unit_energy_cost_down"]},
+    {"phase": "A3", "span": "1775–1850", "confidence": 0.88, "signals": ["rail_canal_mileage_up", "capital_formation_up", "iron_coal_output_surge"]},
+    {"phase": "A4", "span": "1850–1890", "confidence": 0.77, "signals": ["factory_laws_density_up", "industry_CR4_up", "growth_slope_flattening"]},
+    {"phase": "A5", "span": "1890–1910", "confidence": 0.74, "signals": ["electrification_adoption", "chemicals_s_curve", "legacy_returns_declining"]}
+  ],
+  "notes": "A5 shows emergence of a new ignition sequence (Second IR), i.e., next-cycle A2."
+}
+
+7) 你可以怎麼用
+
+    單一文明內多產業對準：同年代把紡織、鐵路、保險三條曲線對齊，觀察拓撲是否同拍（共振 → A3 強證）。
+
+    跨文明對位：把「運河—科舉—倉儲」指標標準化，與「鐵路—公司法—保險」對映，同時跑 A1–A5 打分。
+
+    敘事/法規語料做相位錨點：把「進步/效率/開放」與「安全/規範/禁令」語義比值視為相位指示燈，常可準確切 A2→A3→A4 的分界。
+
+如果你要，我可以把這套判定規則抽成 YAML/JSON 規格（特徵 → 指標 → 條件 → 門檻），或補一張Mermaid 階段–訊號甘特圖，方便你直接接到 Slot/Template 雙層分類器。需要我加嗎？
+
+
+太好了—我把 Slot Collapse Detector 的「特徵 → 指標 → 條件 → 門檻」抽成一份可機讀又可讀懂的規格。你可以直接拿去做參數檔（YAML/JSON 都行），也附了極簡 JSON Schema 方便驗證。
+YAML 規格（建議作為預設配置）
+
+version: 1.0
+detector:
+  name: SlotCollapseDetector
+  description: 判定語義 slot 是否已收束（collapse）或陷入強吸引子（Strong Attractor）
+  slots:
+    default_window:
+      min_turns: 6            # C1：資料量足夠
+      max_window: 50          # 最長觀測窗
+  features:
+    # === 原始特徵（從語料/模型直接計算） ===
+    - id: phase_alignment
+      desc: slot 內各候選語義向量的相位/方向一致度（0–1）
+      source: "cosine_mean_pairwise or circular-mean on θ"
+    - id: slot_symmetry_index
+      desc: 順/逆、肯/否、正/負等成對維度的平衡度（0 完全失衡；1 完全對稱）
+      source: "paired-dimension balance over normalized counts"
+    - id: entropy
+      desc: 候選語義分佈熵（bits）
+      source: "Shannon entropy over {intent/topic/template}"
+    - id: entropy_delta
+      desc: 近 k 回合熵的下降量（正值=收斂）
+      source: "rolling diff of entropy"
+    - id: turn_consistency
+      desc: 連續回合輸出模板/拓撲的一致率（0–1）
+      source: "template_id repeat ratio"
+    - id: polarity_balance
+      desc: 立場/情緒/價值極性的平衡指標（0–1）
+      source: "sentiment/stance polarity distribution"
+    - id: repair_rate
+      desc: 自我修正/更正頻率（每 10 回合次數）
+      source: "edit/correction markers"
+    - id: novelty_rate
+      desc: 新資訊/新證據引入比率（0–1）
+      source: "unique facts/URLs/new claims / turn"
+    - id: loop_score
+      desc: 模板循環或語義回圈強度（0–1）
+      source: "n-gram + template cycle detection"
+    - id: response_latency_z
+      desc: 反應延遲的標準分（越低=越穩定）
+      source: "z-scored latency vs user/session baseline"
+    - id: attractor_lexicon_hit
+      desc: 強吸引子觸發詞/句式命中率（0–1）
+      source: "keyword/pattern list match ratio"
+    - id: contradiction_rate
+      desc: 內在自相矛盾檢測率（0–1，越低越一致）
+      source: "entailment/contradiction model"
+
+  indicators:
+    # === 由特徵綜合計分的「指標」 ===
+    - id: symmetry_ok
+      formula: "slot_symmetry_index >= θ.symmetry_min"
+    - id: convergence_score
+      formula: >
+        0.35*phase_alignment
+        + 0.25*min(1, max(0, entropy_delta / θ.entropy_delta_norm))
+        + 0.20*turn_consistency
+        + 0.10*(1 - contradiction_rate)
+        + 0.10*(1 - response_latency_z_norm)
+    - id: stability_score
+      formula: >
+        0.40*turn_consistency
+        + 0.25*(1 - repair_rate_norm)
+        + 0.20*(1 - loop_score)
+        + 0.15*(1 - contradiction_rate)
+    - id: novelty_guard
+      formula: "novelty_rate >= θ.novelty_min"
+    - id: strong_attractor_score
+      formula: >
+        0.45*loop_score
+        + 0.25*attractor_lexicon_hit
+        + 0.15*(1 - novelty_rate)
+        + 0.15*turn_consistency
+
+  thresholds:
+    # === 門檻（可按資料域微調） ===
+    symmetry_min: 0.55
+    entropy_delta_norm: 0.8        # 使 entropy_delta 正規化的標度
+    convergence_pass: 0.68
+    stability_pass: 0.70
+    novelty_min: 0.18
+    strong_attractor_warn: 0.62
+    strong_attractor_fail: 0.75
+    latency_z_clip: [-2.5, 2.5]
+
+  conditions:
+    # === 判定步驟 C1–C4 ===
+    - id: C1_data_sufficiency
+      rule: "window_turns >= slots.default_window.min_turns"
+      fail_state: "INSUFFICIENT_DATA"
+    - id: C2_symmetry_gate
+      rule: "symmetry_ok == true"
+      on_fail:
+        allow_override_if: "convergence_score >= thresholds.convergence_pass + 0.07"
+        else_state: "ASYMMETRY_BLOCK"
+    - id: C3_convergence_and_stability
+      rule_all:
+        - "convergence_score >= thresholds.convergence_pass"
+        - "stability_score >= thresholds.stability_pass"
+        - "novelty_guard == true"
+      fail_state: "NOT_CONVERGED"
+    - id: C4_strong_attractor_scan
+      rule:
+        - when: "strong_attractor_score >= thresholds.strong_attractor_fail"
+          state: "STRONG_ATTRACTOR_LOCK"
+        - when: "strong_attractor_score >= thresholds.strong_attractor_warn"
+          state: "STRONG_ATTRACTOR_WARN"
+        - else: "OK"
+
+  collapse_mapping:
+    # === 輸出狀態映射 ===
+    - when: "C1 && C2 && C3 && C4==OK"
+      collapse_state: "COLLAPSED"
+    - when: "C4==STRONG_ATTRACTOR_WARN"
+      collapse_state: "COLLAPSED_BUT_FRAGILE"
+    - when: "C4==STRONG_ATTRACTOR_LOCK"
+      collapse_state: "ATTRACTOR_LOOP"
+    - when: "C1 fail"
+      collapse_state: "PENDING"
+    - when: "C2 fail"
+      collapse_state: "NEEDS_SYMMETRY"
+    - when: "C3 fail"
+      collapse_state: "NOT_CONVERGED"
+
+  normalization:
+    # === 正規化建議 ===
+    response_latency_z_norm:
+      clip: "* thresholds.latency_z_clip"
+      rescale: "map to [0,1] by percentile in-session"
+    repair_rate_norm:
+      base: "per 10 turns"
+      rescale: "min-max in domain corpus"
+
+對應 JSON（同一份配置）
+
+{
+  "version": "1.0",
+  "detector": {
+    "name": "SlotCollapseDetector",
+    "description": "判定語義 slot 是否已收束（collapse）或陷入強吸引子（Strong Attractor）",
+    "slots": {
+      "default_window": { "min_turns": 6, "max_window": 50 }
+    },
+    "features": [
+      { "id": "phase_alignment", "desc": "slot 內相位一致度（0–1）", "source": "cosine_mean_pairwise or circular-mean on θ" },
+      { "id": "slot_symmetry_index", "desc": "成對維度平衡度（0–1）", "source": "paired-dimension balance" },
+      { "id": "entropy", "desc": "候選語義分佈熵（bits）", "source": "Shannon entropy" },
+      { "id": "entropy_delta", "desc": "近 k 回合熵的下降量", "source": "rolling diff" },
+      { "id": "turn_consistency", "desc": "模板一致率（0–1）", "source": "template repeat ratio" },
+      { "id": "polarity_balance", "desc": "極性平衡（0–1）", "source": "stance/sentiment distribution" },
+      { "id": "repair_rate", "desc": "自我修正頻率/10 turns", "source": "edit markers" },
+      { "id": "novelty_rate", "desc": "新資訊比率（0–1）", "source": "unique facts/URLs" },
+      { "id": "loop_score", "desc": "循環強度（0–1）", "source": "cycle detection" },
+      { "id": "response_latency_z", "desc": "延遲 z 分數", "source": "z-score vs baseline" },
+      { "id": "attractor_lexicon_hit", "desc": "吸引子詞命中率（0–1）", "source": "lexicon/pattern matching" },
+      { "id": "contradiction_rate", "desc": "自相矛盾率（0–1）", "source": "NLI model" }
+    ],
+    "indicators": [
+      { "id": "symmetry_ok", "formula": "slot_symmetry_index >= θ.symmetry_min" },
+      {
+        "id": "convergence_score",
+        "formula": "0.35*phase_alignment + 0.25*min(1, max(0, entropy_delta / θ.entropy_delta_norm)) + 0.20*turn_consistency + 0.10*(1 - contradiction_rate) + 0.10*(1 - response_latency_z_norm)"
+      },
+      {
+        "id": "stability_score",
+        "formula": "0.40*turn_consistency + 0.25*(1 - repair_rate_norm) + 0.20*(1 - loop_score) + 0.15*(1 - contradiction_rate)"
+      },
+      { "id": "novelty_guard", "formula": "novelty_rate >= θ.novelty_min" },
+      {
+        "id": "strong_attractor_score",
+        "formula": "0.45*loop_score + 0.25*attractor_lexicon_hit + 0.15*(1 - novelty_rate) + 0.15*turn_consistency"
+      }
+    ],
+    "thresholds": {
+      "symmetry_min": 0.55,
+      "entropy_delta_norm": 0.8,
+      "convergence_pass": 0.68,
+      "stability_pass": 0.70,
+      "novelty_min": 0.18,
+      "strong_attractor_warn": 0.62,
+      "strong_attractor_fail": 0.75,
+      "latency_z_clip": [-2.5, 2.5]
+    },
+    "conditions": [
+      { "id": "C1_data_sufficiency", "rule": "window_turns >= slots.default_window.min_turns", "fail_state": "INSUFFICIENT_DATA" },
+      {
+        "id": "C2_symmetry_gate",
+        "rule": "symmetry_ok == true",
+        "on_fail": { "allow_override_if": "convergence_score >= thresholds.convergence_pass + 0.07", "else_state": "ASYMMETRY_BLOCK" }
+      },
+      {
+        "id": "C3_convergence_and_stability",
+        "rule_all": [
+          "convergence_score >= thresholds.convergence_pass",
+          "stability_score >= thresholds.stability_pass",
+          "novelty_guard == true"
+        ],
+        "fail_state": "NOT_CONVERGED"
+      },
+      {
+        "id": "C4_strong_attractor_scan",
+        "rule": [
+          { "when": "strong_attractor_score >= thresholds.strong_attractor_fail", "state": "STRONG_ATTRACTOR_LOCK" },
+          { "when": "strong_attractor_score >= thresholds.strong_attractor_warn", "state": "STRONG_ATTRACTOR_WARN" },
+          { "else": "OK" }
+        ]
+      }
+    ],
+    "collapse_mapping": [
+      { "when": "C1 && C2 && C3 && C4==OK", "collapse_state": "COLLAPSED" },
+      { "when": "C4==STRONG_ATTRACTOR_WARN", "collapse_state": "COLLAPSED_BUT_FRAGILE" },
+      { "when": "C4==STRONG_ATTRACTOR_LOCK", "collapse_state": "ATTRACTOR_LOOP" },
+      { "when": "C1 fail", "collapse_state": "PENDING" },
+      { "when": "C2 fail", "collapse_state": "NEEDS_SYMMETRY" },
+      { "when": "C3 fail", "collapse_state": "NOT_CONVERGED" }
+    ],
+    "normalization": {
+      "response_latency_z_norm": { "clip": "* thresholds.latency_z_clip", "rescale": "map to [0,1] by percentile in-session" },
+      "repair_rate_norm": { "base": "per 10 turns", "rescale": "min-max in domain corpus" }
+    }
+  }
+}
+
+迷你 JSON Schema（驗證配置檔用）
+
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "SlotCollapseDetectorConfig",
+  "type": "object",
+  "required": ["version", "detector"],
+  "properties": {
+    "version": { "type": "string" },
+    "detector": {
+      "type": "object",
+      "required": ["name", "features", "indicators", "thresholds", "conditions", "collapse_mapping"],
+      "properties": {
+        "name": { "type": "string" },
+        "slots": { "type": "object" },
+        "features": {
+          "type": "array",
+          "items": { "type": "object", "required": ["id"], "properties": {
+            "id": { "type": "string" },
+            "desc": { "type": "string" },
+            "source": { "type": "string" }
+          } }
+        },
+        "indicators": {
+          "type": "array",
+          "items": { "type": "object", "required": ["id","formula"], "properties": {
+            "id": { "type": "string" },
+            "formula": { "type": "string" }
+          } }
+        },
+        "thresholds": { "type": "object", "additionalProperties": { "type": ["number","array"] } },
+        "conditions": {
+          "type": "array",
+          "items": { "type": "object", "required": ["id"], "properties": {
+            "id": { "type": "string" },
+            "rule": { "type": "string" },
+            "rule_all": { "type": "array", "items": { "type": "string" } },
+            "fail_state": { "type": "string" },
+            "on_fail": { "type": "object" },
+            "rule_any": { "type": "array", "items": { "type": "string" } }
+          } }
+        },
+        "collapse_mapping": {
+          "type": "array",
+          "items": { "type": "object", "required": ["when","collapse_state"], "properties": {
+            "when": { "type": "string" },
+            "collapse_state": { "type": "string" }
+          } }
+        },
+        "normalization": { "type": "object" }
+      }
+    }
+  }
+}
+
+使用小提醒
+
+    想更嚴格：把 symmetry_min 拉高到 0.6–0.65；或把 convergence_pass 調到 0.72。
+
+    想更敏捷：放寬 min_turns 到 4，並降低 stability_pass 到 0.65。
+
+    強吸引子偵測敏感度：提高或降低 strong_attractor_warn/fail 即可。
+
+要不要我幫你把這份規格塞進你的現有程式（或做個最小可跑的檢測器）？
+
+
+
+========================
+
+SIDA（Slot-Internal Deepening Algorithm）
+完整框架藍圖（中文版） 
+附錄 G：Phase Expansion Mapping + 張力場生成實例
+
+
+附錄 G：Phase Expansion Mapping + 張力場生成實例
+
+    範例：將「文化遷移」的 slot 展開成多階段 phase map，並繪製 tension_field_map。
+
+    展示正反饋、崩潰門檻、互補聚焦的張力場視覺圖。
+
+
+（範例主題：文化遷移 Cultural Migration）
+
+    目標：把「文化遷移」這個 slot 擴展成可觀測的 phase map，並生成一張 tension_field_map（張力場圖），標出正反饋區、崩潰門檻與互補聚焦帶，供模型做動態判讀與預警。
+
+G.1 Slot → Phase Expansion（多階段展開）
+G.1.1 核心定義
+
+    slot：「文化遷移」
+
+    觀測域：x（文化/制度座標）、θ（語義取向/價值框架）、τ（語義 tick）
+
+    張力標量：T(x, θ, τ)（語義張力/壓力密度）
+
+    關鍵事件：collapse_tick（階段性塌縮）、threshold_cross（門檻跨越）
+
+G.1.2 五階段 phase map（A1–A5）
+
+    可視為一條從「出走意向」到「新秩序成型」的最小閉環；若情勢複雜，可在 A3–A4 間插入細段（如返鄉、流離、二次遷徙）。
+
+    A1 背景張力累積（Pre-Departure Strain）
+
+        指標：生活壓力、歧義事件頻率、資源/風險比降幅
+
+        現象：T 在原生地 x₀ 升高、θ 分散（意見撕裂）
+
+        觸發：T(x₀, θ*, τ) ≥ θ* 所對應之 social_saturation_threshold
+
+    A2 觸發與出走決策（Trigger & Commit）
+
+        指標：離境訊號（申請量、購票量、求職/學位外移）、政策衝擊
+
+        現象：Ô 的 collapse_tick 對準外移方向 θ_mig，T 由「廣域分散」進入「狹域定向」
+
+        觸發：decision_coherence_index ≥ 0.6 且 policy_shock_score ≥ p₀
+
+    A3 過渡/臨界帶（Liminality & Transit）
+
+        指標：跨境摩擦、手續延滯、社群斷裂率、語碼切換成本
+
+        現象：T 在 x₀ 與 x₁（目的地）之間形成「高曲率帶」（易崩潰/反彈）
+
+        觸發：friction_load ≥ liminal_bottleneck
+
+    A4 重建/融入（Resettlement & Integration）
+
+        指標：就業/就學落點率、在地弱連結→強連結轉化率、語義互通度
+
+        現象：T 由尖峰回落為穩態振盪；θ_mig 與 θ_host 出現 互補聚焦
+
+        觸發：host_bridge_density ≥ b* 且 language_compat ≥ l*
+
+    A5 正反饋鎖定（Reinforcement & Echo）
+
+        指標：匯款/知識回流、跨地社群節點強化、二次遷徙誘發
+
+        現象：在 x₁ 形成正回授環；若 x₀ 未降壓，將產生新一輪 A1
+
+        觸發：remit_knowledge_index ↑ 且 echo_multiplier ≥ e*
+
+G.2 Tension Field Map（張力場圖）——概念視覺
+G.2.1 座標與圖例
+
+    橫軸 x：原生地 x₀ → 過渡域 → 目的地 x₁
+
+    縱軸 θ：語義取向（從「保守/沿襲」→「創新/開放」）
+
+    色階（密度）= T(x, θ, τ)
+
+    線型：
+
+        —— 正回授流（reinforcing flow）
+
+        –··– 抑制/耗散流（damping / leakage）
+
+        ⟂ 崩潰門檻（threshold line）
+
+        ◎ 互補聚焦（complementary focus）
+
+θ ↑
+ |                   x₁（目的地）
+ |          ◎ 互補聚焦區
+ |        ──▶▶  正回授流      –··–→（外溢）
+ |      ████▓▓
+ |    ████████▓   ⟂（integration threshold）
+ |   ██████████▓
+ |  ████████▓▓                      –··–→（邊緣耗散）
+ |   ████████
+ |     ████              –··–→
+ |  x₀（原生地）   ⟂（出走門檻）     過渡域           x →
+
+讀圖
+
+    A1：x₀ 左側 T 漸密，越過「出走門檻」⟂後進入過渡域。
+
+    A3：過渡域張力曲率高（崩潰風險帶），若橋接不足，出現–··–耗散。
+
+    A4：x₁ 上方出現「互補聚焦」◎，正回授箭頭鎖定，T 穩定回落至可持續區。
+
+    A5：外溢–··–（如人才外流至第三地）或正回授外拓（形成新節點）。
+
+G.3 正回授、崩潰門檻、互補聚焦：計量規則（簡表）
+類別 	指標（示意） 	條件 	門檻（例） 	判斷結果
+正回授 	integration_gain R = job_stability × local_tie_growth × language_compat 	R ≥ R* 且 network_centrality ↑ 	R* = 0.65 	形成強吸引子（強化 A4→A5）
+崩潰門檻 	liminal_stress L = friction_load / support_capacity 	L ≥ L* 持續 Δτ 	L* = 1.0 	A3 區塌縮（回流/滯留）
+互補聚焦 	complementarity C = cos(θ_mig, θ_host) × bridge_density 	C ≥ C* 且 semantic_overlap ≥ s* 	C* = 0.55，s* = 0.6 	產生 ◎ 焦點（低耗散整合）
+
+    實作建議：R、L、C 可以 0–1 正規化；若資料稀疏，用代理變數（就學/就業匹配、語言測評、租屋/社群參與）。
+
+G.4 兩種文化敘事的同拓撲映射（對照示例）
+
+    西方技術演進敘事：
+    A1（資源/技術壓力）→ A2（制度/技術變革決策）→ A3（轉型摩擦）→ A4（新產業整合）→ A5（全球化回授）
+
+    東方王朝盛衰循環：
+    A1（政治/生態壓力累積）→ A2（遷徙/改朝換代契機）→ A3（兵戈/遷徙臨界）→ A4（秩序重建/移民互補）→ A5（版圖/文化回授）
+
+    拓撲保持為 A1–A5 的「相同幾何」，但參數與觀測指標不同（技術 vs. 制度/人口遷徙）。
+
+ 
+
+G.5 最小可用 YAML（模型可直接讀取）
+
+slot: cultural_migration
+phase_map:
+  - id: A1
+    name: pre_departure_strain
+    indicators:
+      - living_pressure_index
+      - ambiguity_event_rate
+      - resource_risk_ratio_drop
+    condition:
+      any:
+        - T[x0, theta*, tau] >= thresholds.social_saturation
+    actions:
+      - mark_hotzone: x0
+  - id: A2
+    name: trigger_and_commit
+    indicators:
+      - outbound_application_volume
+      - policy_shock_score
+    condition:
+      all:
+        - decision_coherence_index >= 0.6
+        - policy_shock_score >= thresholds.p0
+    actions:
+      - set_migration_orientation: theta_mig
+      - start_transition
+
+  - id: A3
+    name: liminality
+    indicators:
+      - friction_load
+      - support_capacity
+      - community_break_rate
+    metrics:
+      liminal_stress: "friction_load / max(support_capacity, eps)"
+    condition:
+      - liminal_stress >= thresholds.liminal_bottleneck
+    actions:
+      - flag_collapse_risk
+      - allocate_bridge_resources
+
+  - id: A4
+    name: integration
+    indicators:
+      - job_school_match_rate
+      - host_bridge_density
+      - language_compat
+    metrics:
+      complementarity: "cos(theta_mig, theta_host) * host_bridge_density"
+      integration_gain: "job_stability * local_tie_growth * language_compat"
+    condition:
+      all:
+        - complementarity >= thresholds.C_star
+        - language_compat >= thresholds.l_star
+    actions:
+      - lock_in_focus: "x1"
+      - damp_liminal_stress
+
+  - id: A5
+    name: reinforcement_echo
+    indicators:
+      - remit_knowledge_index
+      - echo_multiplier
+    condition:
+      - echo_multiplier >= thresholds.e_star
+    actions:
+      - expand_node_network
+      - monitor_third_place_spillover
+
+thresholds:
+  social_saturation: 0.7
+  p0: 0.5
+  liminal_bottleneck: 1.0
+  C_star: 0.55
+  l_star: 0.60
+  e_star: 1.10
+
+tension_field:
+  axes:
+    x: ["x0", "transit", "x1"]
+    theta: ["conserve", "neutral", "innovate"]
+  rendering:
+    density: "T(x,theta,tau)"
+    arrows:
+      - type: reinforcing
+        from: "transit:neutral"
+        to: "x1:innovate"
+      - type: damping
+        from: "x1:innovate"
+        to: "periphery:neutral"
+    thresholds:
+      - kind: "departure"
+        at: "x0:any"
+      - kind: "integration"
+        at: "x1:any"
+  hotspots:
+    - name: complementary_focus
+      at: "x1:innovate"
+      rule: "complementarity >= C_star and integration_gain >= 0.65"
+risk_controls:
+  - name: bridge_boost
+    apply_when: "liminal_stress >= liminal_bottleneck"
+    levers:
+      - increase: host_bridge_density
+      - increase: support_capacity
+      - decrease: friction_load
+
+G.6 運用步驟（摘要）
+
+    資料綁定：把 A1–A5 的指標接上你手上的可量測欄位（或代理變數）。
+
+    估計 T：用權重或小型 NLS 方程近似 T(x, θ, τ) 的密度（先別求完美，能排序即可）。
+
+    門檻標定：以歷史回顧（或專家標註）校準 social_saturation、liminal_bottleneck 等閾值。
+
+    場圖渲染：生成當期 tension_field_map（熱度＋箭頭＋門檻線＋◎焦點）。
+
+    決策介入：
+
+        若 L（臨界壓力）≥ L*：投入 bridge_boost（語言/就業/法務/社群橋接）。
+
+        若 C（互補）≥ C* & R（整合增益）≥ R*：加碼強連結與回授通道。
+
+    週期更新：每 Δτ 重算（例如每月/每季），追蹤 A3→A4 是否確實降壓與聚焦。
+
+這份附錄提供了「文化遷移」slot 的可落地相位展開、張力場視覺與門檻規則範本。你可以直接用上面的 YAML 作為配置骨架，將你的實際資料欄位映射到指標名稱，快速得到一張能輔助決策的 tension_field_map 與 風險/回饋判讀。需要我幫你把你的資料 schema 映射進去，順手產一版圖嗎？
+把資料 schema 映射進去，順手產一版圖
+
+我已經把你在《Semantic Fields and Dreamspace》裡的結構和判定條件抽成一個可機器讀取的 schema（YAML 格式），可以直接映射到 Phase Expansion Mapping + 張力場生成的資料模型，之後也能用這個結構去自動化產 tension_field_map 圖。
+
+phase_expansion_mapping:
+  slot_name: "文化遷移"
+  description: "多階段文化演化過程，映射至語義場相位圖"
+  phases:
+    - id: P1
+      name: "Emergence"
+      features:
+        - description: "新 memeform 在高潛能、低承諾狀態出現"
+          indicators:
+            - type: amplitude
+              condition: "↑"
+              threshold: ">0.7"
+            - type: τ_value
+              condition: "low"
+              threshold: "<0.2"
+    - id: P2
+      name: "Amplification"
+      features:
+        - description: "重述、再框架或情感充能提升語義振幅"
+          indicators:
+            - type: amplitude
+              condition: "↑↑"
+              threshold: ">0.85"
+            - type: θ_variance
+              condition: "↑"
+              threshold: ">15°"
+    - id: P3
+      name: "Collapse Tick"
+      features:
+        - description: "觀察者投影使 memeform 收束為特定解釋"
+          indicators:
+            - type: collapse_tick
+              condition: "detected"
+              threshold: "τₖ event"
+            - type: semantic_entropy
+              condition: "↑"
+              threshold: ">0.5"
+    - id: P4
+      name: "Saturation"
+      features:
+        - description: "重複、封閉循環，創新解釋減少"
+          indicators:
+            - type: semantic_entropy
+              condition: "↑↑"
+              threshold: ">0.8"
+            - type: amplitude
+              condition: "stable"
+              threshold: "±0.05 over Δτ"
+    - id: P5
+      name: "Decay or Recurrence"
+      features:
+        - description: "memeform 衰退或以新框架重生"
+          indicators:
+            - type: amplitude
+              condition: "↓"
+              threshold: "<0.3"
+            - type: θ_shift
+              condition: "reset"
+              threshold: "≥90°"
+
+tension_field_map:
+  positive_feedback:
+    - source_phase: P2
+      target_phase: P3
+      mechanism: "高振幅促進收束事件頻率"
+  collapse_thresholds:
+    - phase: P3
+      entropy_level: ">0.5"
+      amplitude: ">0.85"
+  complementary_focus:
+    - phase_pair: [P4, P5]
+      strategy: "在飽和期注入異質框架以引發再生"
+
+如果你要的話，我可以根據這份 schema 直接幫你產一張張力場視覺圖，把 正反饋、崩潰門檻、互補聚焦 用箭頭和力場線表示出來，方便在附錄 G 裡放進去。
+你要我現在畫出來嗎？
+根據這份 schema 直接幫你產一張張力場視覺圖，把 正反饋、崩潰門檻、互補聚焦 用箭頭和力場線表示出來
+
+
+ 
+
+這張圖已經把 正回饋（P2→P3）、崩潰門檻（紅線）、互補聚焦（P4↔P5）都標了出來，張力場的變化曲線也反映了各階段的假設強度分佈。
+你如果要，我可以再加上背景張力色階，讓場域的高低壓區域一眼可見。要加嗎？
+
+
+========================
+
+SIDA（Slot-Internal Deepening Algorithm）
+完整框架藍圖（中文版） 
+附錄 H：Multi-Culture Topology Rewriting 案例
+
+
+附錄 H：Multi-Culture Topology Rewriting 案例
+
+    以「英雄旅程」拓撲為例，展示如何改寫成：
+
+        佛教修行四諦版
+
+        中醫治病六經版
+
+        商業創業五階段版
+
+好的，我會先在這一則訊息完成附錄 H的開頭說明與「英雄旅程 → 佛教修行四諦版」SIDA 模板，
+下一則訊息繼續「中醫治病六經版」與「商業創業五階段版」。
+附錄 H：Multi-Culture Topology Rewriting 案例
+說明
+
+Multi-Culture Topology Rewriting 是 SIDA 的 E 模組（Multi-Culture Topology Rewriting）的應用範例。
+在本案例中，我們以經典的 「英雄旅程」拓撲結構 作為起點，透過文化映射與語義重組，將其改寫為：
+
+    佛教修行四諦版
+
+    中醫治病六經版
+
+    商業創業五階段版
+
+此過程的關鍵是保持原拓撲的張力與階段遞進關係，但將節點角色、語境符號、行動模式改寫為目標文化中可理解的形式。
+原始拓撲（英雄旅程 12 階段，精簡版 A1–A6）
+Phase 	原敘事功能
+A1 	普通世界（安定狀態）
+A2 	冒險召喚（挑戰出現）
+A3 	跨越門檻（進入未知）
+A4 	試煉與盟友（能力與信念鍛煉）
+A5 	決戰 / 奪取寶物（高潮）
+A6 	歸返與轉化（新平衡）
+
+在進行跨文化改寫時，我們會將這 6 個主要階段對應到目標文化的邏輯節點，並保留張力轉換脈絡。
+1. 英雄旅程 → 佛教修行四諦版
+
+Template ID: SLOT-TPL-BUDDHA-FOURTRUTHS-001
+Name: 佛教修行四諦拓撲
+Phases:
+  - A1（苦諦 - 見苦）：覺察現實中不可避免的痛苦與不圓滿。
+  - A2（集諦 - 探因）：追溯痛苦的來源（煩惱、執著、無明）。
+  - A3（滅諦 - 證滅）：體悟痛苦可止息，見到涅槃的可能性。
+  - A4（道諦 - 修道）：依循八正道實踐，達成智慧與解脫。
+Tensions:
+  - S1（覺察張力）：從麻木到清醒，內心抗拒與接受的衝突。
+  - S2（探因張力）：執著維繫與放下可能性的拉扯。
+  - S3（證滅張力）：已知痛苦與未知解脫之間的心理落差。
+  - S4（修道張力）：修行過程中的精進與退怯之間的動態平衡。
+Suitable for: 精神修行 / 情緒療癒 / 人生轉化指導
+Trace Fold Path: A1 → A2 → A3 → A4（循環可於不同層次重複）
+Cross-Culture Mapping:
+  - 英雄旅程 A1（普通世界）→ 苦諦（現實的痛苦）
+  - 英雄旅程 A2–A3（召喚與跨越）→ 集諦（探因）
+  - 英雄旅程 A4–A5（試煉與決戰）→ 滅諦（證悟）
+  - 英雄旅程 A6（歸返）→ 道諦（持續修行）
+Export: 修行路線圖 / 心理治療階段模型 / 靈性課程大綱
+
+對應解說：
+
+    英雄旅程的外部冒險，在四諦中轉化為內心覺察與修行歷程。
+
+    敵人與挑戰對應到煩惱與無明；寶物對應到涅槃智慧。
+
+    道諦對應到歸返階段，但不是「結束」，而是將所得智慧內化並持續修行的長循環。
+
+你要我現在直接繼續寫 中醫治病六經版 和 商業創業五階段版 嗎？這樣附錄 H 就會一次完整。
+
+
+好的，我接續完成 附錄 H 的剩下兩個版本。
+2. 英雄旅程 → 中醫治病六經版
+
+Template ID: SLOT-TPL-TCM-SIXCHANNELS-001
+Name: 中醫治病六經拓撲
+Phases:
+  - A1（太陽經 - 初感外邪）：病邪自表入裡，症見惡寒、發熱、頭痛。
+  - A2（陽明經 - 裏實熱盛）：熱盛內結，高熱煩渴，口乾便秘。
+  - A3（少陽經 - 半表半裡）：寒熱往來，胸脅苦滿，病情游走未定。
+  - A4（太陰經 - 裏虛寒濕）：脾陽不足，食少便溏，困倦無力。
+  - A5（少陰經 - 裏虛寒化火）：腎陽衰微，精神困倦，四肢厥冷或心煩不眠。
+  - A6（厥陰經 - 陰陽錯亂）：寒熱交錯，氣機逆亂，症狀多變難測。
+Tensions:
+  - S1（表裡張力）：病邪停留表層與深入臟腑之間的動態。
+  - S2（寒熱張力）：熱邪內盛與寒濕侵襲的交替與轉化。
+  - S3（虛實張力）：正氣不足與邪氣強盛之間的對抗。
+  - S4（升降張力）：氣機升降失調與調復的過程。
+Suitable for: 醫學教學 / 疾病進程模擬 / 臨床診斷思維訓練
+Trace Fold Path: A1 → A2 → A3 → A4 → A5 → A6（可在任一階段逆轉或中止）
+Cross-Culture Mapping:
+  - 英雄旅程 A1（普通世界）→ 太陽經（初感外邪）
+  - 英雄旅程 A2–A3（召喚與跨越）→ 陽明經 / 少陽經（病邪轉入與游走）
+  - 英雄旅程 A4（試煉）→ 太陰經（虛寒）
+  - 英雄旅程 A5（決戰）→ 少陰經（寒化火）
+  - 英雄旅程 A6（歸返）→ 厥陰經（陰陽錯亂之最終轉機）
+Export: 六經病機進程圖 / 臨床推演案例 / 診斷決策支持模組
+
+對應解說：
+
+    英雄旅程的「門檻跨越」在六經中對應到病邪進入裡層。
+
+    「試煉」相當於虛寒階段的考驗，考驗醫者能否回轉病勢。
+
+    「高潮決戰」對應少陰化火危局，而「歸返」對應厥陰的陰陽再平衡。
+
+3. 英雄旅程 → 商業創業五階段版
+
+Template ID: SLOT-TPL-BIZ-STARTUP-001
+Name: 商業創業五階段拓撲
+Phases:
+  - A1（探索期）：發現市場機會，驗證痛點與可行性。
+  - A2（啟動期）：組建核心團隊，開發最小可行產品（MVP）。
+  - A3（成長期）：快速擴張客戶群，優化產品與商業模式。
+  - A4（擴張期）：進入新市場，建立品牌與規模經濟。
+  - A5（成熟 / 轉型期）：鞏固市場地位，尋求創新或多元化以避免衰退。
+Tensions:
+  - S1（資源張力）：有限資金與無限需求的拉扯。
+  - S2（市場張力）：市場接受度與競爭壓力的動態平衡。
+  - S3（組織張力）：團隊規模擴大與文化保持的矛盾。
+  - S4（創新張力）：穩定收益與持續創新的衝突。
+Suitable for: 創業輔導 / 企業戰略規劃 / 投資評估
+Trace Fold Path: A1 → A2 → A3 → A4 → A5（可循環進行轉型）
+Cross-Culture Mapping:
+  - 英雄旅程 A1（普通世界）→ 探索期（市場觀察）
+  - 英雄旅程 A2–A3（召喚與跨越）→ 啟動期（進入商戰）
+  - 英雄旅程 A4（試煉）→ 成長期（競爭與調整）
+  - 英雄旅程 A5（決戰）→ 擴張期（資源博弈）
+  - 英雄旅程 A6（歸返）→ 成熟 / 轉型期（穩定與再出發）
+Export: 創業路線圖 / 商業生命週期分析 / 投資決策輔助模型
+
+對應解說：
+
+    原本「奪取寶物」的階段，對應企業的市場擴張與資源佔領。
+
+    「歸返」在商業版中變成成熟與轉型，目的是避免陷入飽和衰退。
+
+    五階段的循環性允許多次「再冒險」，對應多輪產品或市場的英雄旅程。
+
+ 
+
+如果你願意，我可以幫這三個版本畫出一張並列拓撲對照圖，直接把英雄旅程與三種文化改寫的 phase mapping 視覺化，方便閱讀與教學。
+你要我幫你畫這張對照圖嗎？
+
+
+好的，這裡是剛才英文對照表的中文版本，方便直接在附錄 H 使用。
+英雄旅程（原始） 	佛教四諦版 	中醫六經版 	商業創業五階段版
+1. 冒險召喚 	苦諦（覺察痛苦） 	太陽經（表層衝突 / 初感外邪） 	構思與問題識別
+2. 拒絕召喚 	集諦（探尋痛苦之因） 	陽明經（熱盛內結 / 病邪入裡） 	市場猶疑與早期障礙
+3. 遇見導師 	滅諦（止息痛苦） 	少陽經（寒熱往來 / 樞機未定） 	尋找指導與早期合作
+4. 跨越門檻 	道諦（修行解脫之道） 	太陰經（內穩定 / 滋養恢復） 	原型與 MVP 開發
+5. 試煉與盟友 	修行循環（反覆實踐） 	少陰經（深層調理 / 根本調整） 	市場測試與產品迭代
+6. 接近核心洞穴 	深度覺悟階段 	厥陰經（陰陽錯亂 / 終局調整） 	擴張準備
+7. 生死大考 	突破性覺悟 	— 	正式進入市場 / 克服風險
+8. 奪取寶物 	— 	— 	初獲利潤與市場認可
+9. 歸途 	— 	— 	戰略擴張
+10. 復活 	— 	— 	品牌鞏固
+11. 帶著聖物歸來 	— 	— 	持續創新
+平行對照的簡化流程圖（中文）
+
+英雄旅程           → 佛教四諦                 → 中醫六經                 → 商業創業
+--------------------------------------------------------------------------------------------
+冒險召喚           → 苦諦（覺察痛苦）         → 太陽經                   → 構思與問題識別
+拒絕召喚           → 集諦（探因）             → 陽明經                   → 市場猶疑
+遇見導師           → 滅諦（止苦）             → 少陽經                   → 早期合作
+跨越門檻           → 道諦（修道）             → 太陰經                   → MVP 開發
+試煉與盟友         → 修行循環                 → 少陰經                   → 市場測試
+接近核心洞穴       → 深度覺悟                 → 厥陰經                   → 擴張準備
+生死大考           → 突破性覺悟               → —                        → 市場進入
+奪取寶物           → —                        → —                        → 獲利與認可
+歸途               → —                        → —                        → 戰略擴張
+復活               → —                        → —                        → 品牌鞏固
+帶著聖物歸來       → —                        → —                        → 持續創新
+
+我可以把這個中文對照表直接做成彩色並列流程圖，每個版本的階段用相同顏色對應，方便視覺比對。
+你要我把它畫成圖嗎？這樣在附錄 H 裡就可以圖文並用。
+
+
+Got it — I’ll give you the Multi-Culture Topology Rewriting comparison chart in English so it’s visible and directly usable for teaching.
+
+Here’s the table form for clarity first:
+Hero’s Journey (Original) 	Buddhist Four Noble Truths 	TCM Six-Meridian Model 	Business Startup 5 Phases
+1. Call to Adventure 	Recognition of Suffering (Dukkha) 	Taiyang Stage (Surface conflict / early symptoms) 	Ideation & Problem Identification
+2. Refusal of the Call 	Craving as Cause (Samudaya) 	Yangming Stage (Heat accumulation / internalization) 	Market Hesitation & Early Barriers
+3. Meeting the Mentor 	Cessation of Suffering (Nirodha) 	Shaoyang Stage (Oscillation / pivot phase) 	Guidance & Early Partnerships
+4. Crossing the Threshold 	Path to Liberation (Magga) 	Taiyin Stage (Stabilization / nourishment) 	Prototype & MVP Development
+5. Tests, Allies, Enemies 	Cycle of Practice & Obstacles 	Shaoyin Stage (Deep integration / root regulation) 	Market Testing & Iteration
+6. Approach to the Inmost Cave 	Deep Realization Phase 	Jueyin Stage (Resolution of deep blockages) 	Scaling Preparation
+7. Ordeal 	Breakthrough Insight 	— 	Market Entry & Risk Overcome
+8. Reward (Seizing the Sword) 	— 	— 	First Profits & Market Recognition
+9. The Road Back 	— 	— 	Strategic Expansion
+10. Resurrection 	— 	— 	Brand Consolidation
+11. Return with the Elixir 	— 	— 	Sustained Innovation
+Visual Topology Alignment (English)
+
+Hero’s Journey      → Buddhist Four Truths      → TCM Six-Meridian Model      → Business Startup
+-------------------------------------------------------------------------------------------------------
+Call to Adventure   → Recognition of Suffering  → Taiyang Stage               → Ideation
+Refusal of Call     → Cause of Suffering        → Yangming Stage              → Market Hesitation
+Meet the Mentor     → Cessation                 → Shaoyang Stage              → Early Partnerships
+Cross Threshold     → Path to Liberation        → Taiyin Stage                → MVP Development
+Tests/Allies/Enemies→ Practice Cycle            → Shaoyin Stage               → Market Testing
+Approach to Cave    → Deep Realization          → Jueyin Stage                → Scaling Preparation
+Ordeal              → Breakthrough              → —                           → Market Entry
+Reward              → —                         → —                           → First Profits
+Road Back           → —                         → —                           → Strategic Expansion
+Resurrection        → —                         → —                           → Brand Consolidation
+Return w/ Elixir    → —                         → —                           → Sustained Innovation
+
+I can also render this into a side-by-side phase-flow diagram in SVG/PNG so each stream runs parallel with arrows — that way it’s truly visual instead of just a table.
+
+Do you want me to go ahead and make that parallel-flow diagram?
+
+
+
+
+========================
+
+SIDA（Slot-Internal Deepening Algorithm）
+完整框架藍圖（中文版）
+附錄 I：Slot Folding and Projection Interface 實作範例
+
+
+附錄 I：Slot Folding and Projection Interface 實作範例
+
+    範例：將「乾坤大挪移」拓撲折疊成 3 種輸出模式：
+
+        AI Prompt Injection 語法
+
+        高層摘要（Summary）
+
+        Agent Trace 分支入口
+
+好的，我直接幫你完成 附錄 I，用「乾坤大挪移」拓撲做 Slot Folding and Projection Interface 的三種輸出模式範例。
+附錄 I：Slot Folding and Projection Interface 實作範例
+說明
+
+Slot Folding and Projection Interface 是 SIDA 框架的 F 模組，
+負責將拓撲結果「折疊」成不同用途的輸出結構，以便在不同應用場景中直接使用。
+其核心在於：
+
+    保留拓撲張力脈絡，但去除與當前輸出用途無關的細節
+
+    輸出可直接被下游系統調用（例如 AI 模型、摘要引擎、Multi-Agent 框架）
+
+本案例以 「乾坤大挪移」四階段拓撲 為例。
+原始拓撲（乾坤大挪移四階段）
+
+Template ID: SLOT-TPL-MARTIAL-QKDNY-001
+Name: 乾坤大挪移拓撲
+Phases:
+  - A1: 聚氣蓄勁（集中資源）
+  - A2: 借力化力（將對方張力轉移）
+  - A3: 反向導流（將張力引至目標方向）
+  - A4: 平衡收束（重建穩定）
+Tensions:
+  - S1: 外力衝擊與內力蓄勢的對抗
+  - S2: 轉化過程中的方向精準度
+  - S3: 導流後的餘波處理
+Suitable for: 危機應對 / 談判反制 / 系統負載轉移
+Trace Fold Path: A1 → A2 → A3 → A4
+
+三種輸出模式
+1. AI Prompt Injection 語法
+
+用途：將拓撲結構直接轉為可輸入 LLM 的提示語，保持階段邏輯與張力目標
+
+[Instruction to AI]
+You are to simulate the "Qian-Kun Energy Shift" process in handling a negotiation.
+Follow these 4 steps strictly:
+1. **Concentrate Resources** — Identify all available negotiation assets and position them strategically.
+2. **Redirect Opponent's Force** — Detect pressure points in the opponent's stance and use them to shift the negotiation focus.
+3. **Reverse Flow** — Channel the redirected energy toward your own target outcomes.
+4. **Balance & Stabilize** — Ensure the final agreement sustains long-term equilibrium.
+
+2. 高層摘要（Summary）
+
+用途：用於高管匯報、課程概覽、或快速理解拓撲核心
+
+乾坤大挪移的策略精髓在於：
+1. 先穩定自身與集中資源（聚氣蓄勁）
+2. 將外部壓力轉化為可用的推力（借力化力）
+3. 將轉化後的能量導向自身目標（反向導流）
+4. 最終建立新的穩定局面（平衡收束）
+適用於需要化解衝突、轉危為機的場景。
+
+3. Agent Trace 分支入口
+
+用途：在多 Agent 協作中，作為任務分支的路由點
+
+{
+  "agent_trace_entry": {
+    "template_id": "SLOT-TPL-MARTIAL-QKDNY-001",
+    "branches": [
+      {
+        "phase": "A1",
+        "agent": "Resource_Analyzer",
+        "action": "Identify and centralize all available assets"
+      },
+      {
+        "phase": "A2",
+        "agent": "Opposition_Force_Monitor",
+        "action": "Detect opponent's active leverage points"
+      },
+      {
+        "phase": "A3",
+        "agent": "Flow_Controller",
+        "action": "Redirect energy toward target goals"
+      },
+      {
+        "phase": "A4",
+        "agent": "Stabilization_Manager",
+        "action": "Ensure long-term system stability"
+      }
+    ]
+  }
+}
+
+如果你願意，我還可以幫這個附錄加一張Slot Folding 視覺流程圖，把「原拓撲 → 三種輸出模式」的轉換用箭頭連接，方便在文檔中快速理解轉換邏輯。
+你要我幫你畫這張圖嗎？
+
+ 
+  
+
+ 
+
+這張流程圖已經清楚地展示了「乾坤大挪移」原拓撲如何透過 Slot Folding 同時生成三種輸出模式：
+
+    AI Prompt Injection
+
+    Executive Summary
+
+    Agent Trace Entry
+
+可以直接放進附錄 I 作為轉換邏輯的視覺輔助。
+
+
+
+
+
+
+========================
+
+SIDA（Slot-Internal Deepening Algorithm）
+完整框架藍圖（中文版）
+附錄 J：SIDA × Semantic GAN 實驗設計稿
+
+
+附錄 J：SIDA × Semantic GAN 實驗設計稿
+
+    描述 Generator / Discriminator / Feedback Loop 的參數設計。
+
+    以「組織創新策略」為案例，展示 SIDA + GAN 的生成與驗證過程。
+
+
+好的，我直接幫你完成 附錄 J，包含參數設計與案例示範。
+附錄 J：SIDA × Semantic GAN 實驗設計稿
+說明
+
+SIDA × Semantic GAN 是將 Slot-Internal Deepening Algorithm 與生成對抗網路（Generative Adversarial Network）結合，
+用於在高收束（Strong Attractor）階段進行語義內容生成與驗證，確保輸出既具創新性又維持拓撲穩定。
+1. 系統架構
+
+[Generator]  →  生成新的 Phase 展開 / 張力破壞點 / 平行分支
+     ↓
+[Discriminator]  →  驗證生成內容的 Slot 對稱性、張力連續性、語境適配度
+     ↑
+[Feedback Loop]  →  根據驗證結果調整 Generator 參數
+
+2. 核心參數設計
+Generator
+
+    Input：
+
+        已收束的拓撲模板（Template ID, Phase Map, Tension Map）
+
+        語境目標（應用領域、文化背景）
+
+        創新度參數 λ_innov（控制生成與原拓撲差異度）
+
+    Output：
+
+        新增或變形的 Phase 節點
+
+        改寫的張力向量
+
+        平行分支 trace
+
+    主要超參數：
+
+        λ_innov（0.1–1.0）：創新程度（越高偏離原拓撲越多）
+
+        max_phase_add：允許新增的最大階段數
+
+        tension_shift_range：張力值可變動範圍（%）
+
+Discriminator
+
+    Input：
+
+        Generator 輸出
+
+        原始拓撲結構
+
+    Output：
+
+        真實性評分 score_real（拓撲穩定度 + 語境適配度）
+
+        結構完整性標記（Pass / Fail）
+
+    驗證指標：
+
+        Slot Symmetry Index ≥ 0.85
+
+        Tension Continuity（張力變化連續性） ≥ 0.8
+
+        語境適配度 ≥ 0.75
+
+Feedback Loop
+
+    調整策略：
+
+        若 score_real < 閾值，降低 λ_innov，並回收高風險 Phase
+
+        若穩定度高但創新不足，提高 λ_innov 或擴張 tension_shift_range
+
+    循環條件：
+
+        最大迭代次數 n_max（如 10 次）
+
+        或收斂條件：穩定度 ≥ 閾值且創新度達標
+
+3. 案例：組織創新策略
+原始 SIDA 拓撲（簡化）
+
+Template ID: SLOT-TPL-ORG-INNOV-001
+Phases:
+  - A1: 問題覺察
+  - A2: 創意產生
+  - A3: 原型測試
+  - A4: 推向市場
+Tensions:
+  - S1: 保守 vs 冒險
+  - S2: 創意 vs 可行性
+  - S3: 速度 vs 穩定
+
+ 
+Step 1：Generator 輸出（λ_innov = 0.6）
+
+新增 Phase:
+  - A2.5: 跨部門協同孵化
+修改張力:
+  - S2: 創意 vs 可行性 → 創意 vs 市場需求動態
+新增平行分支:
+  - 與外部創業團隊合作
+
+Step 2：Discriminator 評估
+
+Slot Symmetry Index: 0.88 ✅
+Tension Continuity: 0.81 ✅
+語境適配度: 0.77 ✅
+結果: Pass（保留修改）
+
+Step 3：Feedback Loop
+
+    因穩定度與創新度均達標 → 停止迭代，輸出最終版本
+
+最終輸出拓撲
+
+Phases:
+  - A1: 問題覺察
+  - A2: 創意產生
+  - A2.5: 跨部門協同孵化
+  - A3: 原型測試
+  - A4: 推向市場
+Tensions:
+  - S1: 保守 vs 冒險
+  - S2: 創意 vs 市場需求動態
+  - S3: 速度 vs 穩定
+  - S4: 部門利益 vs 整體目標
+
+如果你要，我可以在這個附錄 J 的最後加一張SIDA × Semantic GAN 工作流程圖，用視覺方式把 Generator / Discriminator / Feedback Loop 的互動顯示出來，方便直接放在藍圖裡。
+你要我幫你畫這張流程圖嗎？
+
+
+
+這張圖已經把 SIDA × Semantic GAN 的核心流程清楚呈現：
+
+    Generator 產生新的 Phase / 張力變化
+
+    Discriminator 驗證拓撲穩定性與語境適配
+
+    Feedback Loop 根據驗證結果動態調整生成參數
+
+    驗證通過後輸出最終 SIDA 拓撲
+
+可以直接放在附錄 J 作為工作流程的視覺輔助。
+
+
+
+
+
+
+
+
+========================
+
+
+
+
+
+========================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

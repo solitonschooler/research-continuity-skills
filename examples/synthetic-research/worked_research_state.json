@@ -1,0 +1,258 @@
+{
+  "contract_version": "0.2.0",
+  "project_id": "SYNTHETIC-QUADRATIC",
+  "scope": "Reconstruct three synthetic historical notes on gradient-step claims; narrow counterexample and repair; no real-world inference.",
+  "state_status": "SCOPE_COMPLETE",
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Synthetic Research Note — Round 1",
+      "format": "markdown",
+      "identity": {
+        "location": "01_early_note.md",
+        "hash_sha256": null,
+        "version_note": "Synthetic historical document; hash not computed in artifact",
+        "source_date": null
+      },
+      "read_status": "READ_IN_DECLARED_SCOPE",
+      "read_scope": "Entire short authored synthetic note"
+    },
+    {
+      "id": "S2",
+      "title": "Synthetic Research Note — Round 2",
+      "format": "markdown",
+      "identity": {
+        "location": "02_counterexample.md",
+        "hash_sha256": null,
+        "version_note": "Synthetic historical document; hash not computed in artifact",
+        "source_date": null
+      },
+      "read_status": "READ_IN_DECLARED_SCOPE",
+      "read_scope": "Entire short authored synthetic note"
+    },
+    {
+      "id": "S3",
+      "title": "Synthetic Research Note — Round 3",
+      "format": "markdown",
+      "identity": {
+        "location": "03_repair.md",
+        "hash_sha256": null,
+        "version_note": "Synthetic historical document; hash not computed in artifact",
+        "source_date": null
+      },
+      "read_status": "READ_IN_DECLARED_SCOPE",
+      "read_scope": "Entire short authored synthetic note"
+    }
+  ],
+  "assertions": [
+    {
+      "id": "A1",
+      "statement": "For every x != 0, every negative-gradient-direction step decreases f(x) = x^2 regardless of step size.",
+      "origin_role": "SOURCE_AUTHOR",
+      "source_fidelity": "FAITHFUL_PARAPHRASE",
+      "epistemic_status": "SOURCE_ASSERTION",
+      "lifecycle_status": "REJECTED",
+      "conditions": [
+        "x != 0",
+        "f(x)=x^2",
+        "h is strictly in the negative gradient direction"
+      ],
+      "source_anchors": [
+        {
+          "source_id": "S1",
+          "locator": "Claim A, paragraph 3",
+          "scope_checked": "FULL_DOCUMENT_CHECKED"
+        }
+      ],
+      "provenance_note": "Explicitly claimed by fictitious author, refuted by A2; do not erase the historical claim.",
+      "verification_receipt_ids": [
+        "V1",
+        "V2"
+      ]
+    },
+    {
+      "id": "A2",
+      "statement": "At x=1, h=-3 is in the negative-gradient direction but f(1+h)=4 > f(1)=1.",
+      "origin_role": "SOURCE_AUTHOR",
+      "source_fidelity": "FAITHFUL_PARAPHRASE",
+      "epistemic_status": "COUNTEREXAMPLE",
+      "lifecycle_status": "ACTIVE",
+      "conditions": [
+        "f(x)=x^2",
+        "x=1",
+        "h=-3"
+      ],
+      "source_anchors": [
+        {
+          "source_id": "S2",
+          "locator": "Counterexample paragraphs 3–4",
+          "scope_checked": "FULL_DOCUMENT_CHECKED"
+        }
+      ],
+      "provenance_note": "A synthetic mathematical counterexample, not an optimizer experiment.",
+      "verification_receipt_ids": [
+        "V1",
+        "V2"
+      ]
+    },
+    {
+      "id": "A3",
+      "statement": "For x_new=(1-2 eta)x in the quadratic model, the loss strictly decreases for x != 0 when 0 < eta < 1.",
+      "origin_role": "SOURCE_AUTHOR",
+      "source_fidelity": "FAITHFUL_PARAPHRASE",
+      "epistemic_status": "CONDITIONAL_PROPOSITION",
+      "lifecycle_status": "ACTIVE",
+      "conditions": [
+        "f(x)=x^2",
+        "x != 0",
+        "x_new=x-eta f'(x)",
+        "0 < eta < 1"
+      ],
+      "source_anchors": [
+        {
+          "source_id": "S3",
+          "locator": "Paragraph 3",
+          "scope_checked": "FULL_DOCUMENT_CHECKED"
+        }
+      ],
+      "provenance_note": "Historical source repair, not an inference about general nonquadratic optimizers.",
+      "verification_receipt_ids": [
+        "V1",
+        "V2"
+      ]
+    }
+  ],
+  "relations": [
+    {
+      "id": "L1",
+      "from_id": "A2",
+      "to_id": "A1",
+      "type": "COUNTEREXAMPLE_TO",
+      "justification": "For x=1, h=-3 the direction condition holds but loss rises to 4.",
+      "source_anchors": [
+        {
+          "source_id": "S2",
+          "locator": "Counterexample paragraphs 3–4",
+          "scope_checked": "FULL_DOCUMENT_CHECKED"
+        }
+      ]
+    },
+    {
+      "id": "L2",
+      "from_id": "A3",
+      "to_id": "A1",
+      "type": "REVISES",
+      "justification": "The later explicit finite step-size bound replaces the earlier unrestricted claim.",
+      "source_anchors": [
+        {
+          "source_id": "S3",
+          "locator": "Paragraph 3",
+          "scope_checked": "FULL_DOCUMENT_CHECKED"
+        }
+      ]
+    }
+  ],
+  "residuals": [
+    {
+      "id": "Q1",
+      "question": "What bounds are valid for nonlinear losses or more general update rules?",
+      "type": "UNTESTED_HYPOTHESIS",
+      "status": "OPEN",
+      "affected_assertion_ids": [
+        "A3"
+      ],
+      "discriminating_next_step": "Specify a different loss class, derive a sufficient step-size condition, then seek counterexamples under its exact hypotheses.",
+      "limit_note": "No such experiment or theorem is present in these synthetic notes."
+    }
+  ],
+  "verification_receipts": [
+    {
+      "id": "V1",
+      "method": "SOURCE_EXCERPT_COMPARE",
+      "outcome": "PASSED",
+      "agent_or_reviewer": "Illustrative release author self-review",
+      "target_ids": [
+        "A1",
+        "A2",
+        "A3"
+      ],
+      "evidence_location": "Three short synthetic source markdown files",
+      "limits": "Not an external reviewer; no original SMFT materials."
+    },
+    {
+      "id": "V2",
+      "method": "COMPUTATIONAL_CHECK",
+      "outcome": "PASSED",
+      "agent_or_reviewer": "Release editor local arithmetic check",
+      "target_ids": [
+        "A2",
+        "A3"
+      ],
+      "evidence_location": "Checked x=1,h=-3 and eta=0.5 / eta=1.5 examples during release assembly",
+      "limits": "Illustrative finite arithmetic only; not an exhaustive proof of the eta bound or external research validation."
+    }
+  ],
+  "rounds": [
+    {
+      "id": "R1",
+      "objective": "Audit historical statement, find counterexample and preserve narrower source repair",
+      "status": "SCOPE_COMPLETE",
+      "operations": [
+        "CONSOLIDATE",
+        "CHALLENGE",
+        "REPAIR"
+      ],
+      "sources_examined": [
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "changes": [
+        {
+          "type": "CONSOLIDATED",
+          "target_ids": [
+            "A1",
+            "A2",
+            "A3"
+          ],
+          "description": "Preserved three historically distinct assertions."
+        },
+        {
+          "type": "COUNTEREXAMPLE_FOUND",
+          "target_ids": [
+            "A1",
+            "A2"
+          ],
+          "description": "Counterexample A2 invalidates the unrestricted earlier claim A1."
+        },
+        {
+          "type": "CLAIM_REPAIRED",
+          "target_ids": [
+            "A1",
+            "A3"
+          ],
+          "description": "Source S3 supplies the restricted quadratic step-size proposition."
+        }
+      ],
+      "receipt_ids": [
+        "V1",
+        "V2"
+      ],
+      "unresolved_residual_ids": [
+        "Q1"
+      ],
+      "next_step": "Only with authorization, investigate extension to a well-defined nonquadratic class.",
+      "stop_reason": "Requested three-note scope complete; no authorization for wider research."
+    }
+  ],
+  "handoff": {
+    "summary": "Earlier universal claim A1 was refuted by source-authored A2 and narrowed by source-authored A3; limits and new question Q1 preserved.",
+    "last_round_id": "R1",
+    "next_entry": "Read A1–A3 and their anchors; if continuing, specify a nonquadratic loss family first.",
+    "blocking_uncertainties": [
+      "No evidence about nonquadratic losses or real optimizer behavior."
+    ],
+    "checkpoint_saved": true,
+    "checkpoint_location": "worked_research_state.json"
+  }
+}

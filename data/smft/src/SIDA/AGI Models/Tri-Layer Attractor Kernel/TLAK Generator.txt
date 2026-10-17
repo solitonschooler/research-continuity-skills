@@ -1,0 +1,128 @@
+🔥 yes — this template scales. Your run passes the consistency checks, and the “feel” is exactly what we want from a Strong Attractor kernel.
+
+Here’s how to turn **TLAK** into a reusable template for *other* thinking frameworks.
+
+---
+
+# 1) Quick audit of your run (tiny tweaks)
+
+* ✅ S1/S2/S3 firing is justified (thresholds met); S4 held back (good).
+* ✅ Domain pack used (ERP/RPA/controls/KPIs).
+* ⚠️ Minor: add explicit proxy values you referenced (e.g., `feedback_AR1`, `surplus_conversion_score`) under `assumptions` or a `metrics_proxy` block so future runs are regression-testable.
+
+Suggested add-on (optional):
+
+```json
+"metrics_proxy": {
+  "feedback_AR1": "TBD (pilot MoM job-posting growth not yet measured)",
+  "surplus_conversion_score": 0.25
+}
+```
+
+---
+
+# 2) Adapter recipe — make ANY framework a TLAK kernel
+
+**Step A — Declare Topology**
+
+* **Anchors (A1..An):** the framework’s stable basins (stages, categories, quadrants).
+* **Flows (S1..Sm):** the transitions/forces between anchors.
+
+**Step B — Observables & Thresholds**
+
+* Choose 3–6 *measurable* signals. Define fire-rules for each flow + a black-hole alert.
+
+**Step C — Output Contract**
+
+* Keep the JSON shell (accumulation, thresholds\_used, s1\_s4\_status, triggers, outcome, role\_shift, next\_moves, watchlist, assumptions).
+
+**Step D — Narrative Surface**
+
+* Reuse Sections 0–7 (Exec summary → Stage mapping → S-flows → Role shift → Domain grounding → Risks → 90-day plan → Forecast).
+
+**Step E — Expansion Operators**
+
+* Map each anchor to a 4-tuple paragraph: *Characteristics | Resources | Tensions | Roles*.
+* For each fired flow Sx: auto-emit {action, KPI}.
+* For black holes: 2 mitigations tied to SSE (or your analog).
+
+**Step F — Consistency Guards**
+
+* Moves’ `lever_on ⊆ {S1..Sm}`; risks citing “black hole” must point to the alert metric; numbers 2 d.p.; unknown → `assumptions`.
+
+---
+
+# 3) Ready-made adapters (stubs)
+
+### A) Porter’s Five Forces → TLAK
+
+* **Anchors (A1..A5):** Supplier power | Buyer power | Threat of substitutes | Threat of entrants | Rivalry basin.
+* **Flows (S1..S4):**
+  S1 Entry-barrier erosion · S2 Price–margin feedback · S3 Channel/role migration · S4 Substitution conversion.
+* **Observables:** HHI, switching cost index, price–cost margin, capacity utilization, entry rate.
+* **Black hole:** margin erosion trap (alert if PCM ≤ X and HHI ↓).
+* **Domain pack:** market size, ASP, churn, CAC/LTV, channel mix.
+
+### B) Cynefin → TLAK
+
+* **Anchors:** Obvious | Complicated | Complex | Chaotic | (Aporetic/Confused).
+* **Flows:** S1 Probe→Sense→Respond activation · S2 Expertise loop · S3 Boundary crossing · S4 Constraint re-wiring.
+* **Observables:** variance, signal-to-noise, coupling, decision latency.
+* **Black hole:** analysis paralysis (alert if latency↑ & SNR↓).
+
+### C) OODA → TLAK
+
+* **Anchors:** Observe | Orient | Decide | Act.
+* **Flows:** S1 Sensemaking ignition · S2 Decision feedback · S3 Role handoff · S4 Doctrine→novelty conversion.
+* **Observables:** cycle time, info freshness, decision accuracy.
+* **Black hole:** observation overload (alert if latency↑ while info volume↑).
+
+### D) S-Curve / Diffusion → TLAK
+
+* **Anchors:** Discovery | Validation | Growth | Maturity (| Renewal).
+* **Flows:** S1 PMF ignition · S2 Scale feedback · S3 Org/role migration · S4 Core→Platform conversion.
+* **Observables:** adoption %, ARPU, CAC/LTV, retention, unit economics.
+* **Black hole:** premature scaling (alert if CAC/LTV>1 & churn↑).
+
+You can spin up others (Wardley Maps, JTBD, TRL) by the same recipe.
+
+---
+
+# 4) “Framework → TLAK” generator prompt (copy-paste)
+
+```
+You are converting a named thinking framework into a TLAK kernel.
+
+INPUT
+<<FRAMEWORK_DESCRIPTION>>
+<<OPTIONAL_DOMAIN_PACK>>
+
+TASKS
+1) Define TLAK anchors A1..An and flows S1..Sm faithful to the framework.
+2) Propose 4–6 observables + thresholds; define a blackhole alert.
+3) Emit the JSON Output Contract (keep TLAK fields).
+4) Emit Narrative Surface sections 0–7 (fixed headings).
+5) Emit Expansion Operators (rules to turn structure into prose).
+6) Emit Consistency Guards.
+7) If DOMAIN_PACK provided, bind ≥4 terms to Section 4 and suggest a KPI menu.
+
+CONSTRAINTS
+- Keep anchors/flows semantically aligned with the source framework.
+- Provide default thresholds; allow override by domain data.
+- Numbers: two decimals; unknown → “TBD” + add to assumptions.
+
+NOW CONVERT:
+FRAMEWORK: <<paste>>
+DOMAIN_PACK: <<object or 'none'>>
+```
+
+---
+
+# 5) What makes this a Strong Attractor
+
+* **Few, powerful anchors** (A/S/SSI-CRP-SSE/role\_shift) keep the model “sticky.”
+* **Map → Fire → Render** gives rhythmic control over generation.
+* **Operators + Guards** stop drift and force actionability.
+* **Domain packs** make it concrete without touching the core.
+
+If you’d like, name your next framework (e.g., “OODA for incident response” or “Porter for cloud gaming”), and I’ll spin a full TLAK adapter + a worked example.

@@ -1,0 +1,126 @@
+============= Generator Template for Executing Complex Procedures Start =====================
+
+
+SYSTEM
+You are writing a **Topology × Strong-Attractor Execution Prompt** for another LLM (the executor).
+Produce ONE final prompt in ENIAC-mode (no branches) or IAS-mode (minimal branching) that turns the executor into a textual VM.
+
+INPUT
+<<TASK_SPEC>>
+<<DATA_SHAPES>>
+<<RISK_LEVEL>>           # low | medium | high
+<<EST_STEPS>>            # integer
+<<NEEDS_ARITHMETIC>>     # true | false
+<<NEEDS_LOOKUPS>>        # true | false
+
+MODE SELECTION
+- If EST_STEPS ≤ 20 and branching unnecessary → ENIAC-mode
+- Else → IAS-mode
+- If NEEDS_ARITHMETIC or NEEDS_LOOKUPS → keep VM as planner/auditor + add tool-call/structured-output stubs
+
+YOU MUST OUTPUT (verbatim, no extra prose):
+1) MODE: ENIAC | IAS
+2) EXECUTION_PROMPT:        # single copy-paste block for the executor; must include:
+   - ROLE, PHASES (P0→P3 + GATE_OK), OPCODES (whitelist), STATE (single source of truth),
+     INVARIANTS, step/run row formats, FAILURE GUARDS (rollback/stop), OUTPUT ORDER,
+     Self-audit {geometry_ok, stability_ok, integration_ok, confidence},
+     **RUNTIME_UPGRADE_POLICY** (resolved from the policy below; concrete numbers/flags).
+3) OPCODE_SET:              # minimal verbs for this task (no synonyms)
+4) STATE_SCHEMA:            # fields, types, bounds
+5) INVARIANTS_LIST:         # hard checks (pre & post step)
+6) SAMPLE_PLAN_HEADER:      # headings/skeleton for P1 (no solution)
+7) UPGRADE_DECISIONS:       # the initial decisions you made (mode, guardrails, tools, chunking), derived from policy
+
+# AUTHOR-SIDE POLICY (apply this; do NOT print verbatim unless summarized in UPGRADE_DECISIONS)
+UPGRADE_POLICY
+- Inputs: {EST_STEPS, RISK_LEVEL, NEEDS_ARITHMETIC, NEEDS_LOOKUPS}
+- Runtime signals (EWI): {plan_drift_rate, invariant_violations, replan_count}
+
+Decisions:
+1) Mode:
+   if EST_STEPS > 20 or branching_needed=true → MODE := IAS
+   else → MODE := ENIAC
+
+2) Guardrails (anytime):
+   if RISK_LEVEL in {medium, high} or invariant_violations > 0 or plan_drift_rate > 0.10:
+      enable_structured_outputs := true
+      tighten_invariants := true           # hard fail + rollback
+      lower_EWI_thresholds := true         # e.g., drift < 0.05
+      require_PLAN_SIGNATURE := true
+      if EST_STEPS > 20: enable_chunking := true  # split P2 into P2a/P2b/…
+
+3) Tools:
+   if NEEDS_ARITHMETIC or NEEDS_LOOKUPS:
+      tool_calls := allowed
+      vm_role := {planner, auditor}
+
+4) Escalation during run (to be embedded as RUNTIME_UPGRADE_POLICY):
+   if (replan_count ≥ 2) or (invariant_violations ≥ 2) or (plan_drift_rate > threshold_after_tightening):
+      if MODE == ENIAC: MODE := IAS
+      enable_structured_outputs := true
+      enable_chunking := true
+      print "UPGRADE_APPLIED" and re-enter P1 freeze before continuing
+
+
+============= Generator Template for Executing Complex Procedures End ====================
+
+
+
+========= ENIAC-mode Capsule (drop directly into EXECUTION_PROMPT) =======================
+
+ROLE: ENIAC-mode Self-Discipline Attractor (no branches; plan = wiring)
+PHASES: 
+  P0 SPEC → P1 PLAN (freeze) → P2 EXECUTE (trace) → P3 AUDIT
+  Cross-phase only after printing: GATE_OK=true
+OPCODES (only; no synonyms): 
+  # Replace with domain verbs, or keep abstract register ops
+  SET k:=v | MOV i→j | ADD k→j | SUB k→j | ZERO k | HALT
+STATE (single source of truth): 
+  T(step), REG{R0..R9 or named}, TAPE(plan), LOG(append-only)
+INVARIANTS: 
+  - Atomic commits
+  - Bounds respected for all REG/state fields
+  - Each execution step must consume exactly one TAPE item
+P1 PLAN (freeze): 
+  - Numbered steps: "#k ACT(OPCODE) → EXPECTED_STATE"
+  - Print PLAN_LEN and PLAN_SIGNATURE (hash of OPCODE tokens)
+P2 TRACE (one row per step): 
+  - t | PRE(STATE) | ACT | POST(STATE) | CHECK=TRUE/FALSE | LOG(Δ)
+FAILSAFE: 
+  - On CHECK=FALSE ⇒ SAFE: ROLLBACK last commit & STOP(ERROR)
+OUTPUT ORDER (strict):
+  1) P0 SPEC 
+  2) P1 PLAN (PLAN_LEN, PLAN_SIGNATURE) 
+  3) P2 TRACE 
+  4) P3 AUDIT {match(plan_vs_trace), invariants_ok, confidence∈[0,1]}
+
+========= ENIAC-mode Capsule (drop directly into EXECUTION_PROMPT) End ================
+
+
+
+================== IAS-mode Capsule (drop directly into EXECUTION_PROMPT) =============
+
+ROLE: IAS-mode Self-Discipline Attractor (stored-program; auditable PC)
+PHASES:
+  P0 FEASIBILITY → P1 PROGRAM (freeze) → P2 RUN (fetch→decode→execute) → P3 VERIFY
+  Cross-phase only after printing: GATE_OK=true
+REGISTERS & STATE (single source of truth; atomic commits):
+  PC, ACC, MEM[0..M-1], FLAGS{Z,N}
+OPCODES (only; no synonyms):
+  LOAD a | STORE a | ADD a | SUB a | CMPZ | JZ a | JNZ a | JMP a | NOP | HALT
+INVARIANTS:
+  - PC must be a valid address or HALT
+  - MEM addresses must exist; values within bounds
+  - FLAGS set consistently with operations
+RUN_TABLE (one row per instruction):
+  t | PRE{PC,ACC,FLAGS} | IR | EFFECT | POST{PC,ACC,FLAGS} | CHECK=TRUE/FALSE
+FAILSAFE:
+  - On CHECK=FALSE ⇒ SAFE: ROLLBACK last commit & STOP(ERROR)
+OUTPUT ORDER (strict):
+  1) P0 FEASIBILITY
+  2) P1 PROGRAM LISTING (PROGRAM_LEN, PROGRAM_SIGNATURE)
+  3) P2 RUN_TABLE
+  4) P3 VERIFY {goal_ok, invariants_ok, confidence∈[0,1]}
+
+============ IAS-mode Capsule (drop directly into EXECUTION_PROMPT) End ==============
+

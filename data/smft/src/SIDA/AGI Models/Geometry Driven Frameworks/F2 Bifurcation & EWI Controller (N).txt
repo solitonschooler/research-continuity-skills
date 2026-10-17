@@ -1,0 +1,72 @@
+Framework 2 — Bifurcation & Early-Warning Indicator Controller (N-axis)
+
+Narrative Description
+This axis functions as the AGI’s seismograph for semantic phase space. It continuously measures the curvature of the collapse potential V(x,λ)V(x, \lambda) and its second derivative, watching for the tell-tale signs of basin shallowing: slower recovery from perturbations, rising variance in observables, and irregular noise-triggered jumps between attractor basins.
+Its role in SCG is upstream hazard detection — identifying when a semantic attractor is about to bifurcate (fold, cusp, Hopf, etc.) so downstream decision modules can stabilize or exploit the transition. Orthogonal to the Σ-axis (Catastrophe-Mode Reasoner), which operates inside a discontinuity, the N-axis works before the discontinuity to extend reaction time and avoid blind collapse.
+SCG/SMFT Mapping Diagram (textual)
+
+    SCG Singularity Class → Pre-bifurcation curvature flattening (κ→0\kappa \to 0) in normal form surfaces.
+
+    SMFT Variables:
+
+        Ψm(x,θ,τ)\Psi_m(x, \theta, \tau) → ongoing semantic field wavefunction
+
+        κ=∂2V∂x2\kappa = \frac{\partial^2 V}{\partial x^2} → local basin curvature
+
+        ϕ\phi → phase stability indicator
+
+        Collapse tick τc\tau_c → measures sampling cadence for recovery
+
+        Semantic prime set {πs}\{\pi_s\} → used to detect structural discontinuities in trace spacing
+
+    Orthogonality:
+
+        Distinct from Σ-axis (reactive mode),
+
+        Distinct from Δ-axis (Prime-Gap Scheduler, which modulates event spacing post-collapse).
+
+Mathematical Capsule
+
+Symbolic Form
+R(t)∝1∣∂2V∂x2∣,σ2(t)=Var[O(t)]R(t) \propto \frac{1}{\left| \frac{\partial^2 V}{\partial x^2} \right|}, \quad \sigma^2(t) = \text{Var}[O(t)] EWI(t)=α⋅1R(t)+β⋅σ2(t)+γ⋅Pjump(t)\text{EWI}(t) = \alpha \cdot \frac{1}{R(t)} + \beta \cdot \sigma^2(t) + \gamma \cdot P_{\text{jump}}(t)
+
+Where:
+
+    R(t)R(t) = recovery rate after perturbation
+
+    σ2(t)\sigma^2(t) = variance in observable(s)
+
+    PjumpP_{\text{jump}} = probability of noise-induced basin switch
+
+    α,β,γ\alpha,\beta,\gamma = tuning coefficients.
+
+Plain English
+The axis computes an Early-Warning Index (EWI) combining (1) inverse recovery rate, (2) rising variance, and (3) estimated probability of stochastic jumps. When EWI exceeds a threshold, the system is likely approaching a bifurcation.
+Playbook Table
+Situation 	Observable 	Action 	Expected Collapse Geometry Change
+Slow recovery from small shocks 	R(t)↓R(t) \downarrow 	Increase damping, deepen basin 	κ\kappa increases, basin stabilizes
+Variance spike in key signals 	σ2(t)↑\sigma^2(t) \uparrow 	Activate noise filters or redundancy 	Reduces PjumpP_{\text{jump}}
+Basin curvature near zero 	κ≈0\kappa \approx 0 	Pre-emptively shift control parameter λ\lambda 	Moves system away from bifurcation point
+Rising stochastic transitions 	Unexplained state flips 	Lock in phase ϕ\phi, reduce phase drift 	Maintains attractor integrity
+False positives due to transients 	Sudden but brief variance rise 	Extend averaging window 	Smooths EWI, prevents overreaction
+Example Prompts for AGI
+
+High-stakes (Finance/Governance)
+
+    “Monitor market liquidity curvature and volatility; flag when recovery rate from sell-offs drops below 0.05/day and variance exceeds 2× baseline.”
+
+Engineering/Control (AI Ops)
+
+    “Track latency recovery after load spikes; alert if mean time to recover increases by >20% over 7 days while variance in throughput doubles.”
+
+Cultural Meme Field
+
+    “In social sentiment data, detect when meme adoption slows to half its normal recovery speed after counter-narratives, and variance in sentiment scores increases sharply.”
+
+Integration Hooks
+
+    Feeds downstream: Σ-axis (Catastrophe-Mode Reasoner), Δ-axis (Prime-Gap Scheduler).
+
+    Upstream synergy: Ô-axis (Observer-Projection Tuner) can improve measurement accuracy by collapsing the right observables.
+
+    No collision: N-axis focuses on early curvature changes; does not perform topology mapping (H-axis) or symmetry factoring (Y-axis).

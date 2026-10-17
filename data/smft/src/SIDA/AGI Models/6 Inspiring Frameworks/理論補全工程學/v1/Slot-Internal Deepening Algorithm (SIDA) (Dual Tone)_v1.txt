@@ -1,0 +1,328 @@
+Index
+- Slot-Internal Deepening Algorithm (SIDA)
+- Slot-Internal Deepening Algorithm (SIDA) — Easy-Read Edition
+
+================
+
+Slot-Internal Deepening Algorithm (SIDA)
+
+(Post-Collapse Semantic Field Deepening & Branch Generation Engine)
+0. Overview
+
+The SIDA framework is a deep computation architecture designed for the high-cohesion stage after semantic collapse — known as the Strong Attractor Phase.
+
+Its goals are:
+
+    Slot Internal Deepening — Within an existing Hetu/Luoshu-style slot symmetry, expand the topological model layer-by-layer, trace evolution paths, and uncover nonlinear relationships.
+
+    Tension Disruption & Reconstruction — Without destabilizing the entire structure, introduce semantic challenges to test structural resilience, then rebuild as needed.
+
+    Parallel Branch Derivation — While maintaining the stability of the main attractor, generate heterogeneous viewpoints to initiate new slot evolution lines.
+
+1. Module Architecture
+A. Slot Collapse Detector
+
+Function: Detect whether the current semantic field has formed a Strong Attractor (full collapse/convergence).
+
+    Input: Semantic field corpus (token distribution, topic cohesion, slot alignment index).
+
+    Output:
+
+        collapse_state (True / False)
+
+        slot_symmetry_index (symmetry completeness score)
+
+B. Topological Template Classifier
+
+Function: Match the slot’s internal structure to a known topology template.
+
+    Sources:
+
+        Class A (Deep Cultural Topologies): Hero’s Journey, Five Aggregates–Six Qi, Pattern Language, Consciousness Evolution Structures.
+
+        Class B (Mechanical Topologies): 64 Hexagrams with line changes, 36 Stratagems, TCM Classical Formulas, Tactical Templates.
+
+    Output:
+
+        template_id (template identifier)
+
+        phase_map (mapping of stage nodes)
+
+C. Phase Expansion Mapping
+
+Function: Divide the slot’s internal trace into phases and calculate phase density & entropy change.
+
+    Operations:
+
+        Phase unfolding (A1–A5 or more levels).
+
+        Phase entropy computation.
+
+        Gate detection (line-change points / collapse thresholds).
+
+    Output:
+
+        phase_vector[] (semantic tension vector per phase)
+
+        entropy_profile
+
+D. Tension Vector Field Generator
+
+Function: Generate the semantic tension field and coupling structure within the slot.
+
+    Supports:
+
+        Reinforcement loops
+
+        Collapse transfer
+
+        Complementary focus
+
+    Output:
+
+        tension_field_map (tension direction map)
+
+        coupling_matrix (slot trace coupling relationships)
+
+E. Multi-Culture Topology Rewriting
+
+Function: Transform a given topology model into equivalent forms in different cultural contexts, roles, and symbolic systems.
+
+    Mapping sources:
+
+        TCM ↔ Western Medicine
+
+        I Ching ↔ Game Theory
+
+        Martial Arts ↔ Management Strategy
+
+    Output:
+
+        cross_culture_templates[]
+
+F. Slot Folding & Projection Interface
+
+Function: Export the topology results into different structured outputs:
+
+    Summary (high-level abstract)
+
+    Prompt Injection (AI prompt engineering)
+
+    Agent Trace branching entry points (multi-agent collaboration)
+
+    Output:
+
+        folded_trace (folded trace output)
+
+        projection_prompt (ready-to-use AI prompt)
+
+If you’re ready, I can continue with:
+
+    2. Execution Flow
+
+    3. Example Template Format
+
+    4. Mapping to Existing Research
+
+    5. Semantic GAN Extension
+
+    6. Application Scenarios
+
+2. Execution Flow
+
+    Detect convergence state → Module A
+
+    Match topology template → Module B
+
+    Divide into phases & analyze density → Module C
+
+    Generate tension field & simulate flows → Module D
+
+    (Optional) Cross-cultural reconstruction → Module E
+
+    Export folded trace & projection prompts → Module F
+
+3. Example Template Format (Markdown / JSON)
+
+Template ID: SLOT-TPL-TAIJI-LANQUETAIL-001
+Name: Tai Chi – “Grasp the Sparrow’s Tail” Topology
+
+Phases:
+  - A1: Peng (Defensive energy accumulation)
+  - A2: Lu (Redirecting force)
+  - A3: Ji (Focused counter-attack)
+  - A4: An (Balancing closure)
+
+Tensions:
+  - S1: Void–Solid Tension
+  - S2: Open–Close Tension
+  - S3: Hard–Soft Tension
+
+Suitable for: Negotiation strategy / Psychological transformation / System regulation
+Trace Fold Path: A1 → A2 → A3 → A4
+
+Cross-Culture Mapping:
+  - Game theory “Defend–Counterattack” model
+  - Psychology “Acceptance–Transformation” process
+
+Export: Strategy recommendations / Action guidance
+
+4. Mapping to Existing Research
+Existing Theory / Model 	Role in SIDA Framework 	Module Mapping
+Pattern Language 	Internal slot topology skeleton library 	B / C
+Hero’s Journey 	Narrative-type deep cultural template 	B / C
+Five Aggregates – Six Qi 	Mental/system rhythm trace model 	B / C / D
+Canetti’s Crowd Tension Theory 	Crowd dynamic tension generator 	D
+Luhmann’s Systems Theory 	Multi-slot communication & feedback loops 	F
+5. Semantic GAN Experimental Concept
+
+    Generator — Based on existing slot templates, produce deeper content, challenge points, and alternative branches.
+
+    Discriminator — Verify whether the generated result preserves slot symmetry and tension continuity.
+
+    Feedback Loop — Adjust generation strategy to maintain a dynamic balance between disruption and stability.
+
+6. Application Scenarios
+
+    Historical & Cultural Analysis — Multi-stage, multi-culture semantic deepening based on existing civilization archetypes.
+
+    AI Education / Tutoring Systems — Convert knowledge points into repeatable topological learning paths.
+
+    Strategic Simulation & Decision Support — Model multi-branch evolution after convergence in policy, business, or military contexts.
+
+    Creative Writing & Narrative Generation — Use narrative topology to produce cross-cultural, multi-layered storylines.
+
+===============
+
+Slot-Internal Deepening Algorithm (SIDA) — Easy-Read Edition
+
+(Making deep use of patterns after ideas have “settled”)
+0. What is SIDA?
+
+Think of SIDA as a way to dig deeper into ideas once they’ve already taken shape.
+When a discussion or thought process has “settled” into a strong pattern (Strong Attractor), SIDA helps you:
+
+    Look closer inside — Explore the details of the pattern, find hidden links, and understand how parts fit together.
+
+    Shake it (carefully) — Add a small challenge or twist to test its strength, then rebuild it stronger.
+
+    Branch it out — Create alternative viewpoints or storylines without losing the original structure.
+
+1. How It’s Built
+
+A. Collapse Detector
+
+    Checks if the idea has “settled” into a stable shape.
+
+    Gives you:
+
+        Yes/No — is it stable?
+
+        How symmetrical/balanced it is.
+
+B. Pattern Matcher
+
+    Finds which known pattern your idea fits into.
+
+    Can match “deep culture” patterns (like the Hero’s Journey or TCM Five Elements) or “mechanical” ones (like chess strategies or hexagram charts).
+
+    Labels the key stages.
+
+C. Stage Mapping
+
+    Breaks the idea’s journey into steps or phases.
+
+    Measures how dense and how changeable each stage is.
+
+    Spots “gates” — key turning points.
+
+D. Tension Map Maker
+
+    Shows where the “push and pull” is inside the idea.
+
+    Can highlight feedback loops, sudden shifts, or complementary forces.
+
+E. Cultural Translation
+
+    Translates the same pattern into another cultural or symbolic system.
+
+        Example: Turn a TCM model into a Western medical one, or a martial arts sequence into a business strategy.
+
+F. Output & Projection
+
+    Can fold the pattern into:
+
+        Short summaries
+
+        AI prompts
+
+        Branching entry points for multi-agent work
+
+2. How SIDA Runs
+
+    See if the idea is stable.
+
+    Match it to a known pattern.
+
+    Break it into phases.
+
+    Map the push-pull forces.
+
+    (Optional) Translate to another cultural language.
+
+    Output a summary, AI prompt, or branching plan.
+
+3. Example
+
+Tai Chi “Grasp the Sparrow’s Tail” as a pattern:
+
+    Step 1: Peng — Gather and protect.
+
+    Step 2: Lu — Redirect what’s coming at you.
+
+    Step 3: Ji — Focus and counter.
+
+    Step 4: An — Close in balance.
+
+Tensions inside:
+
+    Solid vs. empty
+
+    Open vs. closed
+
+    Hard vs. soft
+
+Can be used for negotiation, personal growth, or system adjustment.
+4. Where It Fits with Other Ideas
+
+    Pattern Language — Gives the library of shapes SIDA can use.
+
+    Hero’s Journey — A ready-made story pattern.
+
+    Five Aggregates–Six Qi — Models rhythms in mind or systems.
+
+    Crowd Tension Theory — Helps map group dynamics.
+
+    Systems Theory — Manages communication and feedback between different “slots” (idea spaces).
+
+5. Experimental Add-On: Semantic GAN
+
+    Idea generator — Makes deeper content or new branches.
+
+    Checker — Makes sure the shape stays balanced.
+
+    Feedback loop — Adjusts between keeping stability and adding useful disruption.
+
+6. Where You Could Use SIDA
+
+    Understanding history & culture from multiple angles.
+
+    Designing learning paths in AI education tools.
+
+    Testing “what if” scenarios in business, politics, or strategy.
+
+    Building multi-layered stories for creative projects.
+
+===========================
+
+ © 2025 Chung Leung Danny Yeung. All rights reserved. 版权所有 不得转载

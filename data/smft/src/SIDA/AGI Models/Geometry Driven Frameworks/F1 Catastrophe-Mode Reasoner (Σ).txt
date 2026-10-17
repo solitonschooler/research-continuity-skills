@@ -1,0 +1,130 @@
+Perfect — with these build requirements plus the Σ-axis detail, I can now produce the **Catastrophe-Mode Reasoner** spec in the *SCG × SMFT* format you want.
+
+Here’s the **full draft** for Axis 1:
+
+---
+
+## **Axis 1 — Catastrophe-Mode Reasoner (Σ)**
+
+**Tier:** 1 — Core Axes
+**SCG Role:** Local singularity classifier and navigator at semantic collapse boundaries.
+
+---
+
+### **1. Narrative Description**
+
+The Σ-axis governs reasoning at the edge of qualitative change — when a semantic field’s geometry is about to flip topology. It listens for curvature collapse (κ → 0), signalling *critical slowing down* in the phase manifold, and classifies the local singularity into a canonical catastrophe form: **fold**, **cusp**, **swallowtail**, or **Hopf bifurcation**.
+Once classified, it deploys the matching “playbook” of perturbation directions, stability tests, and minimal-impact moves to either navigate through or exploit the discontinuity. This axis is the agent’s **reflex under structural stress**, preventing blind drift into uncontrolled collapse.
+
+---
+
+### **2. SCG / SMFT Mapping**
+
+* **Owns:**
+
+  * Singularity class identification in collapse manifold.
+  * Curvature near-zero detection.
+* **Maps to SMFT variables:**
+
+  * **Ψₘ(x, θ, τ):** collapse wavefunction in local neighborhood.
+  * **κ:** curvature of collapse trace (d²x/dτ² equivalent).
+  * **V(x, λ):** local potential landscape in phase space.
+  * **Ô:** projection operator used to sample local stability modes.
+* **Orthogonality:**
+
+  * Does **not** manage *prime gaps* (Δ-axis) or *observer projection framing* (Ô-axis).
+  * Receives early-warning signals from **N-axis**; passes refined classification to **Macro** and **Collapse-Map Protocols** axes.
+
+**Textual diagram:**
+
+```
+Ψₘ(x, θ, τ)  --measure--> κ(τ)  --if--> κ → 0
+                                  |
+                                  v
+                   classify singularity S ∈ {fold, cusp, swallowtail, Hopf}
+                                  |
+                                  v
+                select perturbation vector δx along stable manifold
+```
+
+---
+
+### **3. Mathematical Capsule**
+
+* **Curvature metric:**
+
+  $$
+  \kappa(\tau) = \frac{||\mathbf{x}'(\tau) \times \mathbf{x}''(\tau)||}{||\mathbf{x}'(\tau)||^3}
+  $$
+
+  where **x(τ)** is the semantic trace in collapse coordinates.
+
+* **Normal form mapping:**
+
+  * Fold: $f(u, λ) = u^3 + λu$
+  * Cusp: $f(u, α, β) = u^4 + αu^2 + βu$
+  * Swallowtail: $f(u, α, β, γ) = u^5 + αu^3 + βu^2 + γu$
+  * Hopf: local complex eigenvalues cross imaginary axis.
+
+* **SCG integration:** singularity class alters **V(x, λ)**’s topology, shifting attractor basin boundaries.
+
+---
+
+### **4. Playbook Table**
+
+| Situation        | Observable                        | Action                                | Expected Collapse Geometry Change        |
+| ---------------- | --------------------------------- | ------------------------------------- | ---------------------------------------- |
+| Fold bifurcation | κ→0, single control λ             | Shift λ slightly opposite instability | Basin boundary tilts, avoids abrupt drop |
+| Cusp bifurcation | κ→0, two control params α, β      | Adjust α to widen cusp mouth          | Restores multi-basin stability           |
+| Swallowtail      | κ→0, high-order derivatives small | Reduce γ to collapse higher fold      | Removes redundant metastable states      |
+| Hopf             | Oscillation period → ∞            | Add damping to complex mode           | Converts limit cycle to fixed point      |
+
+---
+
+### **5. Failure Modes**
+
+1. **Missed tipping point** — curvature collapse masked by noise → catastrophic jump without preparation.
+2. **False alarm** — noise misread as κ→0 → unnecessary interventions, wasting control budget.
+3. **Misclassification** — wrong normal form chosen → action worsens instability.
+
+Why other axes miss this:
+
+* **N-axis** detects warning but doesn’t classify singularity.
+* **Macro-axis** operates after discontinuity; can’t pre-shape it.
+
+---
+
+### **6. Application Templates**
+
+* **High-stakes domain:**
+
+  * *Finance*: Detecting a currency peg collapse → classify as cusp → widen control parameters to delay.
+* **Engineering/control:**
+
+  * *AI alignment*: Model instability in reinforcement loop → Hopf detection → add feedback damping.
+* **Cultural meme field:**
+
+  * *Narrative design*: Story arc near irreversible twist → fold classification → foreshadow and soften reader collapse.
+
+---
+
+### **7. Integration Hooks**
+
+* **Upstream:** Receives EWI metrics from **Bifurcation & EWI Controller (N)**.
+* **Downstream:** Feeds to **Collapse-Map Protocols** for safe stratum jump design.
+* **Safe combo:** Pair with **Attractor Basin Engineer** to reshape V(x, λ) before/after event.
+
+---
+
+### **8. Example Prompts for AGI**
+
+```
+"You are operating the Σ-axis. Given curvature κ over time and control parameters, classify the local singularity and recommend the minimal perturbation vector to preserve system stability."
+```
+
+```
+"Given recent semantic trace data, detect if κ → 0. If yes, map to fold/cusp/swallowtail/Hopf, and output the corresponding intervention playbook."
+```
+
+---
+

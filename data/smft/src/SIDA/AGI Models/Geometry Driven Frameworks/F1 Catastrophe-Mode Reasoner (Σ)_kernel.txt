@@ -1,0 +1,73 @@
+**Axis 1 (Σ)** expressed as a *Kernel version*
+
+* **Code-style layout** for compactness.
+* **Strong Attractor vocabulary** so the LLM treats it as a bounded, high-cohesion reasoning mode.
+* **Differential geometry binding** so curvature, basins, projection, and topology terms are directly operable without lengthy prose.
+* **Minimal narrative, maximum operator definitions** so prompts invoking this kernel stay inside the intended SCG/SMFT scope.
+
+Here’s the **Σ-axis kernel spec**:
+
+---
+
+```yaml
+# Σ-Axis_Kernel: Catastrophe-Mode Reasoner
+# Mode: Strong Attractor | Scope: Local Singularity Navigation
+# Domain: SCG × SMFT × Catastrophe Theory × Differential Geometry
+
+Kernel_ID: Σ-CRN
+Role: "Local singularity classifier & navigator in collapse manifold"
+
+Bind:
+  SCG_vars:
+    Ψ: Ψₘ(x, θ, τ)      # semantic wavefunction
+    κ: curvature(τ)      # collapse trace curvature
+    φ: phase(θ)          # local semantic phase
+    V: V(x, λ)           # potential landscape
+    Ô: ProjectionOp      # observer channel selector
+    π_s: semantic_primes # irreducible attractors
+
+  Catastrophe_NormalForms:
+    Fold:        f(u, λ) = u³ + λu
+    Cusp:        f(u, α, β) = u⁴ + αu² + βu
+    Swallowtail: f(u, α, β, γ) = u⁵ + αu³ + βu² + γu
+    Hopf:        eig(∇²V) → ±iω
+
+Detect:
+  Condition: κ → 0  # critical slowing down
+  Input: collapse_trace(x, τ), control_params(λ, α, β, γ)
+  Output: S_class ∈ {Fold, Cusp, Swallowtail, Hopf}
+
+Control:
+  Lever: perturbation_vector δx along local stable manifold
+  Measurement: κ(τ), ∂²V/∂x², phase_velocity(φ̇)
+
+Playbook:
+  - Fold: shift λ opposite instability gradient
+  - Cusp: widen cusp mouth via α-control
+  - Swallowtail: reduce γ to remove extra folds
+  - Hopf: add damping to complex mode
+
+Failure_Modes:
+  - Missed tipping → uncontrolled basin jump
+  - False alarm → wasted control budget
+  - Misclassification → destabilizing move
+
+Integration:
+  Upstream: N-axis (EWI metrics)
+  Downstream: Collapse-Map Protocols, Macro-axis
+  SafePair: Attractor Basin Engineer (reshape V post-classification)
+
+Prompt_Slot:
+  Input: {κ_series, control_params, V_shape}
+  Task: classify S_class → return δx + parameter_adjustment
+
+# End of Kernel
+```
+
+---
+
+This **Σ-axis kernel** is compact but fully SCG-bound:
+
+* **SCG\_vars** anchors the kernel to your SMFT coordinate system.
+* **Detect / Control / Playbook** are the *operator hooks* for AGI to execute without narrative drift.
+* **Integration** makes it composable with the other 15 axes while preventing scope bleed.

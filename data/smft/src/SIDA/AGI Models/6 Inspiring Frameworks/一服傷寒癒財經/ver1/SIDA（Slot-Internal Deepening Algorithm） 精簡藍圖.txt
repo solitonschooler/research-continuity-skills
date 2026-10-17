@@ -1,0 +1,828 @@
+SIDA 框架藍圖 — 目錄
+
+- 文章主體 SIDA（Slot-Internal Deepening Algorithm）完整框架藍圖（中文版）
+
+- 附錄 A：SIDA 模板標準格式說明與欄位定義
+
+    詳解 Template ID、Phases、Tensions、Trace Fold Path、Cross-Culture Mapping 等欄位的語義與使用方式。
+
+    提供 Markdown 與 JSON 兩種版本的結構範例。
+
+- 附錄 B：A 類深層文化拓撲模板範例
+
+    範例 1：「英雄旅程」12 階段轉 SIDA 模板
+
+    範例 2：「五蘊六氣」轉 SIDA 模板
+
+    範例 3：「Pattern Language」轉 SIDA 模板（建築→組織語義）
+
+- 附錄 C：B 類機械化拓撲模板範例
+
+    範例 1：「易經卦象 × 爻變」轉 SIDA 模板（單卦 + 變爻）
+
+    範例 2：「傷寒論經方」轉 SIDA 模板（病機模式 + 處方結構）
+
+    範例 3：「三十六計」轉 SIDA 模板（戰術型 Slot Disturb 模型）
+
+
+========================
+
+文章主體 SIDA（Slot-Internal Deepening Algorithm）
+完整框架藍圖（中文版） 
+
+
+Slot-Internal Deepening Algorithm
+（後收束階段語義場深化與分支生成引擎）
+0. 概述
+
+SIDA 是一種針對 語義收束（collapse）後 的高凝聚階段（Strong Attractor Phase）設計的深度運算框架。
+它的目標是：
+
+    Slot 內部深化：在已有的河圖/洛書式 slot 對稱結構中，分層展開拓撲模型、追蹤 trace 演化路徑、挖掘非線性關聯。
+
+    張力破壞與重構：在不破壞整體結構穩定性的前提下，引入語義挑戰點，測試結構韌性並進行重構。
+
+    平行分支派生：在主 attractor 穩定維持下，生成異質觀點，開啟新的 slot 演化線。
+
+ 
+
+1. 模組架構
+A. Slot Collapse Detector
+
+功能：檢測當前語義場是否已形成 Strong Attractor（收束完成）。
+輸入：語義場語料（token 分佈、主題聚合度、slot 對位度）
+輸出：
+
+    collapse_state（True / False）
+
+    slot_symmetry_index（對稱完整度評分）
+
+B. Topological Template Classifier
+
+功能：匹配 slot 內部對應的典型拓撲模型（Topology Template）。
+來源：
+
+    A 類（深層文化拓撲）：英雄旅程、五蘊六氣、Pattern Language、意識演化結構
+
+    B 類（機械化拓撲）：64卦×爻變、36計、中醫經方、戰術模板
+    輸出：
+
+    template_id（模板編號）
+
+    phase_map（階段節點標註）
+
+C. Phase Expansion Mapping
+
+功能：將 slot 內 trace 劃分為階段（Phase），並計算階段密度與熵變。
+操作：
+
+    Phase unfolding：A1–A5（或更多層級）
+
+    Phase entropy 計算
+
+    Gate detection（變爻點 / 崩潰門檻）
+    輸出：
+
+    phase_vector[]（各階段的語義張力向量）
+
+    entropy_profile
+
+D. Tension Vector Field Generator
+
+功能：生成 slot 內的語義張力場與耦合場結構。
+支持：
+
+    正反饋循環（reinforcement loop）
+
+    崩潰轉移（collapse transfer）
+
+    互補聚焦（complementary focus）
+    輸出：
+
+    tension_field_map（張力方向圖）
+
+    coupling_matrix（slot trace 耦合關係）
+
+E. Multi-Culture Topology Rewriting
+
+功能：將同一拓撲模型轉換到不同文化語境、角色與符號系統下的對應版本。
+來源映射：
+
+    中醫 ↔ 西醫
+
+    易經 ↔ 博弈論
+
+    武學 ↔ 管理策略
+    輸出：
+
+    cross_culture_templates[]
+
+F. Slot Folding and Projection Interface
+
+功能：將拓撲結果轉出為不同結構用途：
+
+    Summary（高層摘要）
+
+    Prompt Injection（AI 提示工程）
+
+    Agent Trace 分支入口（多 agent 協同）
+    輸出：
+
+    folded_trace（折疊後 trace）
+
+    projection_prompt（可直接餵 AI 的提示語）
+
+2. 運行流程
+
+1. 探測收束狀態 → A
+2. 對應拓撲模板 → B
+3. 階段劃分與密度分析 → C
+4. 張力場生成與流動模擬 → D
+5. 跨文化重構（可選） → E
+6. 輸出折疊與投影接口 → F
+
+3. 範例模板格式（Markdown / JSON）
+
+Template ID: SLOT-TPL-TAIJI-LANQUETAIL-001
+Name: 太極拳攬雀尾拓撲
+Phases:
+  - A1: 掤（防守蓄勢）
+  - A2: 捋（順勢化解）
+  - A3: 擠（集中反擊）
+  - A4: 按（收束平衡）
+Tensions:
+  - S1: 虛實張力
+  - S2: 開合張力
+  - S3: 剛柔張力
+Suitable for: 談判策略 / 心理轉化 / 系統調節
+Trace Fold Path: A1 → A2 → A3 → A4
+Cross-Culture Mapping:
+  - 博弈論的「防禦-反擊」模型
+  - 心理學的「接納-轉化」過程
+Export: 策略建議 / 動作指導
+
+4. 與現有研究成果的映射
+現有理論 / 模型 	在 SIDA 中的角色 	模塊對應
+Pattern Language 	Slot 內部拓撲骨架庫 	B / C
+英雄旅程 	敘事型深層模板 	B / C
+五蘊六氣 	精神 / 系統節奏的 trace 模型 	B / C / D
+Canetti 群眾張力 	群體動態張力生成器 	D
+Luhmann 系統理論 	多 Slot 溝通與閉環 	F
+5. 延伸：Semantic GAN 實驗構想
+
+    Generator：根據現有 slot 模板生成深化內容 / 挑戰點 / 分支。
+
+    Discriminator：檢驗生成結果是否符合 slot 對稱性與張力連續性。
+
+    Feedback Loop：調整生成策略，在破壞性與穩定性間保持動態平衡。
+
+6. 應用場景
+
+    歷史與文化分析：在已有文明原型上進行多階段、多文化語義深化。
+
+    AI 教育 / 輔導系統：將知識點轉換為可循環的拓撲學習路徑。
+
+    策略模擬與決策支持：在政策、商業、軍事場景中，模擬收束後的多分支演化。
+
+    創作與敘事生成：基於敘事拓撲，生成跨文化、多層次的故事線。
+
+我可以在下一步幫你建立第一批「SIDA Topology Template Library」，
+直接包含 10 個 A 類（深層文化） + 10 個 B 類（機械化） + 5 個武學模板，並用這個格式輸出，方便你立即用在 SMFT 系統裡。
+
+你要我直接展開這個模板庫嗎？這樣我們可以把 SIDA 變成可運行的知識模塊系統。
+
+
+========================
+
+SIDA（Slot-Internal Deepening Algorithm）
+完整框架藍圖（中文版） 
+
+下面是 附錄 A：SIDA 模板標準格式說明與欄位定義，含欄位語義、使用方式，以及 Markdown／JSON 兩種結構範例。
+附錄 A｜SIDA 模板標準格式說明與欄位定義
+
+SIDA（Slot‑Internal Deepening Algorithm）模板是一種「可執行的語義拓撲」。它把一個模式（pattern／框架／招式）拆成 Phases（階段） 與 Tensions（張力軸），再用 Trace Fold Path（摺疊路徑） 把長流程壓縮投影成不同用途的輸出（摘要、Prompt、KPI、教案…）。Cross‑Culture Mapping 則用來對應跨學科、跨文化的等構（isomorphism／analogy）。
+1) 頂層欄位（Top‑level fields）
+template_id (string，必填)
+
+    用來唯一識別模板，建議格式：
+    namespace.category.name:major.minor.patch
+
+    範例：sida.culture.heros_journey:1.0.0
+
+    命名約定：
+
+        namespace：sida / org 私有命名空間
+
+        category：culture / org / med / edu / tactic…
+
+        name：kebab_case
+
+        版本：語義化版本號（破壞性修改才升 major）
+
+title (string，必填)
+
+    人類可讀的名稱。
+    例：英雄旅程（壓縮版 8 階段）
+
+summary (string，必填)
+
+    這個模板在解決什麼問題、適用於哪些場景（1–3 句）。
+
+topology_class (enum，必填)
+
+    ‘A_deep_culture’（深層文化拓撲）｜‘B_mechanical’（機械化流程拓撲）｜‘C_hybrid’（混合）。
+
+    影響 Phase 粒度與張力抽象層級。
+
+tags (string[])（選填）
+
+    便於檢索與自動分類。例：["myth", "story", "product", "change"]
+
+metadata (object，選填)
+
+    authors: string[]、created_at: ISO8601、license: string、notes: string
+
+ 
+
+2) Phases（核心）
+
+每個 Phase 是一個最小可操作單元。典型 5–12 個為佳；B 型機械流程可更多、更細。
+
+Phase 欄位：
+
+    id (string)：局部唯一 ID（kebab_case）。
+
+    name (string)：階段名。
+
+    intent (string)：這一階段要「成就什麼」。
+
+    entry_conditions (string[])：可進場的先決條件或觸發訊號。
+
+    exit_criteria (string[])：何時算完成；避免循環卡住。
+
+    inputs (string[])：此階段所需資料／資源。
+
+    outputs (string[])：此階段產出的可驗證物（artifact／決策）。
+
+    tensions_ref (string[])：引用的張力軸 ID（見下節 Tensions）。
+
+    signals (object[])（選填）：可量測或觀察的進度／風險訊號。
+
+        name, kind: ("metric"|"qual"), how_to_measure, threshold?
+
+    playbook (string[])（選填）：具體操作步驟（條列）。
+
+    examples (string[])（選填）：1–3 個簡短示例。
+
+    risk_notes (string[])（選填）：常見失誤與反對策。
+
+    設計原則：每個 Phase 完成後，應至少沉澱一個可被下一階段消費的輸出（outputs）。
+
+3) Tensions（張力軸）
+
+張力軸是 SIDA 的「導航儀」。它定義當前語義場的對拉方向（polarities）與觀測信號，用以判斷偏折與收束。
+
+Tension 欄位：
+
+    id (string)：張力軸 ID（kebab_case）。
+
+    label (string)：人類可讀名稱。
+
+    axis (string[2])：兩端極性名稱（如 ["安全","探索"]）。
+
+    description (string)：此軸為何重要、何時會失衡。
+
+    signals (object[])：可觀察指標。
+
+        name, kind: ("metric"|"qual"), direction: ("+|-" 表示朝 axis[1] or axis[0])
+
+    weights (object)：{ global: number, by_phase?: Record<phase_id, number> }
+
+    thresholds (object)：{ warning?: number, critical?: number }（0–1 規模或明文說明）
+
+    notes (string[])（選填）
+
+    使用方式：Phase 內 tensions_ref 指到這些軸；實作時可計算 slot_symmetry_index、collapse_state 等衍生量。
+
+4) Trace Fold Path（摺疊路徑）
+
+把完整拓撲壓縮投影成特定用途的輸出。每個 Fold Path 指定來源範圍、壓縮規則、損失預算與評估方式。
+
+Fold Path 欄位：
+
+    id (string)
+
+    purpose (enum)："summary" | "prompt" | "agent_branches" | "curriculum" | "kpi_dashboard" | "playbook_card" | "canvas"
+
+    source_scope (object)：
+
+        phases: ("all" | string[])
+
+        fields: string[]（從 Phase／Tension 取哪些欄）
+
+    compression_rules (object)：
+
+        loss_budget（0–1，允許丟失多少細節）
+
+        priority（欄位優先級；例：["intent", "exit_criteria", "signals"]）
+
+        style（輸出語氣／格式約束）
+
+    evaluation (object)（選填）：
+
+        checks: string[]（如「每相鄰 Phase 必留一個可見輸出」）
+
+        metrics?: string[]（如可讀性、coverage、coherence）
+
+    examples (string[])（選填）
+
+5) Cross‑Culture Mapping（跨文化對映）
+
+宣告等構或類比的對應關係，支援跨框架、跨領域遷移。
+
+Mapping 欄位：
+
+    target_system (string)：目標框架名（如 startup_lifecycle.v2）。
+
+    equivalence_type (enum)："isomorphic" | "homomorphic" | "analogical"
+
+    confidence (0–1)：對映信心。
+
+    phase_map (array)：
+
+        from: phase_id、to: string（對方的節點或階段名）
+
+        notes?（對映理由或限制）
+
+    tension_map (array)（選填）：
+
+        from: tension_id、to: string、notes?
+
+    examples (string[])（選填）
+
+6) 驗證規則（最低可行模板檢核）
+
+    至少 1 個張力軸、4 個 Phase、1 條 Fold Path。
+
+    每個 Phase 需有 intent / exit_criteria / outputs。
+
+    任一 Fold Path 的 source_scope 指到的 Phase 不可為空。
+
+    template_id 遵守版本規則；破壞性修改必須升級 major。
+
+    Cross‑Culture Mapping 若宣稱 isomorphic，所有 Phase 必映射到對側唯一 Phase。
+
+
+小抄：常見設計錯誤 & 快速修正
+
+    Phase 沒有可驗證輸出 → 補一個「下一階段必須消費」的產出（如「最小試煉設計」）。
+
+    張力軸只有名稱沒有信號 → 至少加 1 個可觀察指標（metric 或 qual）與方向。
+
+    Fold Path 壓過頭 → 調高 loss_budget 或把 priority 改成保留 exit_criteria。
+
+    跨文化對映過度自信 → 若非一對一完整映射，標成 homomorphic 或 analogical，降低 confidence。
+
+如果這份規格 OK，我就繼續寫 附錄 B（把 3 套經典框架實際轉成 SIDA 模板：英雄旅程 / 五蘊六氣 / Pattern Language），每一個都會同時給 Markdown 骨架 + JSON 範本，並演示一條 Fold Path 的實際輸出。
+
+
+========================
+
+SIDA（Slot-Internal Deepening Algorithm）
+完整框架藍圖（中文版） 
+附錄 B：A 類深層文化拓撲模板範例
+附錄 B：A 類深層文化拓撲模板範例
+
+    範例 1：「英雄旅程」12 階段轉 SIDA 模板
+
+    範例 2：「五蘊六氣」轉 SIDA 模板
+
+    範例 3：「Pattern Language」轉 SIDA 模板（建築→組織語義）
+
+
+附錄 B-1：「英雄旅程」12 階段轉 SIDA 模板
+1. 範例來源與轉換目標
+
+「英雄旅程」（Hero’s Journey）是 Joseph Campbell 在《千面英雄》中總結出的經典敘事拓撲，包含 12 個階段。這裡我們將其轉換為 SIDA（Semantic Infrastructure Design Architecture）模板，方便在 SMFT（語義模因場論）與跨文化語境中作為語義拓撲藍本。
+2. SIDA 模板結構
+
+欄位對應說明可參考附錄 A 的 Template ID、Phases、Tensions、Trace Fold Path、Cross-Culture Mapping 定義。
+Markdown 範例
+
+Template ID: HeroJourney-12-SIDA
+Phases:
+  1. Ordinary World → Call to Adventure
+  2. Refusal of the Call
+  3. Meeting the Mentor
+  4. Crossing the First Threshold
+  5. Tests, Allies, Enemies
+  6. Approach to the Inmost Cave
+  7. Ordeal
+  8. Reward (Seizing the Sword)
+  9. The Road Back
+  10. Resurrection
+  11. Return with the Elixir
+
+Tensions:
+  - Stability ↔ Disruption
+  - Self-Preservation ↔ Self-Transcendence
+  - Known Semantic Frame ↔ Unknown Semantic Space
+
+Trace Fold Path:
+  - Collapse arcs progress from low semantic tension (ordinary world) → peak tension (ordeal) → re-integration (return)
+  - Multiple semantic interference nodes at phases 5–7
+
+Cross-Culture Mapping:
+  - 西方史詩敘事 ↔ 東方修行旅程（如《西遊記》取經路）
+  - 可對應「易經」遷變：坤（承受）→ 震（啟動）→ 坎（試煉）→ 離（明悟）→ 乾（完成）
+
+
+附錄 B-2：「五蘊六氣」轉 SIDA 模板
+
+1. 範例來源與轉換目標
+
+    五蘊（五陰）：色、受、想、行、識 —— 佛學對生命經驗的五層解析，著重內在心理—意識結構。
+
+    六氣：風、寒、暑、濕、燥、火 —— 中醫對外部環境氣候與人體生理反應的六種主要氣化模式。
+
+在 SIDA 中，我們將五蘊視為 Slot Internal Phase Skeleton（內部階段骨架），六氣視為 External Tension Vector Field（外部張力場來源），兩者結合可模擬「內外張力交互下的語義場收束與深化」。
+2. SIDA 模板結構（Markdown 範例）
+
+Template ID: FiveAggregates-SixQi-SIDA
+Phases:
+  - A1（色 / 色蘊）：物質形態與直接感官對象。
+  - A2（受 / 受蘊）：感官與心識對外境的感受反應。
+  - A3（想 / 想蘊）：對感受的意象與認知加工。
+  - A4（行 / 行蘊）：由意象衍生的意志、行為傾向。
+  - A5（識 / 識蘊）：對整個過程的認知統攝與持續性識別。
+
+Tensions（六氣對應的外部張力源）：
+  - T1（風）：變化迅速、不定向張力（易干擾A3想與A4行）。
+  - T2（寒）：收縮抑制張力（降低A2受與A4行的活化）。
+  - T3（暑）：過度擴張張力（影響A1色與A2受，導致能量分散）。
+  - T4（濕）：黏滯耦合張力（延緩A3想的流動，增加 inertia）。
+  - T5（燥）：資源/潤滑不足張力（削弱A2受與A4行的連續性）。
+  - T6（火）：過熱加速張力（推升A4行與A5識的反應頻率）。
+
+Trace Fold Path:
+  - 內部骨架：A1 → A2 → A3 → A4 → A5（可循環，亦可在A3或A4進行 collapse）
+  - 外部張力：六氣向量場可在任一階段注入，改變 phase density 與 collapse 條件
+
+Cross-Culture Mapping:
+  - 佛教心理學 ↔ 中醫病機學（五蘊對應藏象，六氣對應外感邪氣）
+  - 「色受想行識」對應「物理層→感官層→認知層→行動層→意識層」
+  - 「六氣張力」可映射到現代系統動力學的六種擾動模式（e.g. 突變、阻尼、過熱等）
+
+4. 應用場景示例
+
+    心理輔導：以五蘊追蹤內在心理階段，六氣比喻環境壓力類型，協助定位問題源。
+
+    系統調優：五蘊作為核心模組處理序列，六氣作為外部 API 請求壓力類型，分析瓶頸與過載點。
+
+    跨文化教學：將佛學與中醫結構轉譯為現代管理或 AI 模型優化框架。
+
+
+附錄 B-3：「Pattern Language」轉 SIDA 模板
+
+1. 範例來源與轉換目標
+
+    來源：Christopher Alexander 在《A Pattern Language》中提出的 253 個建築與空間設計模式，每個模式都包含「背景情境（Context）→ 問題（Problem）→ 解法（Solution）」的結構，並且模式之間能嵌套、鏈接，形成一個層級化、網絡化的結構語言。
+
+    轉換目標：將 Pattern Language 的單一 pattern 轉換成 SIDA 的 Slot Internal Deepening 模板，讓其能：
+
+        在單一 slot 內作為「典型拓撲骨架」使用
+
+        支援多層 phase 展開
+
+        維持可跨文化、跨領域映射
+
+2. 範例選擇
+
+我選取 Pattern Language 中一個經典模式：
+
+    Pattern #61 – Small Public Squares（小型公共廣場）
+    背景：城市需要人們交流的場所。
+    問題：大型空間容易冷清，小型空間能創造更多互動。
+    解法：設計面積適中的公共空間（約 20–25 米寬），並設置圍合邊界，增加親密感和可用性。
+
+3. SIDA 模板結構（Markdown 範例）
+
+Template ID: PatternLanguage-061-SmallPublicSquares
+Phases:
+  - A1（Context）：城市中缺乏交流與互動的場域
+  - A2（Problem Recognition）：大型公共空間造成疏離與冷清
+  - A3（Tension Amplification）：需求與使用率的反差引發空間浪費問題
+  - A4（Solution Structuring）：設計小型、圍合的廣場空間（20–25 米寬）
+  - A5（Outcome Integration）：居民互動增加，社區凝聚力提升
+
+Tensions:
+  - T1（尺度張力）：過大造成疏離，過小造成擁擠
+  - T2（社交張力）：陌生感與親密感之間的平衡
+  - T3（功能張力）：開放性與私密性的衝突
+  - T4（資源張力）：設計與維護成本 vs 使用頻率
+
+Trace Fold Path:
+  - 標準路徑：A1 → A2 → A3 → A4 → A5
+  - 可逆分支：A3 → A2（重新審視問題背景）
+  - 擴展分支：A4 → 新 slot（Pattern #69 Public Outdoor Room）
+
+Cross-Culture Mapping:
+  - 建築學 ↔ 組織設計：小型公共廣場 ↔ 部門內交流空間
+  - 城市規劃 ↔ AI 系統：廣場 ↔ 多 Agent 共享記憶區域
+  - 社區互動 ↔ 線上社群：廣場 ↔ 小型封閉討論群組
+
+Export:
+  - 可轉為 AI Prompt：「為團隊設計一個 20 人以內的共享討論空間，確保親密感並促進互動」
+
+5. 應用場景示例
+
+    城市規劃 AI：生成滿足互動需求的公共空間設計方案。
+
+    企業組織設計：設計部門內的小型休息室/咖啡角，促進溝通。
+
+    AI 多 Agent 系統：規劃共享知識的「小廣場」節點，避免資訊冷場。
+
+    線上社群運營：設立小規模的私密討論群，增強核心用戶連結。
+
+
+========================
+
+SIDA（Slot-Internal Deepening Algorithm）
+完整框架藍圖（中文版） 
+附錄 C：B 類機械化拓撲模板範例
+
+
+附錄 C：B 類機械化拓撲模板範例
+
+    範例 1：「易經卦象 × 爻變」轉 SIDA 模板（單卦 + 變爻）
+
+    範例 2：「傷寒論經方」轉 SIDA 模板（病機模式 + 處方結構）
+
+    範例 3：「三十六計」轉 SIDA 模板（戰術型 Slot Disturb 模型）
+
+
+附錄 C-1：「易經卦象 × 爻變」轉 SIDA 模板
+
+範例主題：風火家人卦（內離外巽），五爻變
+
+一、易經背景與詮釋
+
+    卦象：風火家人（內離火、外巽風），象徵以禮治家，內心明亮而外在柔順。
+
+    卦辭：「家人，有嚴君焉，吉。」——強調秩序與內外和諧。
+
+    五爻辭：「王假有家，勿恤，吉。」——領導者建立秩序而民安，表示結構的成熟與穩定。
+
+二、SIDA 模板結構（Markdown 範例）
+
+Template ID: IChing-FengHuoJiaRen-5thLineChange
+Phases:
+  - A1（Context）：家或組織處於秩序不穩定期，需要領導核心
+  - A2（Problem Recognition）：成員缺乏共同規範與信任
+  - A3（Tension Amplification）：外部壓力與內部不和加劇
+  - A4（Solution Structuring）：核心領導者（王）確立秩序，明德在內，柔順對外
+  - A5（Outcome Integration）：全體安定，進入良性循環
+
+Tensions:
+  - T1（內外張力）：內部明斷（離火） vs 外部柔順（巽風）
+  - T2（秩序張力）：自由 vs 規範的平衡
+  - T3（角色張力）：核心領導者 vs 群體成員的權責協調
+
+Trace Fold Path:
+  - 標準路徑：A1 → A2 → A3 → A4 → A5
+  - 變爻觸發：A4 → A5 加速，進入「長治久安」模式
+  - 若失衡：A4 → A2（秩序崩解，需重建）
+
+Cross-Culture Mapping（概要）:
+  - 組織管理：建立明確制度與領導權威
+  - 軍事戰略：主帥安軍，士氣高昂
+  - 家庭治理：父母定家規，子女和樂
+
+Export:
+  - 「針對團隊秩序混亂情況，設計一套領導者主導、內明外和的管理方案」
+
+四、跨文化深層應用映射
+卦象意涵（風火家人） 	西方對應範式 	現代應用範例 	核心張力類型
+內明外順（離火在內，巽風在外） 	Servant Leadership（服務型領導） 	科技公司 CTO 帶領團隊制定核心架構，同時對外保持協作柔性 	T1：內外張力
+秩序核心（王假有家） 	Constitutional Monarchy（憲政君主制） 	國家領袖在制度框架下維持國家穩定 	T2：秩序張力
+禮治為本 	Organizational Culture Framework（組織文化框架） 	HR 制定企業價值觀與行為準則，確保部門協同 	T3：角色張力
+
+五、多領域應用實例
+
+1. 組織管理
+
+    情境：一間初創公司擴張過快，部門間溝通混亂。
+
+    套用卦象模板：
+
+        A1：確定混亂點（權責不明、流程缺失）
+
+        A2：辨識信任斷層
+
+        A3：設置外部壓力測試（如產品發佈倒計時）
+
+        A4：由 CEO 制定明確規範並授權核心成員
+
+        A5：形成穩定合作文化
+
+2. 談判策略
+
+    情境：兩國貿易談判陷入僵局。
+
+    套用卦象模板：
+
+        A1：確定議題核心（市場開放、關稅）
+
+        A2：辨識對方疑慮
+
+        A3：承受並測試壓力點
+
+        A4：由主談判官提出「互惠且可監管」的方案
+
+        A5：建立長期合作框架
+
+3. 心理諮商
+
+    情境：來訪者內心混亂且家庭關係緊張。
+
+    套用卦象模板：
+
+        A1：理解混亂情緒來源
+
+        A2：識別關係中的不信任與誤解
+
+        A3：允許情緒張力釋放
+
+        A4：引導來訪者建立清晰的家庭界限與溝通模式
+
+        A5：達成情感穩定狀態
+
+六、SIDA Slot-to-Slot 映射示例
+主要 Slot（風火家人，秩序核心型）
+
+    屬於 治理型拓撲（Governance Topology）
+
+可映射的鄰接 Slot
+來源 Slot 	類型 	映射條件 	變化意義
+天火同人（共識合作型） 	合作拓撲 	當秩序建立後可向外擴展合作 	由內治轉外聯
+水火既濟（完全協調型） 	平衡拓撲 	當秩序與合作完全平衡 	達到高穩定 attractor
+雷火豐（能量釋放型） 	動態拓撲 	當秩序過於僵化需釋放活力 	防止系統僵死
+七、SIDA Prompt 調用範例
+
+Slot-Deepen(
+  topic = "科技公司快速擴張下的治理",
+  topology = "IChing-FengHuoJiaRen-5thLineChange",
+  output = "strategy + risk assessment",
+  depth = 3
+)
+
+AI 回應邏輯：
+
+    讀取卦象拓撲（內明外順，核心領導）
+
+    生成對應治理策略
+
+    加入變爻路徑（加速穩定化）
+
+    提示可能 Slot 跳轉（例如秩序 → 活力釋放）
+
+附錄 C-2：傷寒論經方轉 SIDA 模板
+
+範例病機模式：太陽病三日未解，脈浮緊 —— 葛根湯構型
+
+一、病機模式解讀 → Slot Attractor
+
+傷寒論原文 	現代醫理解釋 	Slot Attractor 性質
+太陽病三日未解，脈浮緊 	外感風寒，表證未解，項背強硬 	封閉型張力聚集場：外部病邪未解 + 內部張力增強，系統能量堵塞於表層
+無汗惡風 	衛陽被束，腠理閉塞 	張力封鎖（T1：防禦系統過度緊縮）
+
+這個 Slot 本質上屬於 「阻塞型 phase 堆積」：能量 / 資源 / 信息無法通過表層關卡，導致系統壓力上升。
+二、SIDA 模板結構
+
+Template ID: SLOT-TPL-SHL-GGT-001
+Name: 葛根湯拓撲（太陽病封閉型解表）
+Phases:
+  - A1（病機辨識）：外部壓力長時間未解，表層張力持續累積。
+  - A2（張力鎖定）：系統啟動防禦機制（封閉腠理 / 封鎖邊界）。
+  - A3（釋放預備）：引入溫和外力疏通表層阻塞（葛根升陽解肌）。
+  - A4（張力釋放）：解除外層鎖定，恢復系統正常流動（發汗解表）。
+  - A5（穩定收束）：平衡能量釋放後的內外動態，避免反覆封閉。
+Tensions:
+  - T1（防禦張力）：外邪 vs 系統穩定。
+  - T2（封閉張力）：腠理閉 vs 資源流動。
+  - T3（釋放張力）：張力鬆解 vs 系統反應強度。
+Trace Fold Path: A1 → A2 → A3 → A4 → A5。
+Cross-Culture Mapping:
+  - 西方醫學：免疫系統長期高張，需適度「降壓+釋放」。
+  - 管理學：部門長期封閉運作，需引入外部協調者促進流通。
+  - 心理學：長期防衛心理狀態，需安全環境引導情緒表達。
+Export: 處方建議 / 系統干預方案 / 張力釋放流程。
+
+三、方藥結構 → 語義張力介入點
+藥物 	功能 	對應張力介入點（Tensions）
+葛根 	解肌透表，升陽舒筋 	T2（封閉張力）鬆解器
+麻黃 	發汗解表，宣肺平喘 	T1（防禦張力）釋放閥
+桂枝 	溫通經脈，調和營衛 	T3（釋放張力）調節器
+芍藥 	養血柔肝，緩急止痛 	T3 補償穩定器
+甘草 	調和諸藥，緩急止痛 	全局張力緩衝
+生薑、大棗 	調和營衛，健脾益氣 	收束後系統平衡器
+
+對應到 SIDA：
+
+    藥物組合 = Slot Internal Intervention Kit
+
+    不是單一打破張力，而是分工作用 → 多張力並行調節（multi-tension parallel modulation）。
+
+四、跨領域應用映射
+
+醫理層面 	管理層面 	心理層面
+外感風寒未解 → 外部壓力未釋放 	外部市場壓力長期存在 	外界批評 / 創傷未被處理
+表證封閉 → 防禦系統過度收縮 	部門資訊封鎖 	情感防衛、拒絕交流
+解肌透表 → 釋放封閉表層 	打開溝通渠道 	提供安全對話環境
+調和營衛 → 平衡系統運作 	部門間重新協作 	情緒與認知重新整合
+
+五、Slot-to-Slot 映射
+
+來源 Slot 	目標 Slot 	映射條件 	變化意義
+太陽病封閉型（本例） 	少陽病交界型 	張力未完全釋放，轉為交替寒熱 	系統張力 oscillation
+太陽病封閉型 	平衡恢復型 	張力完全釋放後穩定收束 	進入穩定 attractor
+太陽病封閉型 	崩潰型 	張力過度釋放造成能量流失 	系統防禦瓦解
+
+六、SIDA Prompt 調用示例
+
+Slot-Deepen(
+  topic = "部門溝通封閉導致專案停滯",
+  topology = "SHL-GGT-封閉型解表",
+  output = "解封策略 + 張力釋放計劃",
+  depth = 3
+)
+
+AI 處理邏輯：
+
+    讀取「封閉型解表」拓撲結構。
+
+    辨識對應的多張力類型（防禦、封閉、釋放）。
+
+    套用跨領域 mapping（管理 / 心理）。
+
+    輸出干預策略（逐步鬆解 → 外部協調 → 平衡收束）。
+
+
+附錄 C-3：「三十六計」轉 SIDA 模板（戰術型 Slot Disturb 模型），我會先挑一個適合做 Slot Disturb 的計謀來示範。
+
+我選的案例是 「聲東擊西」 —— 因為它本質就是在一個已建立的 slot 系統中，製造 phase 注意力錯位，迫使對方 collapse 到錯誤的路徑，這正好適合做 SIDA 的「戰術干擾型」模板。
+
+一、計謀背景與 Slot Disturb 性質
+
+    原文：「敵志在東，聲響於西，以誘之也。敵形在西，聲響於東，以誘之也。」
+
+    核心機制：利用信息與感知的時空錯位，改變對方在 phase map 中的 張力權重分佈，使其資源配置錯位，從而暴露真實攻擊方向。
+
+    SIDA 分類：B 類機械化拓撲 — Tactical Slot Disturb Model
+
+        干擾型：不改變目標系統的內部骨架，而是操縱其外部張力與感知入口，製造 phase collapse 偏移。
+
+二、SIDA 模板結構（Markdown 範例）
+
+Template ID: ThirtySixStratagems-06-VoiceEastHitWest
+Name: 聲東擊西（戰術型 Slot Disturb）
+Topology Class: B_mechanical
+Summary: 利用感知錯位與資源錯配，誘使對手在非關鍵 slot 過度投入，暴露真正攻擊方向。
+Tags: [tactics, deception, slot-disturb]
+
+Phases:
+  - A1（情境偵察）：確定目標系統的資源重點與張力熱點。
+  - A2（假目標構建）：在非關鍵 slot 製造強張力訊號（假 attractor）。
+  - A3（誘導反應）：讓對手將資源重分配至假目標。
+  - A4（真目標行動）：在關鍵 slot 發動實際行動（真 collapse）。
+  - A5（收束與轉移）：完成主要目標後，迅速轉移或退出。
+
+Tensions:
+  - T1（注意力張力）：假目標 vs 真目標。
+  - T2（資源張力）：資源分配錯位 vs 最佳配置。
+  - T3（時序張力）：假信號持續時間 vs 真行動時機。
+
+Trace Fold Path:
+  - 標準路徑：A1 → A2 → A3 → A4 → A5
+  - 快速路徑（目標快速上當）：A2 → A4
+  - 防反路徑（假目標被識破）：A2 → A1（重新選擇干擾點）
+
+Cross-Culture Mapping:
+  - 軍事戰略：聲東擊西、佯攻、調虎離山。
+  - 商業競爭：假新品宣傳，實際在另一領域搶佔市場。
+  - 資訊安全：假目標伺服器吸引攻擊（honeypot），真核心安全升級。
+  - AI 對抗：在訓練數據中注入假模式，誘使對手模型錯誤調權。
+
+Export:
+  - 「設計一套基於感知錯位的戰術計劃，引導對手將資源錯配至非關鍵領域。」
+
+
+四、跨領域應用實例
+領域 	假目標（Slot） 	真目標（Slot） 	干擾效果
+軍事 	小城防守 	大城突襲 	轉移兵力
+商業 	高調宣傳次要產品 	靜默研發主力產品 	競爭對手跟錯市場
+資訊安全 	公開測試伺服器 	核心數據庫 	攻擊者浪費時間
+AI 對抗 	無關特徵干擾樣本 	關鍵決策特徵 	模型錯誤分類
+五、SIDA Prompt 調用範例
+
+========================

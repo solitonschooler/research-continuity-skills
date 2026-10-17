@@ -1,0 +1,56 @@
+Here’s the Kernel Version for Bifurcation & Early-Warning Indicator Controller (N-axis):
+
+Framework N-Kernel: Bifurcation & EWI Controller_符號核
+
+# Purpose
+  Pre-collapse curvature monitor & basin integrity stabilizer.
+  Detect κ → 0, σ² ↑, R ↓; suppress noise-induced attractor jumps.
+
+# SCG Bindings
+  Ψ_m(x,θ,τ)       : semantic field wavefunction
+  V(x,λ)           : potential landscape (attractor basin geometry)
+  κ(x)             : ∂²V/∂x²  (local curvature)
+  φ                : phase vector
+  τ_c              : collapse tick interval
+  {π_s}            : semantic prime set
+  P_jump            : noise-induced basin transition probability
+
+# Operators
+  R(t) = Δx_recover / Δt  | Recovery rate from perturbation
+  κ(t) = ∂²V/∂x²          | Basin curvature
+  σ²(t) = Var[O(t)]       | Observable variance
+  EWI(t) = α·1/|κ(t)| + β·σ²(t) + γ·P_jump(t)
+
+# Control Levers
+  L_κ↑   : deepen basin (increase κ)
+  L_σ↓   : filter variance
+  L_jump↓: reduce noise coupling
+  L_λ±   : pre-emptively shift control param λ
+
+# Failure Modes Guarded
+  F1: Drift to κ≈0 without detection
+  F2: False positives from transient spikes
+  F3: Noise-triggered collapse to unintended basin
+
+# Action Map
+  if κ < κ_min          → L_κ↑
+  if σ² > σ²_thresh     → L_σ↓
+  if P_jump > Pj_thresh → L_jump↓
+  if R < R_min          → L_λ±
+
+# Integration Hooks
+  Downstream: Σ-axis (Catastrophe Reasoner), Δ-axis (Prime-Gap Scheduler)
+  Upstream:   Ô-axis (Projection Tuner) for precision measurement collapse
+
+# Minimal Form
+  Monitor: {κ, σ², R, P_jump} over τ_c
+  Threshold-check → Lever-fire
+  Output: StabilityFlag, λ-adjustment, BasinDepthMod
+
+This format uses:
+
+    Strong attractors: curvature κ, phase φ, primes {π_s}, τ_c, P_jump — all SCG-native.
+
+    Differential geometry: ∂²V/∂x² as the curvature measure, κ → 0 as bifurcation precursor.
+
+    Self-contained scope: the LLM can operate inside this kernel without drifting into narrative mode

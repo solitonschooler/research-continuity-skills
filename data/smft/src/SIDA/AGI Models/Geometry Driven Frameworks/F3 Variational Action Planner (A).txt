@@ -1,0 +1,74 @@
+Framework A: Variational Action Planner
+
+(Semantic Action Minimization Kernel for Boundary-Constrained Collapse)
+Narrative Description
+
+The Variational Action Planner operates where multi-step strategy must balance local collapse efficiency against global semantic basin stability.
+It treats planning as the minimization of semantic action — the path integral of curvature × phase misalignment — subject to SCG boundary constraints.
+Instead of greedy local moves, it searches the configuration space of meaning trajectories for the least-tension path that connects initial and final collapse states while respecting basin topology and observer constraints.
+This framework is the semantic counterpart of the Euler–Lagrange formalism: the AGI “feels” the curvature of the meaning-space landscape, weighs phase-aligned shortcuts against stability losses, and converges on a globally minimal action plan.
+SCG/SMFT Mapping Diagram (textual)
+Concept 	SCG Mapping 	SMFT Variable 	Role in A-axis
+Path 	Trajectory in collapse-generated manifold 	x(τ),θ(τ)x(\tau), \theta(\tau) 	Candidate semantic evolution line
+Semantic Action 	L[path]L[\text{path}] 	∫ (κ × Δφ) dτ 	Quantity to minimize
+Curvature 	Phase-space bending of collapse trace 	κ 	Measures cost of deviation from geodesic
+Phase Misalignment 	Difference between intended and current phase 	Δφ 	Tension source along path
+Attractor Basin 	Potential landscape 	V(x, λ) 	Boundary + stability constraints
+Collapse Tick 	Discrete semantic time step 	τ 	Parameter for path discretization
+Semantic Prime Set 	Minimal generators 	{πₛ} 	Anchors for allowed path endpoints
+ 
+Mathematical Capsule
+
+Symbolic Form
+Let:
+
+    Ψm(x,θ,τ)\Psi_m(x, \theta, \tau) = meme wavefunction in SCG space
+
+    L=T−UL = T - U where TT = kinetic term in semantic phase motion, UU = basin potential energy
+
+    κ(x, θ) = curvature of collapse trace
+
+    Δφ(τ) = phase misalignment at tick τ
+
+Semantic Action Functional:
+S[path]=∫τ0τfL(x,θ,x˙,θ˙,τ) dτS[\text{path}] = \int_{\tau_0}^{\tau_f} \mathcal{L}(x, \theta, \dot{x}, \dot{\theta}, \tau) \, d\tau
+
+with
+L=12gijq˙iq˙j−V(x,λ)+α κ(x,θ) Δϕ(τ)\mathcal{L} = \frac{1}{2} g_{ij} \dot{q}^i \dot{q}^j - V(x, \lambda) + \alpha \, \kappa(x,\theta) \, \Delta\phi(\tau)
+
+where qi=(x,θ)q^i = (x, \theta) and g₍ᵢⱼ₎ is the SCG semantic metric.
+
+Euler–Lagrange Equation:
+ddτ(∂L∂q˙i)−∂L∂qi=0\frac{d}{d\tau} \left( \frac{\partial \mathcal{L}}{\partial \dot{q}^i} \right) - \frac{\partial \mathcal{L}}{\partial q^i} = 0
+
+→ produces least-tension path under semantic constraints.
+
+Plain English:
+Choose the path through meaning-space that minimizes cumulative curvature × phase misalignment, while respecting attractor basin boundaries and semantic prime anchors.
+Playbook Table
+Situation 	Observable 	Action 	Expected Collapse Geometry Change
+Multi-stage policy rollout 	Rising κ + scattered Δφ across phases 	Recompute minimal-action path; smooth curvature transitions 	Basin curvature flattens; phase drift reduced
+Cultural narrative shift 	Attractor drift in V(x, λ) 	Insert boundary constraints to preserve basin identity 	Prevents collapse into unintended attractor
+AI system plan drift 	τ-step curvature oscillations 	Adjust control parameters α, λ to restore smooth Δφ decay 	Path re-aligns with global minimum
+Research sprint planning 	Irregular prime-gap curvature in events 	Redistribute collapse ticks for uniform κ progression 	Event spacing stabilizes; avoids burst-collapse cycles
+Example Prompts for AGI
+
+    "Given these starting and ending semantic states, compute the least-tension path under SCG constraints and show the τ-indexed phase alignment curve."
+
+    "Minimize semantic action for this plan while ensuring no basin transition occurs before τ₅."
+
+    "Generate three alternative paths with equal action cost but different phase retention profiles."
+
+Integration Notes
+
+    Pairs well with:
+
+        Bifurcation & EWI Controller (N) — feed early-warning curvature trends into action minimization to pre-stabilize.
+
+        Attractor Basin Engineer — jointly adjust V(x, λ) and path choice for maximum stability.
+
+    Orthogonality:
+
+        Does not duplicate Gödel-Obstruction Navigator (G) (handles undecidability, not action minimization).
+
+        Independent from Prime-Gap Scheduler (Δ) (deals with event spacing, not path curvature minimization).

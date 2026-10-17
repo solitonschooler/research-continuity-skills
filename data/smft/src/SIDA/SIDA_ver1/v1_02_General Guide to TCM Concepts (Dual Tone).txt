@@ -1,0 +1,290 @@
+Index
+- General Principles of Traditional Chinese Medicine — Condensed Knowledge Base for ChatBot
+- General Guide to TCM Concepts — Easy-Read Edition
+
+=================
+
+General Principles of Traditional Chinese Medicine — Condensed Knowledge Base for ChatBot
+Module 1: Core Framework of Qi (氣) and Resonance Theory
+
+Definition
+
+    Qi (氣) — The internal functional and energetic pressure wave (resonance) of a system.
+    It is the core driving force for circulation, distinct from simple flow or throughput.
+
+    “Qi gathers at the Shanzhong (膻中)” — The point at the ascending aorta’s 180° turn, where flow is transformed into a pressure wave.
+
+    “Heart–Kidney disharmony” (心腎不交) — A state where upper and lower circulations fall out of balance, disrupting the global rhythm.
+
+Principles
+
+    The anatomical position of the heart allows it to produce mixed odd–even harmonics, covering the energy needs of the whole body.
+
+    Diastolic pressure maintains background tension, ensuring the pressure wave can travel long distances without being restricted by gravity.
+
+Applications
+
+    Qi blocked at the surface → Use surface-releasing formulas (e.g., Ma Huang Tang 麻黃湯, Xiao Qing Long Tang 小青龍湯)
+
+    Qi depleted in the deep layers → Use Yin-tonifying formulas (e.g., Liu Wei Di Huang Wan 六味地黃丸)
+
+    Qi unable to reach the extremities → Use Yang-restoring formulas (e.g., Zhen Wu Tang 真武湯, Si Ni Tang 四逆湯)
+
+Module 2: Collapse Geometry Model of the Five Elements (五行) and Six Qi (六氣)
+
+Definition
+
+    Five Elements (五行) — Five tension modes: Wood (木), Fire (火), Earth (土), Metal (金), Water (水).
+
+    Six Qi (六氣) — Residual deviation modes after a collapse imbalance: Cold (寒), Heat/Hot (暑), Dryness (燥), Dampness (濕), Wind (風), Fire (火).
+
+Patterns
+
+    Si Tian / Zai Quan (司天 / 在泉) — Sources of temporal primary tension and background tension.
+
+    Host Qi / Guest Qi (主氣 / 客氣) — Intrinsic (internal) vs. external tensions in spatial terms.
+
+    Transport–Assimilation — When internal and external tensions lock phases, pathological changes can easily erupt.
+
+Applications
+
+    Cold-biased → Zhen Wu Tang 真武湯 / Si Ni Tang 四逆湯
+
+    Heat-biased → Bai Hu Tang 白虎湯
+
+    Damp-biased → Da Cheng Qi Tang 大承氣湯 / Tiao Wei Cheng Qi Tang 調胃承氣湯
+
+    Wind-biased → Gui Zhi Tang 桂枝湯
+
+    Dryness-biased → Xiao Chai Hu Tang 小柴胡湯
+
+Module 3: Meridian (經絡) and Harmonic Evolution Model
+
+Definition
+
+    Meridians (經絡) — Coupled channels for energy resonance within the system.
+
+    Each meridian must not only operate at its own base frequency, but also generate a +1 harmonic to trigger the next meridian in sequence.
+
+Patterns
+
+    Upstream meridians must output a correct +1 harmonic for downstream meridians to function normally.
+
+    Damage to a node affects both itself and the downstream pathway.
+
+    System stability requires both upstream and downstream nodes to resonate simultaneously.
+
+Applications
+
+    If downstream problems originate from upstream frequency errors → Adjust upstream first.
+
+    If downstream reception is weak → Strengthen downstream capacity.
+
+    Linked-formula models can synchronize multiple adjacent nodes at once.
+
+Module 4: Triple Burner (三焦) and Pivot Resonance System
+
+Definition
+
+    Triple Burner (三焦) — Three-tier circulation system: Upper Burner (上焦), Middle Burner (中焦), Lower Burner (下焦).
+
+    Pivots (樞紐): Renzhong (人中, upper), Laogong (勞宮, middle), Yongquan (湧泉, lower).
+
+    Three Dantian (丹田): Yintang (印堂, Upper Dantian), Shanzhong (膻中, Middle Dantian), Lower Dantian point (丹田穴).
+
+Patterns
+
+    The Upper Burner depends on the Lower Burner for energy supply.
+
+    The Lower Burner depends on the Upper Burner’s rhythm and the Middle Burner’s resource conversion.
+
+    A blocked pivot affects the entire tier structure.
+
+    Synchronization of the three Dantian maintains overall system stability.
+
+Applications
+
+    Single-tier deficiency → Single-formula regulation (Zhen Wu Tang 真武湯 to tonify the Lower Burner).
+
+    Pivot bottleneck → Combination formulas to release the surface and tonify the interior.
+
+    Dantian desynchronization → Cross-tier coordination (Liu Wei Di Huang Wan 六味地黃丸 × Zhen Wu Tang 真武湯).
+
+Module 5: Preventive Regulation (治未病) and Semantic Trace Reconstruction
+
+Definition
+
+    Preventive regulation (治未病) — Correcting deviations while still in a reversible stage.
+
+    Semantic trace reconstruction — Guiding a deviated operational trajectory back into a normal tension field.
+
+Common Deviations
+
+    Semantic dryness (語義燥) → Lacks flexibility.
+
+    Semantic dampness (語義濕) → Process viscosity and sluggishness.
+
+    Semantic black hole (語義黑洞) → Input without feedback.
+
+    Chronic field illness (慢性場病) → Long-term low tension.
+
+Applications
+
+    Dryness → Xiao Chai Hu Tang 小柴胡湯
+
+    Dampness → Da Cheng Qi Tang 大承氣湯
+
+    Black hole → Liu Wei Di Huang Wan 六味地黃丸
+
+    Chronic low-tension state → Combination maintenance (Liu Wei Di Huang Wan 六味地黃丸 × Zhen Wu Tang 真武湯)
+
+Summary
+
+This knowledge base outlines five core modules covering:
+
+    System dynamics foundation — Qi (氣) as functional pressure wave and resonance.
+
+    Tension classification — Five Elements (五行) and Six Qi (六氣) patterns.
+
+    Node dependency — Meridian (經絡) and harmonic coupling.
+
+    Hierarchical structure — Triple Burner (三焦) pivots and Dantian synchronization.
+
+    Early intervention — Preventive regulation and semantic trace reconstruction.
+
+Mastering these modules allows quick matching of a problem’s features to the corresponding Classical Formula Topology (經方拓撲), and applying them to AI system diagnosis or organizational problem-solving design.
+
+=========
+
+General Guide to TCM Concepts — Easy-Read Edition
+Module 1: Qi (氣) and the Body’s “Resonance Power”
+
+Think of Qi (氣) as the body’s energy pulse — like waves of pressure that keep everything moving, not just the amount of blood or air flowing.
+
+    “Qi gathers at Shanzhong” (膻中) — The heart’s main artery makes a big turn here, turning flow into a strong pulse.
+
+    “Heart and Kidneys not talking” (心腎不交) — The upper and lower body get out of sync, and the whole rhythm is off.
+
+Why it works:
+Your heart’s position lets it produce a mix of high and low rhythms to cover your whole body. Blood pressure when your heart rests (diastolic pressure) keeps a steady “background tension” so energy can reach far, even against gravity.
+
+Practical tips:
+
+    Qi stuck near the surface → Use surface-releasing formulas (Ma Huang Tang 麻黃湯, Xiao Qing Long Tang 小青龍湯)
+
+    Qi worn out deep inside → Use nourishing formulas (Liu Wei Di Huang Wan 六味地黃丸)
+
+    Qi not reaching hands/feet → Use warming, activating formulas (Zhen Wu Tang 真武湯, Si Ni Tang 四逆湯)
+
+Module 2: The Five Elements (五行) and Six Qi (六氣) — Balance Map
+
+Imagine five “tension styles” in your system: Wood, Fire, Earth, Metal, Water.
+And six “imbalance leftovers” after things collapse: Cold, Heat, Dryness, Dampness, Wind, Fire.
+
+    Si Tian / Zai Quan (司天 / 在泉) — Your main and background forces over time.
+
+    Host Qi / Guest Qi (主氣 / 客氣) — The built-in vs. outside forces acting in space.
+
+    When they lock in phase — Problems can suddenly flare up.
+
+If your system feels:
+
+    Cold → Zhen Wu Tang 真武湯 or Si Ni Tang 四逆湯
+
+    Hot → Bai Hu Tang 白虎湯
+
+    Damp and sluggish → Da Cheng Qi Tang 大承氣湯 or Tiao Wei Cheng Qi Tang 調胃承氣湯
+
+    Windy/unsteady → Gui Zhi Tang 桂枝湯
+
+    Dry and stiff → Xiao Chai Hu Tang 小柴胡湯
+
+Module 3: Meridians (經絡) — The Energy Relay Network
+
+Meridians are like energy highways. Each one not only runs at its own speed but also sends a “+1 boost” to kickstart the next highway down the line.
+
+    If an upstream highway sends the wrong signal, downstream suffers.
+
+    Damage at a point hurts both itself and the next in line.
+
+    Stability comes when two connected points are in tune.
+
+Practical fix:
+
+    Downstream trouble from upstream? Fix upstream first.
+
+    Weak reception downstream? Strengthen downstream directly.
+
+    Some combined formulas can sync several connected highways at once.
+
+Module 4: Triple Burner (三焦) — Three Levels of Circulation
+
+The body has three main zones of circulation: Upper (head/chest), Middle (stomach area), and Lower (pelvis/legs).
+
+    Pivots: Renzhong (upper), Laogong (middle), Yongquan (lower).
+
+    Three Dantian (energy centers): Yintang (upper), Shanzhong (middle), Lower Dantian point.
+
+Balance rules:
+
+    Upper zone gets power from the Lower zone.
+
+    Lower zone depends on the Upper’s rhythm and Middle’s conversion of resources.
+
+    If a pivot is blocked, all levels suffer.
+
+    All three Dantian must resonate together for stability.
+
+Practical fix:
+
+    One level weak → Use a single-target formula (Zhen Wu Tang 真武湯 for Lower zone).
+
+    Pivot bottleneck → Use a combination formula to open surface + nourish inside.
+
+    Dantian out of sync → Cross-level coordination (Liu Wei Di Huang Wan 六味地黃丸 × Zhen Wu Tang 真武湯).
+
+Module 5: Preventing Problems and Fixing “Trace Drift”
+
+Prevent before it happens: Fix small imbalances before they become hard to reverse.
+Trace reconstruction: Pull a wandering process back to the normal path.
+
+Common signs:
+
+    Too dry/stiff (燥) → Not flexible.
+
+    Too damp/sluggish (濕) → Stuck in slow loops.
+
+    “Black hole” → You put in effort but get no return.
+
+    Chronic low-energy → Long-term lack of drive.
+
+Practical fix:
+
+    Dry → Xiao Chai Hu Tang 小柴胡湯
+
+    Damp → Da Cheng Qi Tang 大承氣湯
+
+    Black hole → Liu Wei Di Huang Wan 六味地黃丸
+
+    Chronic low-energy → Maintenance combo (Liu Wei Di Huang Wan 六味地黃丸 × Zhen Wu Tang 真武湯)
+
+Quick Takeaway
+
+These five modules are a map for spotting and fixing problems — whether in a person, an AI system, or an organization.
+They help you:
+
+    Understand the energy foundation (Qi)
+
+    Spot tension patterns (Five Elements, Six Qi)
+
+    Trace problems through the network (Meridians)
+
+    Balance layers of operation (Triple Burner, Dantian)
+
+    Step in early (Preventive fixes)
+
+Once you see the pattern, you can match it with the right classical formula model and apply it to solve the problem efficiently.
+
+===================
+
+ © 2025 Chung Leung Danny Yeung. All rights reserved. 版权所有 不得转载

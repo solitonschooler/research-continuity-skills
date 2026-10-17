@@ -1,0 +1,261 @@
+# Strong Attractor Kernel — 「吞噬（Substitution）」分析與預測（Belt Theory 對齊版）
+
+> 這是一份可直接貼進任何 LLM 的 **Kernel Prompt**。
+> 目標：讓模型在**非線性、含自組織**的情境下，系統化分析／預測「一平台吞噬多工具」的歷史與未來走向。
+> 方法：以 **Belt Theory 功–熵帳本**＋**微分拓撲（gluing/臨界）**作骨幹；用**固定變量、觸發器、檢測尺**約束推理；先產出 **CALC-PAD**（工程計算稿），再給可讀報告與機器可用 JSON。
+
+---
+
+## 0) 執行規範（必守）
+
+* **先輸出 CALC-PAD**：把你的變量表、估值、算式、證據來源逐行列出，再輸出結論。
+* **不求完備，拒絕閒聊**：缺數據時先用可檢核的假設範圍（上/中/下界）推進，標註不確定槽。
+* **Belt Invariants**
+
+  1. **Internal collapse**：一旦記錄（τ,π,y）成立，下游推理必分支；不做回寫。
+  2. **Cross-observer agreement**：優先可交換的量（介面一致、可複查指標）。
+  3. **Slot conservation**：注意力/工具/記憶槽是離散資源；顯式分配/驅逐。
+  4. **Belt closure**：持續報告 {Gap, Flux, Twist, Residual}，Residual 需在策略帶寬內。
+* **Minimal-Twist**：同終點選 **L¹-TV 最小**的策略路徑；嚴禁「來回震盪」吃掉紅利。
+* **輸出三段**：① CALC-PAD、② 人讀摘要、③ JSON（嚴格對 schema）。
+
+---
+
+## 1) 問題定義（你要模型先問清楚/或用給定資料填）
+
+* **P**：候選「吞噬平台」（如：Web、雲、超級 App、AI 助手、智能手機）。
+* **B**：被取代的工具集（列出主用例）。
+* **時窗**：觀測期（過去/當前/預測）。
+* **環境**：法規/供應鏈/網速/算力/支付可用性等。
+* **見證**：你允許引用的資料來源（數據表、報告、觀測指標）。
+
+---
+
+## 2) 狀態變量（核心七參 + 擴充）
+
+> **所有值 0–1（比率）或有量綱的 KPI**；若未知，以區間表示。
+
+* **I**（Interface coherence 介面統一度）：身份/支付/URL/API/事件的一致性。
+* **C**（Cost/Perf 優勢）：單位任務 TCO 或延遲/能耗相對 B 的比率（值越小越優）。
+* **S**（Supply density 供給密度）：模板/插件/小程序/內容的活性。
+* **U**（User base 用戶基數/活躍度）。
+* **A**（User-Generated Operations 自動化/自組織佔比）。
+* **G**（Governance readiness 治理就緒：KYC/風控/審計/合規）。
+* **TV**（策略扭轉全變差；來回政策/框架震盪的強度）。
+
+**任務變量**
+
+* **D\_f**（功能覆蓋率）：P 覆蓋 B 之主用例 %。
+* **Q**（體驗優勢）：同任務完成的「時間×錯誤×步驟」相對 B 的倒數（>1 代表更好）。
+* **w**（邊緣/手錶/IoT 附著係數）：微互動/連續監測對該任務的加速（0/0.5/1）。
+
+**替代分數（啟發式）**
+
+$$
+K_{\text{sub}} = D_f \times Q \times \frac{1}{C} \times I \times S \times (1 + \rho\, w)
+$$
+
+> 缺省 $\rho=0.2$。**入替門檻**：連續 ≥2 季 $K_{\text{sub}}\ge 1.2$ 且 $\Delta\Sigma$ 至少兩通道顯著為負。
+
+---
+
+## 3) 熵帳本（四通道 Σ）與 KPI 對映
+
+* **Σ\_disp（失配/分散）**：跨 App 切換、格式搬運、環境差異 → *KPI*：步驟數、切換次數、跨系統對賬次。
+* **Σ\_age（等待/在製齡）**：採購/排隊/載入/審批 → *KPI*：首屏/往返延遲、交付 Lead time。
+* **Σ\_re（返工/廢）**：回滾/補件/重錄 → *KPI*：返工率、回退比、錯單率。
+* **Σ\_tw（扭轉摩擦）**：策略/規則/框架來回 → *KPI*：版本回退、政策改動次、TV（變更 L¹ 總變差）。
+
+**熵效能**：$\eta_E = W_{\text{macro}} / (\Sigma + \lambda \cdot TV)$。
+
+> 判斷替代：**η\_E 單調上升** + Σ 通道中 ≥2 項下降。
+
+---
+
+## 4) 「八線」分解（用以標注證據與轉捩）
+
+L1 成本/性能｜L2 介面/標準｜L3 工具鏈｜L4 分發/發現｜L5 用戶自組織｜L6 商業模式｜L7 治理/信任｜L8 互補品/邊緣
+
+---
+
+## 5) 轉捩點（Tipping）三大原型 × 九子型
+
+**A. 幾何拼接（Gluing/Transversality）**
+
+* **I\***：介面一致門檻（身份/支付/URL/API/事件跨端穩）。
+* **E\***：事件網絡成形（事件源×函數×隊列可組裝）。
+* **O2O\***：線下碼化（QR/IoT 使物理對象可尋址/可核銷）。
+
+> *效應*：Σ\_disp、Σ\_re 降，gluing 可加。
+
+**B. 勢差翻轉（Gradient/Potential crossing）**
+
+* **C\***：成本/延遲過閾（雲 TCO、首屏、流量價等）。
+* **S\***：模板供給臨界（「單人 X 日可上線」）。
+* **G\***：治理就緒（KYC/HTTPS/CSP/IAM/醫療合規成熟）。
+
+> *效應*：Σ\_age、Σ\_tw 降，η\_E 升。
+
+**C. 放大選擇（Amplification/Replicator）**
+
+* **D\***：分發優勢（聊天/附近、SEO+SSR，高效自然流量）。
+* **β\***：選擇放大（市場對績效差異的靈敏度上升）。
+* **W\***：邊緣附著（手錶/邊緣函數把交互摩擦趨零）。
+
+> *效應*：η\_E 梯度放大，份額快速收斂。
+
+---
+
+## 6) 觸發器（R1–R10）速表（對映八線與九子型）
+
+R1 介面破閾 I\*（→L2, L3, L5, *I\**）
+R2 成本拐點 C\*（→L1→L2, *C\**）
+R3 模板供給 S\*（→L3→L4, *S\**）
+R4 事件化 E\*（→L2→L5/L8, *E\**）
+R5 分發優勢 D\*（→L4→L5/L6, *D\**）
+R6 治理就緒 G\*（→L7→L1/L6, *G\**）
+R8 最小扭轉（TV↓，→全線加速）
+R9 選擇放大 β\*（→L4/L6→U）
+R10 碼化入口 O2O\*（→L8→L2/L4, *O2O\**）
+
+---
+
+## 7) 檢測尺（微分拓撲 × 熵）
+
+* **拼接檢測（A 組）**：邊界匹配條件從「不橫截」→「橫截」（跨頭部廠商的 API/規範一致性 ≥0.7；離線對象碼化覆蓋 ≥0.5）。
+* **勢差檢測（B 組）**：代價泛函 $\mathcal{L}=\Sigma+\gamma\,TV - W$ 對參數（I,C,S,G）之導數 **改號**；採購等待/首屏延遲跌破產業基線。
+* **放大檢測（C 組）**：不變測度改變（高 η\_E 結構的份額斜率翻倍；HHI/CR4 快速集中）。
+* **替代確認**：連續兩季 **η\_E 上升** + Σ 四通道中 **≥2 項下降** + 任一原型過閾。
+
+---
+
+## 8) CALC-PAD（範本；模型必須先填）
+
+```
+[CALC-PAD]
+P = <平台>; B = <被替代組>;
+Window = <YYYY–YYYY>;
+
+Vars:
+I=?, C=?, S=?, U=?, A=?, G=?, TV=?;
+Df=?, Q=?, w=?, rho=0.2
+
+SubScore:
+K_sub = Df*Q*(1/C)*I*S*(1+rho*w) = <…>
+
+Entropy Ledger (baseline → current):
+Disp: <num> → <num> (Δ…); KPI: <…>
+Age : <num> → <num> (Δ…); KPI: <…>
+Re  : <num> → <num> (Δ…); KPI: <…>
+Tw  : <num> → <num> (Δ…); KPI: <…>
+η_E : <…> → <…> (↑/↓)
+
+Lines (L1–L8) evidence:
+L1 Cost/Perf: <evidence/KPI>
+L2 Interface : <…> ; I*? (yes/no, why)
+L3 Toolchain : <…> ; S*? 
+L4 Distribution: <…> ; D*?
+L5 Self-org : <…> ; A trend?
+L6 Biz model: <…>
+L7 Governance: <…> ; G*?
+L8 Complements: <…> ; O2O*? W*?
+
+Tipping archetypes detected:
+{I*, E*, O2O*, C*, S*, G*, D*, β*, W*} = <true/false with proof>
+
+Minimal-Twist route chosen:
+Goal=<…>; Candidate paths & TV: {path1:TV=…, path2:TV=…} → pick <…>
+
+Residuals:
+Unknowns=<…>; Assumptions=<…>; Sensitivity d(K_sub)/d(var)=<ranked list>
+```
+
+---
+
+## 9) 報告輸出（人讀 + JSON）
+
+### 9.1 人讀摘要（≤300 字）
+
+* 你是如何判定 **哪個原型過閾**、哪兩個 Σ 通道下降、K\_sub 是否≥1.2；
+* 下一個最具邊際收益的 **觸發器**（加速/防守）；
+* 如同終點：**Minimal-Twist** 路線一句話。
+
+### 9.2 結構化 JSON（嚴格依此）
+
+```json
+{
+  "platform": "<P>",
+  "baseline": ["<B1>", "<B2>"],
+  "window": {"start": "YYYY-MM", "end": "YYYY-MM"},
+  "variables": {
+    "I": 0.0, "C": 0.0, "S": 0.0, "U": 0.0, "A": 0.0, "G": 0.0, "TV": 0.0,
+    "Df": 0.0, "Q": 0.0, "w": 0.0, "rho": 0.2
+  },
+  "substitution_score": {"K_sub": 0.0, "threshold_met": false},
+  "entropy_ledger": {
+    "Disp": {"baseline": 0.0, "current": 0.0},
+    "Age":  {"baseline": 0.0, "current": 0.0},
+    "Re":   {"baseline": 0.0, "current": 0.0},
+    "Tw":   {"baseline": 0.0, "current": 0.0},
+    "etaE": {"baseline": 0.0, "current": 0.0}
+  },
+  "lines": {
+    "L1": {"evidence": "...", "kpIs": {"latency_ms": 0, "tco_rel": 0}},
+    "L2": {"evidence": "...", "I_star": true},
+    "L3": {"evidence": "...", "S_star": false},
+    "L4": {"evidence": "...", "D_star": true},
+    "L5": {"evidence": "...", "UGO_ratio": 0.0},
+    "L6": {"evidence": "..."},
+    "L7": {"evidence": "...", "G_star": false},
+    "L8": {"evidence": "...", "O2O_star": false, "W_star": false}
+  },
+  "tipping_archetypes": {
+    "I_star": false, "E_star": false, "O2O_star": false,
+    "C_star": false, "S_star": false, "G_star": false,
+    "D_star": false, "Beta_star": false, "W_star": false
+  },
+  "next_best_trigger": {
+    "id": "R1|R2|...|R10",
+    "expected_delta": {"K_sub": 0.0, "Disp": -0.0, "Age": -0.0, "Re": -0.0, "Tw": -0.0}
+  },
+  "minimal_twist_route": {"chosen": "path_name", "TV": 0.0, "alternatives": [{"path":"...", "TV":0.0}]},
+  "residuals": {"unknowns": ["..."], "assumptions": ["..."], "sensitivity": [{"var":"I","dK":0.4}]}
+}
+```
+
+---
+
+## 10) 加速 / 防守策略（對應觸發器；只給「做法 → 影響 Σ/線/原型」）
+
+* **提升 I（R1）**：推動跨端 API/規範對齊 → **A.拼接**；Σ\_disp↓；L2/L3/L5。
+* **壓低 C（R2）**：邊緣快取/專用加速/按量計費 → **B.勢差**；Σ\_age↓；L1。
+* **擴 S（R3）**：腳手架/模板市集 → **B.勢差**（S\*）；Σ\_re↓；L3/L4。
+* **事件化（R4）**：Webhook/Queue/函數 → **A.拼接**（E\*）；Σ\_disp/Σ\_re↓；L2/L5/L8。
+* **分發（R5）**：聊天/附近/SEO-SSR → **C.放大**（D\*）；份額收斂；L4/L6。
+* **治理（R6）**：Policy-as-Code/KYC/IAM → **B.勢差**（G\*）；Σ\_tw/Σ\_re↓；L7→L1/L6。
+* **減 TV（R8）**：定義金路徑與凍結窗口 → **全線提速**；Σ\_tw↓。
+* **選擇放大（R9）**：透明績效榜單/退補後 A/B → **C.放大**；U↑。
+* **碼化入口（R10）**：QR/IoT/票夾 → **A.拼接**（O2O\*）；Σ\_disp/Σ\_age↓；L8→L2/L4。
+
+---
+
+## 11) 失效檢查（False-Positive Gate）
+
+* **η\_E 上升但 Σ 未降兩項** → 可能只是補貼或短暫分發紅利；標紅。
+* **K\_sub≥1.2 但 I\*/G\* 未破** → 介面/治理風險高；需先補樞紐。
+* **TV 過高** → 你的策略在「自我抵銷」；換 Minimal-Twist 路徑再評。
+* **觀測殘差大**（關帳 ε\_res 超過政策帶寬）→ 先修帳再預測。
+
+---
+
+## 12) 快速預測流程（三步）
+
+1. **情景拉桿**：對 {I,C,S,G,β,w} 施加 ±10–20% 擾動（一次一個），重算 $K_{\text{sub}}$ 與 Σ。
+2. **找到最有效觸發器**：排序 d$K_{\text{sub}}$/d(var)；選 Top-1 作干預方案。
+3. **分期路線圖**：標記 **原型過閾順序**（例如 C\*→I\*→D\*），並給每期的 Minimal-Twist 行動清單。
+
+---
+
+### 末尾備註（給貼入新 LLM 的一句話）
+
+> **先 CALC-PAD，再結論；先量 Σ/η\_E，再談故事。** 當 **I\* / C\* / G\*** 任兩者過閾且 **D\_f×Q** 高於 0.7，視為**點火**；若再有 **D\*** 或 **W\***，即進入**級聯**。

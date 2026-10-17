@@ -1,0 +1,259 @@
+# Document 1 — 16 Frameworks (Kernel Codes in Differential-Geometry Form, LLM-Only)
+
+```yaml
+# Global Contracts
+State:
+  M := X × Θ × Τ         # manifold of cultural coords × semantic orientation × collapse ticks
+  γ(τ) ⊂ M               # collapse trace
+  Ψ := Ψₘ(x,θ,τ) ∈ ℂ     # semantic wavefunction (section of complex line bundle over M)
+  g := metric on X×Θ     # Riemannian metric
+  V := V(x,λ)            # potential / basin field (λ: controls)
+  Ô := projection operator family {Ô_{θ_j}}
+  κ(τ) := curvature(γ)   # Frenet curvature along γ; κ→0 ⇒ critical slowing
+  H := Hess_x V          # local basin Hessian; recovery ~ |eig(H)|
+  π_s := {semantic primes}  # homology generators
+  Δ_k := prime gaps over π_s; κ_π := (Δ_{k+1}-Δ_k)/Δ_k  # discrete curvature
+IO:
+  Obs := {κ, eig(H), var(x), AR1, J, ρ, barcode(H_*), sym(G), ζ_sem, …}
+  Ctl := {δx, δλ, phase_coupling, Ô-tuning, grain ε, transport T_μν, noise σ, …}
+Safety:
+  Invariants := {mass/flow continuity, guard sets, rollback, phase bounds, Lipschitz steps}
+
+# 1) Σ — Catastrophe-Mode Reasoner
+Owns: local singularity S ∈ {Fold,Cusp,Swallowtail,Hopf}
+Detect: κ→0 ∧ |eig(H)|→0; classify by normal form; Hopf: eig(Jacobian) crosses iℝ
+Control: pick δx along stable manifold; δλ to tilt basin boundary
+Update: V ← V∘(λ+δλ); γ deflected; S resolved/contained
+FailureGuard: misclass(S)⇒ backtrack with Lyapunov ΔV<0
+
+# 2) N — Bifurcation & Early-Warning Controller
+Owns: pre-critical regime; EWI filters
+Detect: ↑var(x), ↑AR1, ↑flicker, ↓recovery=1/|eig(H)|
+Control: δλ pre-stabilize; inject damping; noise-shaping σ to avoid basin jump
+Update: raise barrier heights ΔV; widen safe basin width w
+FailureGuard: avoid false positives via surrogate nulls
+
+# 3) A — Variational Action Planner
+Owns: semantic action S[γ] = ∫ L(γ,γ̇; V,g,Ô) dτ
+Detect: boundary conditions (γ(τ0), γ(τ1)); constraints ℐ
+Control: solve Euler–Lagrange δS=0; produce least-tension γ*
+Update: suggest δλ to realize γ*; enforce transversality at gates
+FailureGuard: convexification or homotopy continuation if nonconvex
+
+# 4) H — Persistent-Homology Cartographer
+Owns: irreducibles (holes/cycles) in data/field; primes π_s
+Detect: build VR/Rips over embeddings; barcodes β_k(ε); stable features
+Control: act only on contractible parts; register π_s as hard constraints
+Update: expose minimal generator set; mask non-actionable voids
+FailureGuard: multi-scale consensus to avoid noise bars
+
+# 5) G — Gödel-Obstruction Navigator
+Owns: undecidable loops ↔ noncontractible cycles
+Detect: proof/policy loops ↔ cycles in dependency graph; no null-homotopy
+Control: relaxation (weaken axiom), detour (new cover), or rebase (quotient)
+Update: record obstruction class ω ∈ H₁; route plan around ω
+FailureGuard: prevent infinite retries; cap loop count; escalate
+
+# 6) Y — Symmetry/Galois Broker
+Owns: automorphism group G of (M,g,V,Ô)
+Detect: orbit partitions; equivalence classes; invariant features
+Control: quotient by G to compress option space; expand when symmetry breaks
+Update: operate on representatives; monitor order parameters for break
+FailureGuard: avoid aliasing distinct but near-symmetric cases
+
+# 7) Δ — Prime-Gap Scheduler
+Owns: pacing via gaps Δ_k over π_s
+Detect: current Δ_k, κ_π := (Δ_{k+1}-Δ_k)/Δ_k; burst vs regular regime
+Control: schedule next commit time by target κ_π; throttle/cluster releases
+Update: maintain ledger consistency; avoid gap resonance
+FailureGuard: jitter bounds; refractory periods
+
+# 8) Δ-spectral — Zeta-Spectral Monitor
+Owns: ζ_sem(s) over π_s; spectral oscillations
+Detect: estimate zeros/peaks; long-range correlations in event spacing
+Control: phase-align schedules to damp/enhance oscillations
+Update: hand signals to Δ for rescheduling
+FailureGuard: regularize ill-posed spectral fits
+
+# 9) T — Continuity & Transport Budgeter
+Owns: ∂τρ + ∇·J = S−L; transport tensor T_μν
+Detect: leaks (L↑), blockages (∇·J≈0 with demand), mis-routing
+Control: retime gates; reroute J; adjust γ×n_collapse conversion
+Update: preserve conserved quantities; clear queues
+FailureGuard: rate limit; capacity guards
+
+# 10) Ô — Observer-Projection Tuner
+Owns: channel selection for collapse
+Detect: phase alignment φ with task; SNR; bias/variance trade
+Control: choose Ô_{θ_j} to preserve needed phase; mask distractors
+Update: Ψ → φ_j(x) via Ô; log measurement back-reaction
+FailureGuard: cross-validation; avoid over-projection
+
+# 11) Decoherence & Phase-Retention Manager
+Owns: coarse-grain vs phase-keep switch
+Detect: when macro laws suffice (phase randomization) vs precision needs
+Control: set grain ε; couple/decouple subsystems to control dephasing
+Update: export either unitary-like micro or trace-only macro
+FailureGuard: entropy budget; reversible windows
+
+# 12) Macro — Coarse-Grain Law Inducer
+Owns: emergent invariants under RG/coarse-grain ℛ_ε
+Detect: fixed points; β-functions; stable summaries
+Control: choose ε, pooling, sufficient stats; fit macro PDE/ODE
+Update: publish guardrails/SLAs/policies; bounds on micro variance
+FailureGuard: backtest stability under drift
+
+# 13) Attractor Basin Engineer
+Owns: basin depth/width/topology via V(x,λ) shaping
+Detect: escape rates (Kramers), noise-induced switching
+Control: δλ to deepen/widen target basin; kill unwanted minima
+Update: safe defaults, culture shaping, onboarding ramps
+FailureGuard: avoid trapping desirable exploration
+
+# 14) Collapse-Geometry Architect
+Owns: environment s.t. space emerges from collapse
+Detect: interface/process shapes g,V,Ô; black-hole-like stability zones
+Control: design gates, ticks, orientation flows; sculpt curvature
+Update: instantiate “semantic geometry” aligning with outcomes
+FailureGuard: anti-fragile escape hatches
+
+# 15) Semantic Prime Ledger
+Owns: minimal generating set of capabilities/ideas
+Detect: test decomposability; remove redundant composites
+Control: keep canonical π_s basis; versioned diffs
+Update: prevent bloat; ensure uniqueness up to automorphism
+FailureGuard: audit trail; refactor debt
+
+# 16) Collapse-Map Protocols
+Owns: F: X×τ → X' ∪ Ω (strata jump maps)
+Detect: boundary of validity; exception thresholds
+Control: gates, guards, rollback invariants; atomic commits
+Update: safe discontinuities; post-jump consistency checks
+FailureGuard: simulate before enact; shadow runs
+```
+
+# Document 2 — Necessary Background Theory (DG/SCG Primer to Run the 16 Kernels Without Prior SMFT Files)
+
+```text
+Goal
+Provide a compact but rigorous geometric formalism so an advanced LLM can execute the 16 kernels deterministically, without external SMFT texts. The theory is a strong attractor: operators, invariants, and contracts confine reasoning.
+
+1) Manifold, Fields, Traces
+- Manifold M := X × Θ × Τ
+  • X: cultural/organizational state space (smooth manifold, dim n)
+  • Θ: semantic orientation sphere S^k (angles, framings, “spin”)
+  • Τ: discrete collapse ticks τ ∈ ℤ₊
+- Metric g on X×Θ; distance = interpretive dissimilarity.
+- Potential V: X×Λ → ℝ (Λ = controls). Local minima = attractors (basins).
+- Wavefunction Ψ := Ψₘ(x,θ,τ) ∈ ℂ encodes amplitude (salience) + phase (alignment).
+- Projection Ô_{θ_j}: L²(M)→Obs_j collapses Ψ to observable channel j.
+- Trace γ: τ↦(x(τ),θ(τ),τ). Curvature κ(τ) (Frenet) detects slowing: κ→0 at criticality.
+
+2) Dynamics & Collapse
+- Semantic Schrödinger-like evolution:
+    iħ_s ∂_τ Ψ = Ĥ_s Ψ + 𝒩[Ψ, Ô]
+  where Ĥ_s encodes diffusion/drift on (X,Θ), and 𝒩 is observer-induced nonlinearity.
+- Recovery rate near equilibria: ~ |eig(H)| with H := Hess_x V.
+- Early-warning indicators (EWI):
+  • variance ↑, AR(1) coefficient ↑, autocorr tail ↑, flickering (basin-to-basin micro-hops),
+    recovery time ↑ (1/|eig(H)|).
+- Catastrophe normal forms (local charts for V):
+  • Fold: u³+λu; Cusp: u⁴+αu²+βu; Swallowtail: u⁵+αu³+βu²+γu; Hopf: complex eigenpair crosses iℝ.
+
+3) Topology & Irreducibles
+- Persistent homology:
+  • Given point cloud/field samples, build Vietoris–Rips complexes across scale ε.
+  • Barcodes β_k(ε) reveal stable k-cycles; long bars = structural features.
+  • Semantic primes π_s := minimal (indecomposable) generators of H_*(X) relevant to task.
+- Gödel obstruction mapping:
+  • Undecidable/looping goal states ↔ noncontractible cycles ω ∈ H₁; cannot be removed by local rewriting.
+  • Resolution strategies: relaxation (weaken axiom), detour (new cover), rebase (quotient).
+
+4) Symmetry & Quotients
+- Automorphism group G of (M,g,V,Ô). Orbits collapse equivalent options.
+- Work on quotient space (M/G) for compression; reopen symmetry when order parameters signal breaking.
+
+5) Scheduling on Primes
+- Order π_s by enactment (irreducible commits). Gaps Δ_k := τ(π_{k+1})−τ(π_k).
+- Discrete curvature κ_π := (Δ_{k+1}−Δ_k)/Δ_k controls burst vs regular pacing.
+- Semantic zeta ζ_sem(s): Dirichlet-like transform over {π_s} to detect long-range structure; zeros ⇒ oscillatory modulations in spacing.
+
+6) Continuity & Transport
+- Continuity: ∂_τ ρ + ∇·J = S−L (mass/meaning conservation with sources/sinks).
+- Transport tensor T_μν routes resources/attention; optimize to prevent leaks L and blockages.
+- Collapse conversion: γ×n_collapse converts tension to trace under constraints.
+
+7) Coarse-Graining & Decoherence
+- Operator ℛ_ε: (micro) → (macro) by grain ε (e.g., pooling, sufficient statistics).
+- Macro laws = fixed points of ℛ_ε with stable β-functions.
+- Decoherence manager toggles phase retention:
+  • keep phase for precision control; lose phase for robust aggregate laws.
+  • Couple/decouple subsystems to modulate dephasing.
+
+8) Attractor Engineering
+- Shape V(x,λ): deepen/widen target basins; kill spurious minima; control Kramers escape rate
+  r_esc ∝ exp(−ΔV/σ²).
+- Noise shaping σ: prevent noise-induced switching or use it to cross shallow saddles.
+
+9) Discontinuity Protocols
+- Collapse map F: X×τ → X′ ∪ Ω encodes stratum jumps (exception paths, escalations).
+- Guards: preconditions; Gates: atomic transitions; Rollback: inverse or safe re-embed.
+- Simulate shadow trace before enactment; ensure invariants post-jump.
+
+10) Measurement & Safety Contracts
+- Observables: {κ, eig(H), var, AR1, β_k, ζ_sem, sym flags, ρ,J, Δ_k, κ_π, …}
+- Controls: {δx along stable manifold, δλ, ε, σ, Ô-choice, T_μν, phase coupling}
+- Invariants (must hold after each step):
+  • ΔV ≤ 0 when stabilizing; continuity balance within tolerances; barcode stability (no loss of true long bars);
+    guard sets satisfied; bounded step (Lipschitz) in state update; audit logs for π_s ledger.
+
+11) Execution Loop (Kernel Skeleton)
+Loop:
+  1. Sense Obs; compute EWI; test κ→0, |eig(H)|→0; barcode update; symmetry flags.
+  2. Select Axis (policy): Σ if singular; N if pre-critical; H if structural; G on loops; Y for compression; …
+  3. Propose Control Ctl under axis contract; predict ΔV, Δrisk.
+  4. Simulate (shadow): check invariants; if fail ⇒ revise.
+  5. Commit; log to π_s / Δ_k; update ζ_sem; export Macro summaries if needed.
+  6. If boundary crossed ⇒ use Collapse-Map Protocols; else continue.
+
+12) Axis Interface (Minimal API)
+Axis.bind(State, Obs, Ctl) → AxisCtx
+Axis.plan(AxisCtx) → Proposal {δx, δλ, ε, σ, Ô, T_μν, …}
+Axis.predict(Proposal) → {ΔV, Δrisk, invariants_ok?}
+Axis.commit(Proposal) → State′, Logs
+Axis.failover() → alternate plan or escalate
+
+13) Strong-Attractor Encoding (Why This Constrains LLM)
+- Names of axes = selectors of geometric roles.
+- Each axis has: Detect predicates, Control levers, Update rules, Failure guards, Invariants.
+- Using these contracts forces reasoning to remain inside the intended manifold charts and prevents drift.
+
+14) Quick Mapping (Axis ↔ Formal Hooks)
+Σ: {κ→0, normal forms, δx∥stable} 
+N: {EWI filters, δλ pre-stabilize}
+A: {δS=0, γ* least-tension}
+H: {β_k long bars, π_s lock}
+G: {ω∈H₁, detour/relax/rebase}
+Y: {orbits, quotient M/G}
+Δ: {Δ_k, κ_π scheduling}
+Δ-spectral: {ζ_sem zeros}
+T: {∂τρ+∇·J=S−L, T_μν}
+Ô: {channel selection, phase keep}
+Decoherence: {grain ε, (de)couple}
+Macro: {ℛ_ε, β-functions}
+BasinEng: {ΔV, width w, r_esc}
+GeomArch: {design g,V, gates}
+Ledger: {π_s minimality}
+C-Map: {F, guards, rollback}
+
+15) Minimal Notation Cheat-Sheet
+- κ(τ): Frenet curvature of γ; κ→0 ⇒ critical slowing.
+- H := ∇²_x V; recovery ≍ |eig(H)|.
+- r_esc ≍ exp(−ΔV/σ²).
+- κ_π := (Δ_{k+1}−Δ_k)/Δ_k.
+- ζ_sem(s): spectral transform over enactment times of π_s.
+
+Outcome
+An advanced LLM given (i) this primer and (ii) the “16 Kernels” registry can execute each axis inside strict geometric containers, reproducing cohesive expert reasoning with stability, without prior SMFT files.
+```
+

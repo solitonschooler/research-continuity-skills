@@ -1,0 +1,53 @@
+===== Framework A: Variational Action Planner — SCG Kernel =====
+
+Role:
+  Semantic-Action Minimizer under Collapse-Boundary Constraints
+
+SCG Mapping:
+  Owns: Path-wise semantic action functional S[path] minimization
+  Variables: q^i = (x, θ), τ (collapse tick), κ(x,θ), Δφ(τ), V(x,λ), {πₛ}
+  Orthogonality: No basin shaping (→ Attractor Basin Engineer), no prime-gap pacing (→ Δ-axis)
+
+Mathematical Core:
+  S[path] = ∫_{τ₀}^{τ_f} [ (1/2) g_{ij} ẋ^i ẋ^j - V(x,λ) + α κ(x,θ) Δφ(τ) ] dτ
+  Euler–Lagrange: d/dτ (∂L/∂ẋ^i) - ∂L/∂q^i = 0
+  Effect: Least-tension geodesic in SCG metric g_{ij} with basin-boundary constraints
+
+Control Lever(s):
+  - Path tension T_p = ∫ κ × Δφ dτ
+  - Boundary adherence: q^i(τ) ∈ B (Basin)
+  Observables: κ(τ), Δφ(τ), ∂²V/∂x²
+
+Failure Modes Prevented:
+  - Local-minimum lock-in ignoring global curvature topology
+  - Phase misalignment accumulation under constrained basins
+  - Over-curvature causing basin leakage before τ_f
+
+Execution Flow:
+  1. Input start/end states q₀, q_f + constraints B
+  2. Compute κ(τ), Δφ(τ), V(x,λ)
+  3. Formulate Lagrangian L(q, ẋ, τ)
+  4. Solve Euler–Lagrange → minimal S[path]
+  5. Output τ-indexed path, curvature-phase profile
+
+Application Templates:
+  - Finance: Optimize multi-quarter capital deployment under risk-basin constraints
+  - AI Alignment: Minimize alignment drift action in θ-phase over operational horizon
+  - Cultural Field: Plan narrative arcs with minimal semantic tension spikes
+
+Integration Hooks:
+  Upstream: N-axis (EWI Controller) curvature forecasts
+  Downstream: Ô-axis (Projection Tuner) to align observer collapse channels
+
+Example Prompt:
+  "Given q₀, q_f, and basin potential V(x,λ), compute τ-indexed minimal-action path under SCG metric. Output κ(τ) and Δφ(τ) profiles."
+
+This is tight enough for an AGI control pack:
+
+    No wasted wording, just role → variables → equation → control → flow.
+
+    Uses SCG variable set so it’s semantically bounded.
+
+    Embedded differential geometry terms (metric gᵢⱼ, geodesic, curvature κ).
+
+    Still integrates with other axes without overlap.

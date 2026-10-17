@@ -1,0 +1,64 @@
+{
+  "schema_draft": "2020-12",
+  "schema_valid": true,
+  "valid_fixtures": 2,
+  "v010_known_gaps": {
+    "dangling_source": "incorrectly accepted by v0.1.0 schema",
+    "duplicate_id": "incorrectly accepted by v0.1.0 schema",
+    "unperformed_pass": "incorrectly accepted by v0.1.0 schema",
+    "saved_no_location": "incorrectly accepted by v0.1.0 schema",
+    "sourced_no_anchor": "incorrectly accepted by v0.1.0 schema"
+  },
+  "v020_schema_negative_tests": {
+    "unperformed_pass": "rejected",
+    "saved_no_location": "rejected",
+    "sourced_no_anchor": "rejected"
+  },
+  "referential_negative_tests": {
+    "dangling_source": [
+      "dangling source anchor"
+    ],
+    "duplicate_id": [
+      "duplicate across record types",
+      "duplicate within sources"
+    ],
+    "dangling_relation": [
+      "dangling relation endpoint"
+    ],
+    "dangling_receipt": [
+      "dangling round receipt_ids"
+    ],
+    "fake_checkpoint_exists": [
+      "claimed checkpoint missing"
+    ]
+  },
+  "skill_yaml": {
+    "research-kernel-builder": "PASS",
+    "research-archaeologist": "PASS"
+  },
+  "resource_links": {
+    "research-kernel-builder": {
+      "assets/research-state.schema.json": "PASS",
+      "references/ACCEPTANCE_GATES.md": "PASS",
+      "references/ADVANCEMENT_MODES.md": "PASS",
+      "references/EVIDENCE_CONTRACT.md": "PASS",
+      "references/FAILURE_CASES.md": "PASS",
+      "references/ITERATION_AND_HANDOFF.md": "PASS"
+    },
+    "research-archaeologist": {
+      "assets/research-state.schema.json": "PASS",
+      "references/ACCEPTANCE_GATES.md": "PASS",
+      "references/ADVANCEMENT_MODES.md": "PASS",
+      "references/ARCHAEOLOGY_METHOD.md": "PASS",
+      "references/EVIDENCE_CONTRACT.md": "PASS",
+      "references/ITERATION_AND_HANDOFF.md": "PASS"
+    }
+  },
+  "schema_copies_equal": true,
+  "synthetic_source_hashes_checked": 8,
+  "graph_check": "PASS: attribute-preserving mapping fails to preserve directed edge; unlabelled graph isomorphism not ruled out",
+  "independent_agent_trial": "NOT_RUN",
+  "host_installation": "NOT_RUN",
+  "human_external_math_review": "NOT_RUN",
+  "permissions_and_license": "PENDING"
+}

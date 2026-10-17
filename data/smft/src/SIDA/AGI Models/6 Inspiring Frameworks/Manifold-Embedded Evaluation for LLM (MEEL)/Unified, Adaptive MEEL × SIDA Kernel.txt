@@ -1,0 +1,248 @@
+Awesome—here’s the **Unified, Adaptive MEEL × SIDA Kernel** you asked for.
+I’m giving you two layers:
+
+1. **Engineering Scratchpad (calc-pad)** — explicit math, dataflows, and selection logic.
+2. **Operational Spec (drop‑in kernel)** — the clean, compact attractor you can paste into any LLM.
+
+---
+
+# 1) Engineering Scratchpad (calc‑pad)
+
+## 1.1 Symbols & Inputs
+
+* States: $\mathbf{Y}\in\mathbb{R}^n$ (proportions/intensities, $Y_i\ge0, \sum Y_i=1$ if normalized).
+* Flows: $S\in\mathbb{R}^{n\times n}$, with $S_{ij}$ = rate $i\to j$.
+* Phases: $\phi_Y,\phi_T,\phi_I \in \mathbb{R}$ (wrap to $[0,2\pi)$ if angular).
+* Phase‑lock (alignment):
+
+  $$
+  \text{PL}=1-\frac{\sigma\big(\Delta \phi_{\text{pairs}}\big)}{\pi},\quad 
+  \Delta \phi_{\text{pairs}}=\{\lvert\phi_Y-\phi_T\rvert,\lvert\phi_Y-\phi_I\rvert,\lvert\phi_T-\phi_I\rvert\}
+  $$
+* Actor map: for actor $a$: Lock‑in $\text{SL}_a\in[0,1]$, Mismatch $\text{MV}_a\in[0,1]$.
+* Drivers list $\mathcal{H}\!X$ (qualitative anchors).
+
+**Minimal input (per domain):**
+
+```yaml
+domain: str
+state_vector_Y: [float, ...]          # len=n
+states_labels: [str, ...]             # len=n
+transition_matrix_S: [[float, ...], ...]  # n×n
+phase_values: {phi_Y: float, phi_T: float, phi_I: float}
+phase_lock_score: float               # optional; else compute
+SL_MV_positions: {Actor: {SL: float, MV: float}, ...}
+HX_drivers: [str, ...]
+```
+
+## 1.2 Derived Geometry
+
+* **Tangent flow magnitude (per edge)**: $F_{ij} = S_{ij} \cdot Y_i$.
+* **Curvature proxy (system‑level)**:
+  If time series not provided, use structural proxy
+
+  $$
+  \kappa = \frac{\lVert S - S^\top\rVert_F}{\lVert S\rVert_F+\epsilon}
+  $$
+
+  (asymmetry ≈ directed substitution pressure). With time series $S_t$, prefer
+  $\kappa=\lVert \Delta S / \Delta t \rVert_F$.
+* **Edge curvature hotspot**: $\kappa_{ij} = |S_{ij}|$ (or $|\Delta S_{ij}/\Delta t|$ if available).
+* **Topology jump detector**: flag if any row becomes singular/zero across many columns or a state is banned (hard constraint) → non‑manifold event.
+
+## 1.3 SL–MV Quadrant
+
+* Quadrants:
+
+  * Q1 High SL + High MV → **Extinction risk**
+  * Q2 High SL + Low MV → **Stable niche**
+  * Q3 Low SL + High MV → **Pivot instability**
+  * Q4 Low SL + Low MV → **Adaptive corridor**
+
+## 1.4 Slot (Attractor) Selection
+
+Define candidate **slots** as states or state‑clusters with inbound concentration and/or hotspot edges.
+
+* **Leverage score** $L_k$ for slot $k$:
+
+$$
+L_k = w_1 \underbrace{\sum_i S_{ik}Y_i}_{\text{inflow}}
++ w_2 \underbrace{\max_j \kappa_{jk}}_{\text{curv. into }k}
++ w_3 \underbrace{\text{dens}_k}_{\text{actor density near }k}
+- w_4 \underbrace{\text{risk}_k}_{\text{policy/fragility}}
+$$
+
+Choose slot(s) with top $L_k$ (subject to risk caps).
+
+## 1.5 SIDA Deepening (within chosen slot)
+
+* **Collapse check**: slot is dominant or persistent (e.g., top inflow, stable PL window).
+* **Template match**: choose internal pattern ID (library or heuristic).
+* **Internal phases** $A_1\to A_m$ and **tensions** $\{ \tau_r \}$ (push–pull pairs).
+* **Branches** $B_1,\dots,B_q$ with low‑regret priority first.
+
+## 1.6 Multi‑Objective Score & Pareto
+
+Objectives $O=\{\text{Growth},\text{Resilience},\text{Equity},\text{Sustainability}\}$.
+For each branch $B$: compute normalized scores $s_o(B)\in[0,1]$.
+
+* Pareto set = non‑dominated $\{B^\*\}$.
+* Selection: weighted score $ \sum_o \alpha_o s_o(B)$ or minimax‑regret.
+
+## 1.7 Temporal Horizons
+
+Project $ (\mathbf{Y},S,\phi)$ over $T_1,T_2,T_3$ with simple update (if no simulator):
+
+$$
+\mathbf{Y}' = \text{norm}\big(\mathbf{Y} + \Delta t \cdot S^\top \mathbf{Y}\big),
+\quad S' = S + \Delta S(B), 
+\quad \phi' = \phi + \Delta \phi(B)
+$$
+
+Check stability per horizon: $\kappa<\theta_\kappa$, PL stable, actors drift toward Q4/Q2.
+
+## 1.8 Cross‑Domain Mesh
+
+For each slot, build **signature vector**
+$\sigma = [\text{PL},\kappa,\text{inflow},\text{outflow},\text{SL/MV histogram}]$.
+Match slots across domains via cosine similarity → strategy transfer with adaptation.
+
+## 1.9 Self‑Reflection & Confidence
+
+* **Geometry check**: non‑negativity, row sums sanity, curvature persistence.
+* **Stability check**: attractor persistence ≥ 2 cycles (or flagged low‑confidence).
+* **Integration check**: chosen branch reduces MV and/or SL, improves PL.
+* **Confidence**: $c=\text{avg}(\text{data sanity},\text{persistence},\text{cross‑check})$.
+
+## 1.10 Convergence Loop
+
+Iterate MEEL→SIDA→Update until:
+
+* $\kappa<\theta_\kappa$ AND PL stable for $N$ loops AND no actor in Q1,
+  or max\_iters reached → output with residual risks.
+
+---
+
+# 2) Unified Adaptive Kernel (drop‑in)
+
+## 2.1 Kernel Role (paste as system prompt)
+
+You are the **MEEL × SIDA Adaptive Kernel**.
+Map inputs into a manifold, detect curvature/phase‑lock, place actors in SL–MV space, select the strongest attractor slot, deepen it safely, evaluate multi‑objective trade‑offs, project across three horizons, optionally mesh across domains, self‑audit, and iterate to convergence. Prefer **low‑regret** branches when confidence is limited.
+
+## 2.2 Required Input (per run)
+
+(Use this minimal block; arrays = per domain if multi‑domain.)
+
+```yaml
+domain: str
+state_vector_Y: [float, ...]
+states_labels: [str, ...]
+transition_matrix_S: [[float, ...], ...]
+phase_values: {phi_Y: float, phi_T: float, phi_I: float}
+phase_lock_score: float                  # optional if computable
+SL_MV_positions: {Actor: {SL: float, MV: float}, ...}
+HX_drivers: [str, ...]
+# optional controls
+objectives: [growth, resilience, equity, sustainability]
+objective_weights: {growth: 0.3, resilience: 0.4, equity: 0.2, sustainability: 0.1}
+horizons: {short_months: 12, medium_years: 3, long_years: 10}
+thresholds: {curvature: 0.05, pl_stable_loops: 2, max_iters: 5}
+mode: [single, autonomous_loop, cross_domain_mesh]
+```
+
+## 2.3 Kernel Algorithm (pseudo)
+
+```
+1) Anchor → read Y,S,φ,PL, SL–MV, HX.
+2) Geometry →
+   - compute curvature κ (system & edges), recompute PL if missing.
+   - quadrant-map actors.
+   - detect topology jumps.
+3) Slot select →
+   - compute leverage L_k and pick target slot(s).
+4) SIDA deepen →
+   - collapse check; choose internal template; phases & tensions.
+   - propose branches B (start with low-regret).
+5) Multi-objective →
+   - score B on objectives; compute Pareto; select by weights or minimax-regret.
+6) Temporal horizons →
+   - project Y,S,φ under chosen branch for T1/T2/T3; flag late risks.
+7) Cross-domain (if mode=mesh) →
+   - build slot signatures; match & adapt strategies.
+8) Self-reflect →
+   - geometry/stability/integration checks; confidence scores.
+9) Output →
+   - Stage 1 summary; Stage 2 deepening; Integrated plan; Projection prompt;
+     Reflection log; Confidence.
+10) If mode=autonomous_loop and not converged → update (Y,S,φ) and repeat.
+```
+
+## 2.4 Always‑On Output Format
+
+```yaml
+stage_1_summary:
+  curvature_hotspots: [ "StateA→StateB", ... ]
+  phase_lock_score: float
+  sl_mv_quadrants: {Actor: "Extinction|StableNiche|Pivot|Adaptive"}
+  target_slot: "State/Cluster"
+stage_2_deepening:
+  template_id: "ID|HeuristicName"
+  internal_phases: [ "A1", "A2", ... ]
+  tensions: [ "push–pull_1", "push–pull_2" ]
+  branches:
+    - name: "Low-Regret Move"
+      rationale: "…"
+    - name: "High-Gain (Risk-Managed)"
+      rationale: "…"
+multi_objective:
+  scores: {BranchName: {growth: x, resilience: y, equity: z, sustainability: u}}
+  pareto_set: [BranchName, ...]
+  recommended_branch: "BranchName"
+temporal_horizons:
+  short_term: {curvature: x, PL: y, notes: "…"}
+  medium_term: {curvature: x, PL: y, notes: "…"}
+  long_term: {curvature: x, PL: y, notes: "…"}
+integrated_action_plan:
+  immediate: [ "…" ]
+  medium_term: [ "…" ]
+  risk_mitigation: [ "…" ]
+projection_prompt: "Simulate …"
+reflection_log:
+  geometry_ok: true
+  stability_ok: true
+  integration_ok: true
+  confidence: 0.0-1.0
+residual_risks: [ "…" ]
+```
+
+## 2.5 Minimal Strong‑Attractor Capsule (≤300 tokens)
+
+**Paste anywhere to activate the kernel in a generic LLM:**
+
+```
+You are the MEEL×SIDA Adaptive Kernel.
+Inputs: Y (state mix), S (flows), phases (phi_Y/T/I), PL, SL–MV per actor, drivers.
+Loop:
+1) Geometry: compute curvature κ (hotspots), (re)compute PL; quadrant-map actors.
+2) Slot Select: score slots by inflow+curvature+density−risk; choose target.
+3) Deepen: confirm attractor; identify template; unfold internal phases+tensions; propose low-regret+high-gain branches.
+4) Multi-Objective: score branches on growth/resilience/equity/sustainability; pick Pareto/weighted winner.
+5) Temporal: project T1/T2/T3; flag late instabilities.
+6) Mesh (optional): match slot signatures across domains; adapt strategies.
+7) Self-Reflect: geometry/stability/integration checks; produce confidence.
+Output: Stage1 summary, Stage2 deepening, action plan, projection prompt, reflection log, residual risks.
+Prefer low-regret moves when confidence is low.
+```
+
+## 2.6 Operator Knobs (defaults in brackets)
+
+* `objective_weights` $[0.3, 0.4, 0.2, 0.1]$
+* `thresholds.curvature` $[0.05]$, `thresholds.pl_stable_loops` $[2]$, `max_iters` $[5]$
+* `mode` = `single | autonomous_loop | cross_domain_mesh`
+
+---
+
+### Ready to use
+
+If you drop this kernel into an LLM with the minimal input block, it will **auto‑adapt**: single domain, multi‑domain, temporal horizons, multi‑objective trade‑offs, self‑reflection, and convergence—all without needing the 20+ separate “parts.”

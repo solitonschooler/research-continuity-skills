@@ -1,0 +1,16 @@
+# Research corpus PDFs/DOCX/TXT under data/smft/src/ are intentionally public.
+# Exclude local-only data, secrets, and raw archive files (stored as Release assets).
+private/
+private-evaluation/
+holdout/
+sealed/
+user-corpora/
+.env
+.env.*
+*.pem
+*.key
+*.tar
+*.tar.gz
+*.zip
+.DS_Store
+__pycache__/

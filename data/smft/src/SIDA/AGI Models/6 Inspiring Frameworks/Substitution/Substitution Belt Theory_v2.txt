@@ -1,0 +1,171 @@
+Short answer: for most LLMs (and most teams), **don’t mix** the substitution framework with Belt Theory by default. It adds cognitive load with little gain at inference time. Better: run a **Belt-free, trigger-pathway kernel** that teaches the model concrete tipping patterns + checks. If your org already standardizes on Belt, you can always map back later.
+
+Below is a **self-contained, copy-paste kernel** (with a tiny calc-pad first) that any LLM can use to analyze or forecast “one platform eats many tools.” It focuses on **trigger archetypes + examples + quick tests**, and uses only light, common-sense geometry (snap-fit, threshold crossing, amplifier).
+
+---
+
+# Calc-Pad (fill before reasoning)
+
+```
+[PROBLEM]
+Platform P = <name>
+Replaced set B = [b1, b2, ...]
+Window = <YYYY–YYYY> ; Region = <...>
+Assumptions/Data = <sources or "assume ranges">
+
+[STATE 0–1 unless noted]
+I  (Interface unification)   = <0..1>
+C  (Cost/latency advantage)  = <ratio vs incumbent; lower is better>
+S  (Template/supply density) = <0..1>
+U  (User base / MAU)         = <K/M>
+A  (User self-ops share)     = <0..1>   # automations, user-run workflows
+G  (Governance readiness)    = <0..1>   # KYC/compliance/audit
+w  (Edge attach: watch/IoT)  = {0,0.5,1}
+
+[TASK]
+Df (coverage %)  = <0..1>   # P covers % of B’s main use cases
+Q  (experience)  = < >1 good ; shorthand for 1/(time*errors*steps)_rel
+
+[SIMPLE SCORE]
+rho=0.2
+K_sub = Df * Q * (1/C) * I * S * (1 + rho*w)
+
+[FOUR FRICTIONS (↓ is good)]
+Disp (app/format switching) = <metric>
+Age  (waiting/lead times)   = <metric>
+Re   (rework/rollbacks)     = <metric>
+Tw   (policy/UX thrash)     = <metric>
+
+[PASS/FAIL]
+Substitution “on” if for ≥2 consecutive quarters:
+K_sub ≥ 1.2 AND at least two of {Disp,Age,Re,Tw} decline.
+```
+
+---
+
+# Substitution Trigger Pathways — Strong-Attractor Kernel (Belt-free)
+
+> **Role:** Analyze/predict how P substitutes B in non-linear, self-organizing settings.
+> **Discipline:** Always print the **Calc-Pad echo first**, then a short summary, then a machine-readable JSON.
+
+## 1) Trigger Archetypes (with “why it matters” + quick tests)
+
+### A. Snap-Fit (interfaces click together)
+
+1. **I★ Interface Unification** — Sign that tools can plug without shims.
+   *Test:* core APIs (identity/payments/files/events) consistent across top clients/vendors (≥0.7).
+   *Hints/examples:* Service Worker across major browsers; cloud IaC as the main entry; super-app mini-program APIs (pay/scan/locate).
+
+2. **E★ Event Fabric** — Sources, queues, handlers compose reliably (webhooks/functions).
+   *Test:* ≥70% of common flows can be built by chaining events without polling/glue code.
+   *Examples:* S3-event→Lambda→Queue; push→client worker→cache.
+
+3. **O2O★ Offline Codified** — Physical things become addressable (QR/IoT/tickets).
+   *Test:* code-coverage of stores/devices/gates ≥50%; error-free redemption ≥97%.
+
+### B. Threshold Crossings (cost/latency/effort flips)
+
+4. **C★ Cost/Latency Crossover** — TCO or key latencies better than incumbent.
+   *Test:* cloud TCO < on-prem at typical utilization; PWA first-interaction < target ms; data cost < threshold.
+
+5. **S★ Template Critical Mass** — “One person ships in X days” becomes normal.
+   *Test:* median time-to-first-unit ≤ X (your domain), with ≥5 robust templates covering ≥60% use cases.
+
+6. **G★ Governance Ready** — Compliance/traceability stops blocking adoption.
+   *Test:* KYC/IAM/HTTPS/CSP or domain-specific controls pass audits; rollback+audit < target mins.
+
+### C. Amplifiers (copy faster, converge faster)
+
+7. **D★ Distribution Advantage** — Native discovery beats old channels.
+   *Test:* chat/nearby/SEO-SSR funnels convert better than app-store/email baselines.
+
+8. **β★ Selection Pressure Up** — Market rewards better performers more sharply.
+   *Test:* share elasticity to Δperformance doubles; CR4/HHI concentrates while CAC/LTV stays healthy.
+
+9. **W★ Edge Attach** — Watch/edge lowers interaction cost to near zero.
+   *Test:* a material % of flows become “glance/gesture” (auth, pay, confirm, tag), raising action frequency.
+
+---
+
+## 2) What to measure (map triggers → four frictions)
+
+* **Disp↓** via I★/E★/O2O★ (fewer app/context jumps; fewer format moves)
+* **Age↓** via C★/D★/O2O★ (less waiting: procurement→minutes; first-paint/TTI fall)
+* **Re↓**  via S★/G★/E★   (fewer rollbacks; fewer re-keys; safer fallbacks)
+* **Tw↓**  via G★/clear roadmaps (less policy/UI churn)
+
+---
+
+## 3) Pattern Library (plug-n-play hints)
+
+* **Smartphone eats camera:** C★ (computational photography), I★ (camera/share APIs), D★ (social distribution), W★ (watch remote/auto-tag).
+* **Web eats desktop apps:** I★ (SW/Fetch/WASM), S★ (scaffolds), D★ (SEO-SSR), G★ (HTTPS/CSP).
+* **Cloud eats servers:** C★ (pay-as-you-go), I★ (IaC), S★ (images/charts/operators), E★ (events→functions), G★ (shared-responsibility clarity).
+* **Super-app eats retail/helpdesk:** I★ (pay/ID/locate), O2O★ (QR), D★ (chat/nearby), S★ (mini-app templates), G★ (KYC/fraud).
+
+Use these as **analogical prompts** when the LLM seems unaware: “If this looked like smartphone→camera, which triggers would be present?”
+
+---
+
+## 4) Output shape (what to print, every time)
+
+1. **Calc-Pad echo** (the numbers/assumptions you filled).
+2. **100-word summary**: which ★ fired, which frictions fell, is K\_sub ≥ 1.2, next best trigger.
+3. **JSON (strict):**
+
+```json
+{
+  "platform": "<P>",
+  "replaced": ["<b1>", "<b2>"],
+  "window": {"start":"YYYY-MM","end":"YYYY-MM"},
+  "variables": {"I":0.0,"C":0.0,"S":0.0,"U":0.0,"A":0.0,"G":0.0,"w":0.0,"Df":0.0,"Q":0.0},
+  "score": {"K_sub":0.0,"meets_threshold":false},
+  "frictions": {
+    "Disp":{"baseline":0.0,"current":0.0},
+    "Age":{"baseline":0.0,"current":0.0},
+    "Re":{"baseline":0.0,"current":0.0},
+    "Tw":{"baseline":0.0,"current":0.0}
+  },
+  "triggers": {
+    "I_star":false,"E_star":false,"O2O_star":false,
+    "C_star":false,"S_star":false,"G_star":false,
+    "D_star":false,"Beta_star":false,"W_star":false
+  },
+  "next_best_trigger": {"id":"I|E|O2O|C|S|G|D|Beta|W", "why":"", "expected_delta":{"K_sub":0.0,"Disp":-0.0,"Age":-0.0,"Re":-0.0,"Tw":-0.0}}
+}
+```
+
+---
+
+## 5) Red-flag filters (avoid false positives)
+
+* K\_sub high **but** no A/B frictions fall → likely promo/temporary funnel.
+* D★ fired **but** G★ false → growth will stall at regulated boundaries.
+* S★ true **but** I★ false → template wins won’t generalize (integration drag).
+* β★ spike **but** churn↑/NPS↓ → short-term selection gaming, not durable substitution.
+
+---
+
+## 6) Common-sense geometry (optional language for explanations)
+
+* **Snap-fit:** “interfaces line up” → parts click without shims (I★/E★/O2O★).
+* **Threshold crossing:** “the curve flips sign” → costs/latencies drop below the line (C★/S★/G★).
+* **Amplifier:** “the slope gets steeper” → distribution/selection magnifies small performance gaps (D★/β★/W★).
+
+---
+
+## 7) 90-day playbook (how to move a borderline case over the line)
+
+* If **I★ is closest**: publish a minimal, stable API bundle (ID/pay/files/events) + examples; negotiate 2 cross-client commitments; target I≥0.7.
+* If **C★ is closest**: edge-cache hot paths; kill cold-start; prove TCO/latency win on one flagship flow.
+* If **S★ is closest**: ship 3 scaffolds covering ≥60% use; reduce “time-to-first-unit” below X days.
+* If **G★ is closest**: instrument rollback/audit; pass one external audit; make “safe defaults” the golden path.
+* If **D★ is closest**: re-route entry through chat/nearby/SEO; measure funnel lift vs store/email baseline.
+* If **W★ matters**: pin 1–2 micro-interactions to watch (auth/pay/confirm/tag).
+
+---
+
+### Bottom line
+
+* **Default:** run this **Belt-free trigger kernel**—it’s simpler, more legible to today’s LLMs, and surfaces the exact hints/examples they usually miss.
+* **Optional:** if your stack already uses Belt/ObserverOps, you can add a thin mapping later (e.g., “Disp/Age/Re/Tw” ↔ your ops metrics) without changing this kernel’s outputs.

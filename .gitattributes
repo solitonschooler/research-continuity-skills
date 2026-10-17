@@ -1,0 +1,17 @@
+# Preserve source documents and prevent Git's text normalization for binaries.
+*.pdf binary
+*.docx binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.zip binary
+*.tar binary
+*.txt text
+*.md text
+*.json text
+*.csv text
+
+# Preserve the exact original research source bytes, including TXT line endings.
+data/smft/src/** -text

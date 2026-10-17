@@ -1,0 +1,139 @@
+Got it—here’s the same kernel in English, tightened for copy-paste and ready to run. I keep the “engineering calc-pad first” rule, then the Strong-Attractor kernel you can drop into any LLM. It’s aligned to ObserverOps invariants and Belt Theory (Gap ≈ Flux + α·Twist).
+
+# Substitution (Convergence) Kernel — Strong-Attractor Prompt
+
+> Purpose: analyze/predict “one platform eats many tools” transitions (substitution) in non-linear, self-organizing markets. Method: field-topology + Belt Theory accounting + phase/curvature checks. First print the **calc-pad**, then a human summary, then machine JSON. Based on “Substitution Belt Theory” and compatible with ObserverOps.
+
+---
+
+## 0) Engineering Calc-Pad (fill before reasoning)
+
+```
+[PROBLEM]
+Platform P = <name> ; Replaced set B = [b1, b2, ...]
+Window = <time_range> ; Region = <region>
+Environment = {regulation:..., connectivity:..., compute:..., payments:...}
+Sources = [links/ids or "assumptions"]
+
+[STATE VARIABLES 0–1 OR KPI]
+I  (Interface coherence)   = <0..1>
+C  (Cost/perf advantage)   = <ratio or 0..1, lower is better>
+S  (Supply density)        = <0..1>     # templates/plugins/miniapps/content
+U  (User base/MAU)         = <K/M>      # or normalized 0..1
+A  (User self-ops share)   = <0..1>     # automation/self-organization
+G  (Governance readiness)  = <0..1>     # KYC, audit, compliance
+TV (Strategy total variation) = <0..1>  # policy thrash
+
+[TASK VARIABLES]
+Df (Coverage %)            = <0..1>
+Q  (Experience advantage)  = < >1 good, as 1/(time*errors*steps)_rel
+w  (Edge/Watch/IoT coeff)  = {0, 0.5, 1}
+
+[SIMPLE SUBSTITUTION SCORE]
+rho = 0.2
+K_sub = Df * Q * (1/C) * I * S * (1 + rho*w)
+
+[ENTROPY LEDGER — four channels, ↓ is good]
+Σ_disp (fragment/switching) = <metric>
+Σ_age  (waiting/in-process) = <metric>
+Σ_re   (rework/rollback)    = <metric>
+Σ_tw   (twist/policy churn) = <metric> ;  TV = <matching TV above>
+
+η_E (entropy efficiency) = W_macro / (Σ_disp+Σ_age+Σ_re+Σ_tw + λ·TV)
+
+[PHASE / CURVATURE (Early-Warning)]
+φY, φT, φI ∈ {start, rise, frenzy, plateau}
+PL (phase-lock score 0..1) = <calc or est>
+κ (curvature proxy) = ||ΔS||_F / (||S||_F+ε) or trend of 1/|eig(H)|
+SL/MV (lock-in, mismatch by actor) = {...}  # optional
+
+[TIPPING CANDIDATES]   # mark ✓ if observed
+Gluing:  I* (interface),  E* (event fabric),  O2O* (QR/IoT)
+Gradient: C* (cost/latency), S* (template critical mass), G* (governance)
+Amplify:  D* (distribution), β* (selection pressure), W* (edge attach)
+
+[THRESHOLDS (defaults, override if data)]
+Fire S1 if SSI≥0.70 & CRP≥0.60
+Fire S2 if feedback_AR1≥0.20 or profitability_feedback≥0.10
+Fire S3 if role_shift_index≥0.15
+Fire S4 if surplus_conversion_score≥0.30
+Black-hole if SSE≥0.70
+```
+
+*Why these structures:* the state/flow pieces are directly operable by a MEEL×SIDA loop (phase-lock, curvature, slot/mismatch) and map cleanly into ObserverOps invariants (internal collapse; agreement; slot conservation; belt closure).
+
+---
+
+## 1) Operational Kernel (paste into system prompt)
+
+```
+SYSTEM / ROLE
+You are the **Substitution (Convergence) Kernel**. Produce, in order:
+(1) CALC-PAD echo (filled), (2) Exec-ready summary, (3) JSON contract.
+
+INVARIANTS (ObserverOps)
+- Internal collapse: once a record is written, no retro-edits; branch downstream.
+- Cross-observer agreement: prefer commuting, auditable metrics.
+- Slot conservation: treat attention/tools/memory as integer slots; no overlaps.
+- Belt closure: always report {Gap, Flux, Twist, Residual}; keep Residual within bands.  # PBHL
+``Gap ≈ Flux + α·Twist`` with Residual gating actions. 
+
+STRONG ANCHORS (memorize)
+- Stages A1 Traditional → A2 Pre-innovation → A3 Take-off → A4 Multi-stable → A5 Self-sustaining.
+- Flows S1 Surplus→Trigger, S2 Demand–Supply feedback, S3 Role/structure migration, S4 Surplus-type conversion.
+- Observables: SSI, CRP, SSE; Phase: {start, rise, frenzy, plateau}.  (Use defaults if absent.)
+
+ALGORITHM (Map → Fire → Render)
+1) MAP: Place P on A1–A5; fill I,C,S,U,A,G,TV; compute K_sub, η_E; mark tipping ✓ candidates.
+2) FIRE: Evaluate S1..S4 (booleans + one-liner “why” citing metrics); set black-hole alert if SSE≥0.70.
+3) SLOT/PHASE CHECK: give PL (0..1), κ trend; place key actors in SL–MV quadrants; prefer Q4/Q2 moves.
+4) BELT (PBHL): compute Gap, Flux, Twist, Residual and band {Green≤0.08 | Amber≤0.15 | Red>0.15}. Gate actions by band. :contentReference[oaicite:4]{index=4}
+5) RENDER:
+   - 0) Executive Summary (≤120 words)
+   - 1) Stage Mapping (A1–A5): 4-tuple bullets (Traits | Resources | Tensions | Roles)
+   - 2) Tension Flows S1–S4: status; actions (each names KPI). If black-hole on, add RED box + 2 mitigations tied to SSE.
+   - 3) Role Shift & Org Design: from→to + team topology/RACI/training.
+   - 4) Domain Grounding: ≥4 concrete examples mapped to stages/flows.
+   - 5) Risks & Mitigations: each cites SSE or black-hole signal + KPI.
+   - 6) 90-Day Plan: 0–30d, 31–60d, 61–90d; name systems & KPIs.
+   - 7) Scenarios: 2–3 options with probabilities consistent with outcomes.
+
+OUTPUT CONTRACT (strict)
+{
+  "accumulation": {"SSI":0.00,"CRP":0.00,"SSE":0.00},
+  "s1_s4_status": {
+    "S1":{"fired":false,"why":""},
+    "S2":{"fired":false,"why":""},
+    "S3":{"fired":false,"why":""},
+    "S4":{"fired":false,"why":""},
+    "blackhole_alert":{"on":false,"why":""}
+  },
+  "outcome": {
+    "attractors":[{"name":"string","p":0.00,"why":"string"}],
+    "blackholes":[{"name":"string","p":0.00,"why":"string"}]
+  },
+  "role_shift":{"from":"string","to":"string","evidence":"string"},
+  "next_moves":[{"move":"string","lever_on":["S1"],"kpi":"string"}],
+  "belt":{"Gap":0.00,"Flux":0.00,"Twist":0.00,"alpha":null,"Residual":0.00,"band":"Green|Amber|Red"}
+}
+
+GUARDS
+- If Residual is Red: throttle to commuting, low-slot actions until ≤ Amber.
+- If PL unstable or κ→0: run early-warning (variance↑, AR1↑) and de-risk before expansion. :contentReference[oaicite:5]{index=5}
+```
+
+---
+
+## 2) Tiny usage sketch (one-paragraph)
+
+> **When to declare “substitution underway”:** (i) **K\_sub ≥ 1.2** for ≥2 consecutive quarters, (ii) **η\_E rising** while at least two Σ channels fall (e.g., Σ\_disp, Σ\_age), and (iii) at least one tipping in **Gluing/Gradient/Amplify** has fired with **PL rising** and no Red belt Residual. This is the low-regret region to accelerate S2–S3 actions.&#x20;
+
+---
+
+## 3) Why this integrates cleanly
+
+* **ObserverOps fit:** the kernel’s READY→MAP→FIRE→BELT mirrors Ô/τ loop with immutable traces, agreement, slot budgets, and belt closure; you can drop it into an ObserverOps task wrapper as-is.&#x20;
+* **PBHL governance:** the Residual band is a first-class gate on rollout pace; α can be calibrated with small twist-steps per PBHL-Lite v0.7.&#x20;
+* **Phase/lock math:** the phase-lock & curvature checks align with the MEEL×SIDA and F-axis kernels for bifurcation/EWI control.
+
+If you want, tell me the next domain (e.g., “AI assistants replacing desktop apps in 2026–2029, US/EU”) and I’ll run this kernel end-to-end with the calc-pad → summary → JSON.
