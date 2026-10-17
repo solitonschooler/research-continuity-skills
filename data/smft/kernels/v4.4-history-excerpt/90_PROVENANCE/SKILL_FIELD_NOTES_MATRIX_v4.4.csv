@@ -1,0 +1,11 @@
+file,field_lesson_domain,next_session_independent_check,bytes,sha256
+README_FIELD_NOTES.md,scope; entrypoint; historical limits,"User knows what corpus and what purpose, non-skill status",7650,0ebfbcbab52b2d92de019596e009f1ac821868e6ca8f8b744d3ec2968196488a
+01_LESSONS_LEARNED.md,core compilation experience; GM; math; longitudinal revisions,Check long-term cases against original source,8680,ebd4a547194b678e1fe82172ed4dba9cb0d542a4924b9b0d0711c01f7bf37ea3
+02_FAILURE_MODES_AND_EVIDENCE_GATES.md,claim risk levels; evidence contracts,Verify evidence ladder is not retroactive truth,5612,053074e0585ab076acc74c68eb6cf1c38b00b650ffb153017df53bbfa800fcaa
+03_CONCRETE_CASES.md,real case anchors; W/SRC IDs; observed mislabel incidents,Verify exact proposition and math from originals,6356,3f0ce9a621b6779a59f75e1dead1bd87c6baa1ad795540f030d2d4e75e9170b9
+04_FUTURE_SKILL_HANDOFF.md,historical design plan and unsettled questions,Read as v3.8 historical proposal only,6224,9b2ed182684129ca26e623c5c354ab9c496d107b4016a6d02da05f99ee563944
+05_SOURCE_EXTRACTION_AND_PROVENANCE_FIELD_GUIDE.md,PDF DOCX TXT extraction; depth and provenance,Cross-check actual PDF page and DOCX structure,6689,af27e0fc4dace21693e643c14f928ad1effc28b11b9a4e8dee3bd2794847ca3e
+06_MATH_AND_CROSS_DOMAIN_BOUNDARY_CASEBOOK.md,typed math; counterexamples; analogy limits,Independent calculation and negative controls,7183,047716e3ec9ae81a69db080126451622a2511bd6e1f34069648b1ce25f57d10d
+07_VERSION_PACKAGING_QA_FAILURES.md,release SHA; flat/canonical; test migration; trust,Run actual artifact validation and protect archives,7215,77e0c9160edef29fbf58d5e5474e44182b36736307623bfb17a9b699ae6ea510
+08_INDEPENDENT_RECONSTRUCTION_BENCHMARK_NOTES.md,holdout isolation; baselines; metrics,Keep grader and tasks outside participant context,6161,3d1de6e0ab192194d00077609b2538ff6a09347df7cb51bf20c1f6ddd423020c
+09_FINAL_SESSION_HANDOFF_AND_UNKNOWN_UNKNOWNS.md,next session kickoff and open decisions,Challenge notes independently; no premature SKILL.md,5616,865bc6718515d1e53129a51647f9a298149ba7af669b72a726f7c81ab4a96633

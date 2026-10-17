@@ -1,0 +1,42 @@
+{
+  "version": "6.0",
+  "release_kind": "current_provenance_compilation",
+  "original_primary_documents_newly_reopened": 0,
+  "historical_original_manifest_rows": 325,
+  "atlas_stable_ids": 60,
+  "model_theorem_components_prior_verified": 4,
+  "compiler_audit_nodes_indexed": 98,
+  "typed_cross_family_edge_records": 83,
+  "source_depth_ledger_rows": 325,
+  "later_scoped_qa_distinct_source_ids": 35,
+  "inherited_lineage_edges": 619,
+  "inherited_claim_gap_records": 216,
+  "witness_historical_slots": 400,
+  "unresolved_reserved": "W024",
+  "official_project_slots": 14,
+  "modified_official_files": [
+    "00_READ_ME_FIRST.md",
+    "99_SESSION_HANDOFF.md"
+  ],
+  "protected_same_hash": true,
+  "skill_field_notes": 22,
+  "independent_llm_reconstruction": "NOT_RUN",
+  "external_domain_validation": "NOT_RUN",
+  "cumulative_GL_source_files": 9,
+  "cumulative_L_source_files": 5,
+  "current_provenance_files": 10,
+  "warnings": [
+    "The latest GL version is not cumulative",
+    "The six typed dependency schemas differ",
+    "Maturity inherits previous verified components",
+    "Historical lineages/claims are not re-audited in v6",
+    "No new source hash reread in v6"
+  ],
+  "unittest_test_count": 753,
+  "unittest_passed": true,
+  "baseline_v59_tests": 742,
+  "new_v60_tests": 11,
+  "release_overlay_exact": true,
+  "upload_flat_byte_match": true,
+  "historical_archive_members": 926
+}

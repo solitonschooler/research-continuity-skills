@@ -69,7 +69,7 @@ This draft is informed by recorded experience from an approximately 86-round SMF
 
 ## License and publication
 
-**A license has not yet been selected by the rights holder.** Public GitHub visibility alone does not grant reuse permissions. Before public publication, choose and add an appropriate `LICENSE` and check third-party rights. This **public-source mirror** now includes 325 original SMFT PDF/DOCX/TXT research files under `data/smft/src/`. The unchanged source TARs and a future public v8.6 Kernel are left outside the Git repository as local Release-asset placeholders. Sealed benchmark materials and the private v8.6 master are not included. The research corpus needs its own explicit rights/license decision before publication.
+**A license has not yet been selected by the rights holder.** Public GitHub visibility alone does not grant reuse permissions. Before public publication, choose and add an appropriate `LICENSE` and check third-party rights. This **public-source mirror** now includes 325 original SMFT PDF/DOCX/TXT research files under `data/smft/src/`. The original source TARs are left outside the Git repository as local Release-asset placeholders. A selected v8.6 Light Kernel and historical v6.0/v4.4 reference excerpts are available under `data/smft/kernels/`. Sealed benchmark materials and the private v8.6 master are not included. The research corpus needs its own explicit rights/license decision before publication.
 
 ## Origin and compatibility
 
@@ -87,7 +87,7 @@ For ready-to-copy task requests, see [quick-start prompts](docs/QUICK_START_PROM
 
 This distribution differs from the original v0.2.0 draft by including all **325** extracted author-supplied original research documents (254 PDFs, 66 TXT files, 5 DOCX files). The existing two declarative Skills are unchanged. Start with [`data/smft/README.md`](data/smft/README.md), [`data/smft/SOURCES_MANIFEST.csv`](data/smft/SOURCES_MANIFEST.csv) and [`data/smft/RELEASE_ASSETS.md`](data/smft/RELEASE_ASSETS.md). Files were verified byte-for-byte against the v8.6 source manifest; this is not a validation of their scientific claims.
 
-The **public v8.6 Kernel itself is not included** in this ZIP. It needs a separately cleared archive without sealed evaluation answers. `RCS/release-assets/` and `RCS/private-evaluation/` are outside this Git repository. See the root `LOCAL_MIRROR_README.md` after extraction.
+This repository now includes a **selected v8.6 Light theoretical reference**, the authentic v6.0 Active Provenance view, and limited v4.4 archival excerpts. They are **not** a public FULL v8.6 archive or a full v4.4/v6.0 snapshot. See [`data/smft/kernels/README.md`](data/smft/kernels/README.md) and [`docs/SMFT_KERNEL_REFERENCE_GUIDE.md`](docs/SMFT_KERNEL_REFERENCE_GUIDE.md). `RCS/release-assets/` and `RCS/private-evaluation/` are outside this Git repository. See the root `LOCAL_MIRROR_README.md` after extraction.
 
 ### Multi-part ZIP restoration
 

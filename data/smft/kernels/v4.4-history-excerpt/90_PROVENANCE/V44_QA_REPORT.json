@@ -1,0 +1,54 @@
+{
+  "version": "4.4",
+  "release_type": "field_notes_handoff_only",
+  "baseline_version": "4.3",
+  "source_manifest_rows": 325,
+  "source_review_scope": "inherited first-pass bounded; no v4.4 new source read",
+  "results_atlas_cards_unchanged": 60,
+  "historical_witness_id_count_unchanged": 400,
+  "proof_family_navigation_assigned_inherited": 399,
+  "unresolved_reserved_witness": "W024",
+  "proof_family_count_inherited": 14,
+  "formal_generative_moves_inherited": 18,
+  "original_tars_repacked": false,
+  "formal_knowledge_slots": 14,
+  "formal_knowledge_changed": [
+    "00_READ_ME_FIRST.md",
+    "99_SESSION_HANDOFF.md"
+  ],
+  "formal_knowledge_unchanged": [
+    "01_KERNEL_COMPILER_SPEC.md",
+    "10_GENESIS_CANONICAL_BRIDGE.md",
+    "20_K0_CORE_v0.1.md",
+    "30_GENERATIVE_MOVE_LEDGER_v0.1.md",
+    "40_K1_GEN_001_PERSPECTIVE_DECLARATION.md",
+    "41_K1_P8D_001_TYPED_DYADS_KAN_LI.md",
+    "42_K1_GOV_001_RITUAL_DEPENDENCY_INERTIA.md",
+    "43_K1_DEV_001_ROOT_SEEDLING_FLOWER_FRUIT.md",
+    "44_K1_TIME_001_TIME_EMPEROR_REVERSE_CONTROL.md",
+    "50_K1K2_MATURE_OPERATIONAL_ANCHORS.md",
+    "51_CROSS_KERNEL_INTERFACE_CONTRACT.md",
+    "90_SOURCE_MANIFEST.csv"
+  ],
+  "skill_field_note_markdowns": 10,
+  "skill_is_executable": false,
+  "skill_md_present": false,
+  "full_unittest_discover_run_count": 567,
+  "full_unittest_discover_status": "passed",
+  "new_v44_regression_cases": 8,
+  "historical_test_assertions_migrated": [
+    "test_v38.py",
+    "test_v42.py",
+    "test_v43.py"
+  ],
+  "historical_test_snapshots_preserved": true,
+  "independent_llm_blind_reconstruction_done": false,
+  "scientific_validation_added": false,
+  "known_blind_benchmark_leak_warning": "FULL contains some local-only task manifests and rubric_PRIVATE; hide them from trial participant",
+  "warnings": [
+    "325/325 = source-bounded selection, not complete document deep review",
+    "PF navigation != validated entailment DAG",
+    "L0 60 cards provisional",
+    "W024 unresolved; do not invent result"
+  ]
+}

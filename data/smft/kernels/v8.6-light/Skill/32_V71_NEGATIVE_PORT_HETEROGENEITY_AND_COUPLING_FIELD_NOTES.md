@@ -1,0 +1,7 @@
+# v7.1 Field Notes — negative portability and minimal coupling
+
+Case A: pooled CLS success concealed a seed-specific all-or-none breakdown. Trigger: v7.0 per-seed audit. Procedure: stratify unchanged frozen rows, inspect probability margins against full-state/sham controls. Actual outcome: 2 successful seeds, 1 definitively unsuccessful within tested cases, not 30 independent successes. Repair rule: use study-level independent units and preserve within-model heterogeneity before generalizing a Port; design cross-seed predictor *before* new test. Evidence grade: post-hoc local reanalysis, NO new independent data.
+
+Case B: SRC-0258's natural-language reciprocal-feedback claim is stronger than displayed one-way equations. Procedure: inspect RHS dependency, formulate nested κ=0 null and κ>0 new candidate, solve conditional derivative and numerically simulate positive/negative cases. Actual result: synthetic distinguishability under independent measured A perturbation, NOT evidence of true coupling. Repair rule: preserve authorship and require latent-state identifiability checks, non-attractor baseline and honest outcome labels.
+
+Future generic Skill: support `negative_result→conditional_weakening→explicit_null_and_alternative→discriminating_intervention`, schema with pre/post-hoc status, unit of independence, source vs compiler and baseline equivalence; no executable Skill.md created.
