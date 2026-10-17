@@ -54,32 +54,39 @@ Begin with a specified dynamical or computational system, for example a recurren
 
 A mathematical *attractor* requires a defined state space, update law, and notion of attraction. A persistent pattern is not automatically an attractor; an attractor is not automatically semantic; and neither proves intelligence. The origin of a genuinely task-relevant, naturally emerging semantic attractor in a trained Transformer remains **open** in this research program.
 
-### L1 — A bounded observer declares what counts as a world
-
-The Kernel distinguishes the underlying process from what a bounded observer can measure and act upon. A frame is schematically
-
-\[
-\Gamma=(B,\Pi),\qquad \Pi:X_B\to Z,
-\]
-
-where \(B\) selects an operational boundary and \(\Pi\) retains distinctions relevant to a declared task. For an exact effective dynamics under admitted actions \(u\), the projection must preserve transitions:
-
-\[
-\Pi(T_u(x))=S_u(\Pi(x)).
-\]
-
 This is a **conditional quotient criterion**, not a proof that the chosen effective state is an objectively unique component of reality. The boundary can be revised when neglected information becomes important.
+
+### L1 — A Bounded Observer Declares What Counts as a World
+
+The Kernel distinguishes the underlying process from what a bounded observer can measure and act upon.
+
+An observer frame is schematically defined as:
+
+$$
+\boxed{\Gamma=(B,\Pi),\qquad \Pi:X_B\to Z}
+$$
+
+where:
+
+- $B$ selects an operational boundary.
+- $\Pi$ retains distinctions relevant to a declared task.
+
+For every admissible action $u$, an exact effective dynamics must satisfy the **transition-preservation condition**:
+
+$$
+\boxed{\Pi\bigl(T_u(x)\bigr)=S_u\bigl(\Pi(x)\bigr)}
+$$
 
 ### L2 — P8D: eight names, four different kinds of engineering problems
 
 P8D II uses four **typed complementary pairs**, inspired by the trigrams of the *I Ching*, as a proposed functional grammar—not as eight interchangeable coordinates or a universal law:
 
-| Pair | Engineering question |
-|---|---|
-| **Qian–Kun** | What potential difference can become *qualified throughput*? |
-| **Gen–Dui** | What boundary must persist, and what exchange should cross it? |
-| **Zhen–Xun** | What triggers action, and how does activation propagate? |
-| **Kan–Li** | Which candidate paths can be realized, and which transitions are admissible? |
+| Pair                | Engineering question                                                         |
+| ------------------- | ---------------------------------------------------------------------------- |
+| **Qian–Kun** | What potential difference can become *qualified throughput*?               |
+| **Gen–Dui**  | What boundary must persist, and what exchange should cross it?               |
+| **Zhen–Xun** | What triggers action, and how does activation propagate?                     |
+| **Kan–Li**   | Which candidate paths can be realized, and which transitions are admissible? |
 
 In particular, **Kan** is not simply “memory” and **Li** is not simply “focus.” The more precise distinction is *path realization* versus *transition admissibility*. These typed roles might inspire a modular agent design; their number and cultural names are not established necessities for AGI.
 
@@ -98,13 +105,13 @@ The first can be studied with ordinary state-space mathematics and causal experi
 
 One operational branch proposes a hybrid controller with five possible **duties**, not five mandatory sequential cognitive stages:
 
-| Mode | Duty | Critical safeguard |
-|---|---|---|
-| **G — Generation** | Produce viable alternatives | Avoid uncontrolled idea explosion |
-| **A — Activation** | Act or simulate to reveal effects | Distinguish action from evidence |
-| **C — Closure** | Form a provisional coherent commitment | Do not commit before admissibility checks |
-| **S — Selection** | Compare, falsify, prune | Include negative controls and standard baselines |
-| **R — Retention** | Preserve lessons and unresolved anomalies | Do not erase failed ideas or their causes |
+| Mode                      | Duty                                      | Critical safeguard                               |
+| ------------------------- | ----------------------------------------- | ------------------------------------------------ |
+| **G — Generation** | Produce viable alternatives               | Avoid uncontrolled idea explosion                |
+| **A — Activation** | Act or simulate to reveal effects         | Distinguish action from evidence                 |
+| **C — Closure**    | Form a provisional coherent commitment    | Do not commit before admissibility checks        |
+| **S — Selection**  | Compare, falsify, prune                   | Include negative controls and standard baselines |
+| **R — Retention**  | Preserve lessons and unresolved anomalies | Do not erase failed ideas or their causes        |
 
 The controller should have guarded transitions, independent rules for changing its **declaration** and **purpose**, and persistent records across resets. Whether five modes outperform four, six, or an ordinary controller is an **open model-selection problem**.
 
@@ -114,13 +121,23 @@ The framework distinguishes accepted, source-scoped history \(L^+\) from unresol
 
 Here the SMFT toy architecture meets this GitHub repository's two practical Skills: **Research Kernel Builder** preserves and updates the research state; **Research Archaeologist** challenges how that state was formed and what it may have missed.
 
-## Two optional mathematical side doors
+## Two Optional Mathematical Side Doors
 
-**The geometry side door.** Another branch investigates the typed chain
+### The Geometry Side Door
 
-\[
-\mathbb O\ \longrightarrow\ G_2/SO(4)\ \longrightarrow\ \mathbb H\ \longrightarrow\ \mathbb C^2,
-\]
+Another branch investigates the typed chain:
+
+$$
+\boxed{
+\mathbb{O}
+\;\longrightarrow\;
+G_2/\mathrm{SO}(4)
+\;\longrightarrow\;
+\mathbb{H}
+\;\longrightarrow\;
+\mathbb{C}^{2}
+}
+$$
 
 as a candidate way to select a quaternionic subalgebra and construct lower-dimensional effective structure. Here \(\mathbb O\) means the **octonions**, not the bounded observer. This is an algebraic/geometric research construction; no established link makes it the representation learned by a Transformer.
 
@@ -145,16 +162,16 @@ This is a **proposed test protocol**, not a claimed experiment already completed
 
 The following paths are relative to this repository root:
 
-| Start here | What you will find |
-|---|---|
-| [`data/smft/kernels/v8.6-light/README.md`](data/smft/kernels/v8.6-light/README.md) | Scope of the selected Kernel and suggested reading order |
-| [`data/smft/kernels/v8.6-light/02_CANONICAL/20_K0_CORE_v0.1.md`](data/smft/kernels/v8.6-light/02_CANONICAL/20_K0_CORE_v0.1.md) | Boundary, observer, P8D roles, conditional dynamics and formal cautions |
-| [`data/smft/kernels/v8.6-light/03_GENERATIVE/30_GENERATIVE_MOVE_LEDGER_v0.1.md`](data/smft/kernels/v8.6-light/03_GENERATIVE/30_GENERATIVE_MOVE_LEDGER_v0.1.md) | How key ideas evolved, including abandoned and restricted interpretations |
-| [`data/smft/kernels/v8.6-light/05_OPERATIONAL/50_K1K2_MATURE_OPERATIONAL_ANCHORS.md`](data/smft/kernels/v8.6-light/05_OPERATIONAL/50_K1K2_MATURE_OPERATIONAL_ANCHORS.md) | Geometry, functional ports, five-regime control and test protocols |
-| [`data/smft/kernels/v8.6-light/05_OPERATIONAL/51_CROSS_KERNEL_INTERFACE_CONTRACT.md`](data/smft/kernels/v8.6-light/05_OPERATIONAL/51_CROSS_KERNEL_INTERFACE_CONTRACT.md) | Which cross-layer mappings are allowed and which are not |
-| [`data/smft/kernels/v8.6-light/90_PROVENANCE/CURRENT_V86/CURRENT_RESIDUAL_AND_NEGATIVE.md`](data/smft/kernels/v8.6-light/90_PROVENANCE/CURRENT_V86/CURRENT_RESIDUAL_AND_NEGATIVE.md) | Crucial negative results, unresolved claims and failed interpretations |
-| [`data/smft/kernels/v8.6-light/Skill/README_FIELD_NOTES.md`](data/smft/kernels/v8.6-light/Skill/README_FIELD_NOTES.md) | Field notes on the AI-assisted research process |
-| [`data/smft/SOURCES_MANIFEST.csv`](data/smft/SOURCES_MANIFEST.csv) | Stable source identities, leading to the original authored PDF/DOCX/TXT corpus in `data/smft/src/` |
+| Start here                                                                                                                                                                            | What you will find                                                                                   |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| [`data/smft/kernels/v8.6-light/README.md`](data/smft/kernels/v8.6-light/README.md)                                                                                                   | Scope of the selected Kernel and suggested reading order                                             |
+| [`data/smft/kernels/v8.6-light/02_CANONICAL/20_K0_CORE_v0.1.md`](data/smft/kernels/v8.6-light/02_CANONICAL/20_K0_CORE_v0.1.md)                                                       | Boundary, observer, P8D roles, conditional dynamics and formal cautions                              |
+| [`data/smft/kernels/v8.6-light/03_GENERATIVE/30_GENERATIVE_MOVE_LEDGER_v0.1.md`](data/smft/kernels/v8.6-light/03_GENERATIVE/30_GENERATIVE_MOVE_LEDGER_v0.1.md)                       | How key ideas evolved, including abandoned and restricted interpretations                            |
+| [`data/smft/kernels/v8.6-light/05_OPERATIONAL/50_K1K2_MATURE_OPERATIONAL_ANCHORS.md`](data/smft/kernels/v8.6-light/05_OPERATIONAL/50_K1K2_MATURE_OPERATIONAL_ANCHORS.md)             | Geometry, functional ports, five-regime control and test protocols                                   |
+| [`data/smft/kernels/v8.6-light/05_OPERATIONAL/51_CROSS_KERNEL_INTERFACE_CONTRACT.md`](data/smft/kernels/v8.6-light/05_OPERATIONAL/51_CROSS_KERNEL_INTERFACE_CONTRACT.md)             | Which cross-layer mappings are allowed and which are not                                             |
+| [`data/smft/kernels/v8.6-light/90_PROVENANCE/CURRENT_V86/CURRENT_RESIDUAL_AND_NEGATIVE.md`](data/smft/kernels/v8.6-light/90_PROVENANCE/CURRENT_V86/CURRENT_RESIDUAL_AND_NEGATIVE.md) | Crucial negative results, unresolved claims and failed interpretations                               |
+| [`data/smft/kernels/v8.6-light/Skill/README_FIELD_NOTES.md`](data/smft/kernels/v8.6-light/Skill/README_FIELD_NOTES.md)                                                               | Field notes on the AI-assisted research process                                                      |
+| [`data/smft/SOURCES_MANIFEST.csv`](data/smft/SOURCES_MANIFEST.csv)                                                                                                                   | Stable source identities, leading to the original authored PDF/DOCX/TXT corpus in `data/smft/src/` |
 
 The included `v8.6-light` directory is a **selected reference**, not the complete FULL archive. Historical `v6.0-provenance-example` and `v4.4-history-excerpt` directories show aspects of how the compilation evolved; neither is a full historical release.
 

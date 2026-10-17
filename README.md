@@ -1,13 +1,13 @@
 # Research Continuity Skills
 
-**Experimental draft v0.2.0 — English-first, LLM-native, no bundled executable code**
+**Experimental draft v0.3.0-beta.2 — English-first, LLM-native, no bundled executable code**
 
 Two portable [Agent Skills](https://agentskills.io/specification) for reconstructable, evolving research:
 
-| Skill | Start here when you want to... |
-| --- | --- |
-| [`research-kernel-builder`](skills/research-kernel-builder/SKILL.md) | Consolidate and progressively improve a corpus into a source-grounded, recoverable research state. |
-| [`research-archaeologist`](skills/research-archaeologist/SKILL.md) | Investigate old research, agent logs, architecture history, revisions, errors, and unrealized directions. |
+| Skill                                                                 | Start here when you want to...                                                                            |
+| --------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| [`research-kernel-builder`](skills/research-kernel-builder/SKILL.md) | Consolidate and progressively improve a corpus into a source-grounded, recoverable research state.        |
+| [`research-archaeologist`](skills/research-archaeologist/SKILL.md)   | Investigate old research, agent logs, architecture history, revisions, errors, and unrealized directions. |
 
 Both can handle papers, technical notes, Markdown, exported conversations, design records and AI-agent histories *when the host agent has access*. The Archaeologist does **not** require a pre-existing Kernel. The Builder can optionally verify, challenge, repair, develop and test new results; these are not claims of automatic scientific discovery.
 
@@ -19,11 +19,12 @@ Both can handle papers, technical notes, Markdown, exported conversations, desig
 2. Point the agent to files it is authorized to read. Start with something like:
 
    > Use Research Archaeologist on these 12 design notes. Reconstruct the two most consequential design changes and identify any unsupported assumptions. Work for one round only and leave a resumable checkpoint.
+   >
 
    or:
 
    > Use Research Kernel Builder to consolidate these papers. After the first round, verify two high-impact claims and propose one discriminating experiment, but do not execute experiments. Stop and show the research state.
-
+   >
 3. Specify an **effort profile** (`SCAN`, `COMPILE`, `VERIFY_REPAIR`, `DEVELOP`, `EXPERIMENT`, `ITERATIVE_FULL`) or let the agent recommend one. The profile controls scope, not the truthfulness of evidence labels.
 4. Review the source coverage, assertions, improvement receipt, uncertainties and next entry point. Say **STOP** whenever you wish; the agent should create a best-effort usable checkpoint if its environment permits persistence.
 

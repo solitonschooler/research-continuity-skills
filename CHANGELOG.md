@@ -1,5 +1,15 @@
 # Changelog
 
+## v0.3.0-beta.2 (2026-10-17) — Added LICENSE
+
+- Added LICENSE
+- Updated EASTER_EGG_SMFT_AGI.md
+
+## v0.3.0-beta.1 (2026-10-17) — Added SMFT Kernel & Easter Egg
+
+- Added smft/kernels
+- Added EASTER_EGG_SMFT_AGI.md
+
 ## v0.2.0-draft (2026-10-17) — R8 editorial hardening
 
 - Added normative six-layer acceptance gates, including referential checks that JSON Schema cannot enforce.
