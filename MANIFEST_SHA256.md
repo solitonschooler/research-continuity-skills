@@ -1,6 +1,6 @@
 # SHA-256 repository manifest — base mirror + public Kernel learning references
 
-The original base mirror + all eight source overlay ZIPs contain 325 original documents. This add-on includes selected archival Kernel learning material. File checksums guarantee byte integrity, **not** theory validity or full-source review.
+The original base mirror + all eight source overlay ZIPs contain 325 original documents. This update adds a root-level English SMFT/AGI toy-model interpretation guide. This add-on includes selected archival Kernel learning material. File checksums guarantee byte integrity, **not** theory validity or full-source review.
 
 The manifest excludes itself. Historical data file identities are also independently listed in `data/smft/kernels/KERNEL_EXCERPT_MANIFEST_SHA256.csv`, including the paths of their originals within `kernelization_v8.6.tar`.
 
@@ -8,7 +8,8 @@ The manifest excludes itself. Historical data file identities are also independe
 2b7c8e89502b4d5e077e3dfa06daec120c1e2f279ad4b390ea0f288dc81daaa0  .gitattributes
 0bc023d7b035438aabb74b874a4a26d53ed388b0eb5e3ddddb4b794ce7d82aa6  .gitignore
 7c905ba734a2ebd93a52f2c699e0d12f6c619adb28e51f6c31e0cc4e73b30199  CHANGELOG.md
-bc0cc30cb7147bbdf0e67255ec7e99b941acfbfb11f7d017404f9ce72ba100da  README.md
+5083c946e7ba275379561dd6709e458f9349780e0dc15de1914d34a0b2aba1ca  EASTER_EGG_SMFT_AGI.md
+df0d430f61a62143b7b51f0a363103badfa382c99899c2c9cdd6cf65f12369b4  README.md
 da337cc979c95fe24e781f39b8d198e12ee94db2f003f008f5c17d9b7e4da550  data/smft/README.md
 29c588aced20aa7a58f9603535b96f569bab1993f55cbbcb7f3c22d3191dbc19  data/smft/RELEASE_ASSETS.md
 92bf05d2c093155f35ef3a9b8fa4cce94455a140274bd8c5fd10340fe30a7e41  data/smft/RIGHTS_AND_LICENSE.md

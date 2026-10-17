@@ -11,6 +11,8 @@ Two portable [Agent Skills](https://agentskills.io/specification) for reconstruc
 
 Both can handle papers, technical notes, Markdown, exported conversations, design records and AI-agent histories *when the host agent has access*. The Archaeologist does **not** require a pre-existing Kernel. The Builder can optionally verify, challenge, repair, develop and test new results; these are not claims of automatic scientific discovery.
 
+> **A hidden research specimen:** [**EASTER_EGG_SMFT_AGI.md**](EASTER_EGG_SMFT_AGI.md) opens a surprising second use for this repository: an SMFT-derived, cross-layer **toy architecture for an adaptive AI agent**, with explicit engineering interfaces, falsifiable experiments, and unresolved claims. It is *not* evidence that AGI has been built.
+
 ## Quick start
 
 1. Install either complete skill directory in an Agent Skills-compatible environment. Keep its `references/` and `assets/` subdirectories intact. For Claude Code, one supported location is `.claude/skills/`; other agents differ. Consult your host's current documentation.
@@ -51,7 +53,7 @@ examples/                    Small, purely synthetic public teaching cases
   synthetic-software/
 evaluation/                  Public evaluation protocol; no hidden answer key
 data/smft/src/              All 325 original authored research documents
-data/smft/kernels/          Placeholder for later public Kernel materials
+data/smft/kernels/          Selected v8.6 Light Kernel and historical reference excerpts
 docs/                       Design rationale, release/permission checklist, status
 ```
 
